@@ -1,4 +1,4 @@
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
 from .forms import LoginForm
 from .models import User
 
@@ -27,6 +27,7 @@ class MyAdminIndexView(Admin.AdminIndexView):
         if not current_user.is_authenticated:
             return redirect(url_for('.login_view'))
         return super(MyAdminIndexView, self).index()
+        
 
     @expose('/login/', methods=('GET', 'POST'))
     def login_view(self):
@@ -42,6 +43,10 @@ class MyAdminIndexView(Admin.AdminIndexView):
             return redirect(url_for('.admin_panel'))
         self._template_args['form'] = form
         return super(MyAdminIndexView, self).index()
+    @expose('/logout/')
+    def logout_view(self):
+        logout_user()
+        return redirect(url_for('home.home'))
 
 
 # This view will prevent access to the models if user isn't authenticated
