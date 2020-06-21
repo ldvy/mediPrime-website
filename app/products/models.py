@@ -1,4 +1,5 @@
 from app import db
+from .custom_type import JsonDC
 
 
 class Catalog(db.Model):
@@ -31,9 +32,29 @@ class Model(db.Model):
     model_name = db.Column("Name", db.String(80), unique=True, nullable=False)
     logo = db.Column("Logo", db.Unicode(128))
     product_picture = db.Column("Product picture", db.Unicode(128))
-    description = db.Column("Description", db.String(500), nullable=False)
+    description = db.Column("Description", db.TEXT, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('Category.id'))
     # I didn't add video and reviews because I didn't know for sure if it's need to be added.
 
     def __repr__(self):
         return f"<Item {self.model_name}>"
+
+
+# hardcoded model for representation of reagents
+class ReagentSubsection(db.Model):
+    __tablename__ = "ReagentSubsection"
+
+    id = db.Column(db.Integer, primary_key=True)
+    section_name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    reagent = db.relationship("Reagent", backref="subsection", uselist=False, lazy=True)
+
+
+class Reagent(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    subsection_id = db.Column(db.Integer, db.ForeignKey('ReagentSubsection.id'))
+    reagent_name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    method = db.Column("Method", db.String(200), unique=True, nullable=False)
+    json_dc = db.Column("DistributionCode", JsonDC(), nullable=False)
+
+    def __repr__(self):
+        return f"<Reagent {self.reagent_name}>"

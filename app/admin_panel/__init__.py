@@ -1,9 +1,17 @@
-from .admin_view import MyAdminIndexView, ImageView, file_path, MyModelView
+from .admin_views import MyAdminIndexView, MyModelView, file_path
+from .views import ImageView, ReagentView, HomeView, BrandView
+ # NewsView
+
 from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-from app.products.models import Model, Catalog, Category
-from sqlalchemy.event import listens_for
 from flask_admin import form
+
+from app.products.models import Model, Catalog, Category, ReagentSubsection,\
+                                Reagent
+from app.home.models import Slider
+from app.jobs.models import Job, Service, Brand
+from app.news.models import NewsCategory, NewsOn
+
+from sqlalchemy.event import listens_for
 from app import db
 import os
 
@@ -32,6 +40,9 @@ def del_image(mapper, connection, target):
             pass
 
 # Ading views to admin panel.
-admin.add_view(ImageView(Model, db.session))
-admin.add_view(MyModelView(Catalog, db.session))
-admin.add_view(MyModelView(Category, db.session))
+admin.add_views(ImageView(Model, db.session), MyModelView(Catalog, db.session),
+                MyModelView(Category, db.session), MyModelView(ReagentSubsection, db.session),
+                ReagentView(Reagent, db.session), HomeView(Slider, db.session),
+                BrandView(Brand, db.session), MyModelView(Service, db.session),
+                MyModelView(Job, db.session), MyModelView(NewsCategory, db.session))
+                # NewsView(NewsOn, db.session))
