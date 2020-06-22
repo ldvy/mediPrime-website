@@ -85,7 +85,7 @@ def upgrade():
     sa.Column('subsection_id', sa.Integer(), nullable=True),
     sa.Column('Name', sa.String(length=80), nullable=False),
     sa.Column('Method', sa.String(length=200), nullable=False),
-    sa.Column('DistributionCode', app.products.custom_type.JsonDC(), nullable=False),
+    sa.Column('DistributionCode', sa.dialects.postgresql.JSON, nullable=False),
     sa.ForeignKeyConstraint(['subsection_id'], ['ReagentSubsection.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('Method'),

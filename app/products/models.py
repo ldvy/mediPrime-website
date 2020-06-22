@@ -1,5 +1,6 @@
 from app import db
 from .custom_type import JsonDC
+from sqlalchemy.dialects.postgresql import JSON
 
 
 class Catalog(db.Model):
@@ -54,7 +55,7 @@ class Reagent(db.Model):
     subsection_id = db.Column(db.Integer, db.ForeignKey('ReagentSubsection.id'))
     reagent_name = db.Column("Name", db.String(80), unique=True, nullable=False)
     method = db.Column("Method", db.String(200), unique=True, nullable=False)
-    json_dc = db.Column("DistributionCode", JsonDC(), nullable=False)
+    json_dc = db.Column("DistributionCode", JSON, nullable=False)
 
     def __repr__(self):
         return f"<Reagent {self.reagent_name}>"
