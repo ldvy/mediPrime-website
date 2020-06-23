@@ -14,6 +14,7 @@ from flask import render_template, redirect, url_for, request, flash
 import os
 
 
+# Path for storing image data, based in static_folder
 file_path = os.path.join(static_folder, 'images')
 
 
@@ -29,6 +30,9 @@ class MyAdminIndexView(Admin.AdminIndexView):
 
     @expose('/login/', methods=('GET', 'POST'))
     def login_view(self):
+        """
+        Login view for authentification
+        """
         form = LoginForm()
         if form.validate_on_submit():
             user = User.query.filter_by(username=form.username.data).first()
@@ -47,7 +51,9 @@ class MyAdminIndexView(Admin.AdminIndexView):
         return redirect(url_for('home.home'))
 
 
-# This view will prevent access to the models if user isn't authenticated
+# This is base view from Flask-Admin package
+# View specifically designet for authentification validation and base template
+# initializing
 class MyModelView(sqla.ModelView):
     def is_accessible(self):
         return current_user.is_authenticated

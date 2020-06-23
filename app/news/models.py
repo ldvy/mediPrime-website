@@ -3,18 +3,24 @@ from datetime import datetime
 from sqlalchemy.types import ARRAY
 
 
+"""
+
+Designing models using SQLalchemy
+Models that is responsible for "News category" on web application
+
+"""
 class NewsCategory(db.Model):
     __tablename__ = 'NewsCategory'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False, unique=True)
-    # news = db.relationship('News', backref="newscategory", lazy=True)
     news_list = db.relationship("NewsOn", backref='category', lazy=True)
 
     def __repr__(self):
         return f"<NewsCategory {self.name}>"
 
 
+# This model is not fully responsible for application | Delete soon | TBD
 class NewsOn(db.Model):
     __tablename__ = 'NewsOn'
 

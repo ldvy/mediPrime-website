@@ -7,8 +7,12 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or "1q2w3e4r5t6y7u8i9o0p"
-    SQLALCHEMY_DATABASE_URI = 'postgresql:///mediprime'
+    """
+    Configuration class that will be used in application factory pattern.
+    app.config.from_object(ConfigClass)
+    """
+    SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(16)
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG = 1
     SQLALCHEMY_ECHO = True

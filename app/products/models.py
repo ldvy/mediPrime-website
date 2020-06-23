@@ -2,6 +2,12 @@ from app import db
 from sqlalchemy.dialects.postgresql import JSON
 
 
+"""
+
+Designing models using SQLalchemy
+Models that is responsible for "Jobs category" on web application
+
+"""
 class Catalog(db.Model):
     __tablename__ = "Catalog"
 
@@ -54,6 +60,7 @@ class Reagent(db.Model):
     subsection_id = db.Column(db.Integer, db.ForeignKey('ReagentSubsection.id'))
     reagent_name = db.Column("Name", db.String(80), unique=True, nullable=False)
     method = db.Column("Method", db.String(200), unique=True, nullable=False)
+    # Using sqlalchemy.dialects.types.JSON for representing Json in postgresql
     json_dc = db.Column("DistributionCode", JSON, nullable=False)
 
     def __repr__(self):

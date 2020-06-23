@@ -5,6 +5,9 @@ from app import login
 
 
 class User(UserMixin, db.Model):
+    """
+    User model for admin panel authintication
+    """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(60), unique=True, index=True)
     password_hash = db.Column(db.String(128))
@@ -21,4 +24,9 @@ class User(UserMixin, db.Model):
 
 @login.user_loader
 def load_user(id):
+    """
+    This callback is used to reload the user object from the user ID stored
+    in the session. It should take the unicode ID of a user, and return the
+    corresponding user object.
+    """
     return User.query.get(int(id))

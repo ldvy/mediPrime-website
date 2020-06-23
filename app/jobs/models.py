@@ -1,7 +1,12 @@
 from app import db
 from sqlalchemy.types import ARRAY
 
+"""
 
+Designing models using SQLalchemy
+Models that is responsible for "Jobs category" on web application
+
+"""
 class Job(db.Model):
     __tablename__ = "Job"
 

@@ -10,7 +10,7 @@ from app import db
 # This view for model "Model", designed specificaly for handling images
 class ImageView(MyModelView):
 
-    def _list_thumbnail(view, context, model, name):
+    def _list_thumbnail_logo(view, context, model, name):
         """
         `view` is current administrative view
         `context` is instance of jinja2.runtime.Context
@@ -18,19 +18,22 @@ class ImageView(MyModelView):
         `name` is property name
 
         """
-        if not model.logo and not model.product_picture:
+        if not model.logo:
             return ''
-        if model.logo:
-            return Markup('<img src="%s">' % url_for('static',
+        return Markup('<img src="%s">' % url_for('static',
                         filename=f"images/{form.thumbgen_filename(model.logo)}"))
-        else:
-            return Markup('<img src="%s">' % url_for('static',
+
+
+    def _list_thumbnail_product(view, context, model, name):
+        if not model.product_picture:
+            return ''
+        return Markup('<img src="%s">' % url_for('static',
                         filename=f"images/{form.thumbgen_filename(model.product_picture)}"))
 
     # For displaing on main page | Prettifying
     column_formatters = {
-            'logo': _list_thumbnail,
-            'product_picture' : _list_thumbnail
+            'logo': _list_thumbnail_logo,
+            'product_picture' : _list_thumbnail_product
         }
     # Overriding build-in fields with own
     form_extra_fields = {

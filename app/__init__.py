@@ -6,13 +6,23 @@ from flask_login import LoginManager
 import os
 
 
+# Initialization for db, migrate and login flask extensions
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 
+# Static folder path
 static_folder = os.path.join(os.path.dirname(__file__), 'static')
 
 def create_app(config_class=Config):
+
+    """
+    Using application factory pattern for a better design purposes that includes
+    troubleshooting, testing and debuging our application throw multiple instances
+    of it.
+
+    """
+
     app = Flask(__name__, static_folder=static_folder)
     app.config.from_object(config_class)
 
