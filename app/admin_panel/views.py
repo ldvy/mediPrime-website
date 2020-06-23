@@ -3,12 +3,21 @@ from jinja2 import Markup
 from flask_admin import form
 from app.products.models import Reagent
 from flask import url_for
+from .forms import BaseJsonForm
+from app import db
 
 
 # This view for model "Model", designed specificaly for handling images
 class ImageView(MyModelView):
 
     def _list_thumbnail(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
         if not model.logo and not model.product_picture:
             return ''
         if model.logo:
@@ -17,7 +26,8 @@ class ImageView(MyModelView):
         else:
             return Markup('<img src="%s">' % url_for('static',
                         filename=f"images/{form.thumbgen_filename(model.product_picture)}"))
-    # For displaing on main page
+
+    # For displaing on main page | Prettifying
     column_formatters = {
             'logo': _list_thumbnail,
             'product_picture' : _list_thumbnail
@@ -35,33 +45,81 @@ class ImageView(MyModelView):
 # This view designed specificaly for model "Reagent" for handling custom data
 # type JsonDC
 class ReagentView(MyModelView):
+    form_base_class = BaseJsonForm
 
     def _formatJson(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
         markup = '<br/>'.join([f'{k}&ensp;{v}' for k,v in model.json_dc.items()])
         return Markup(markup)
 
+    # Dictionary of list view column formatters.
+    # Prettifying look of json data on the main page
     column_formatters = {
         'json_dc': _formatJson
     }
 
-    # ISSUE: Flask-Admin cannot handle custom data type in collumn of the models
-    # Need to create custum field to represent json data in form.
-    # form_rules = [
-    #     form.rules.FieldSet(('reagent_name', 'method', 'json_dc'), "Reagent")
-    # ]
+    # Collection of excluded form field names.
+    form_excluded_columns = ('json_dc')
+
+    # Overriding fields
+    form_extra_fields = {
+        'packing' : form.Select2TagsField("Packing"),
+        'code' : form.Select2TagsField("Code")
+    }
+
+    def on_model_change(self, form, model, is_created):
+        """
+        Perform some actions before a model is created or updated.
+
+        Called from create_model and update_model in the same transaction (if it has any meaning for a store backend).
+
+        By default does nothing.
+
+        Parameters:
+        form – Form used to create/update model
+        model – Model that will be created/updated
+        is_created – Will be set to True if model was created and to False if edited
+        """
+
+        json_dict = {}
+        packing_data = form.packing.data.split(',')
+        code_data = form.code.data.split(',')
+        for i in range(len(packing_data)):
+            try:
+                json_dict[packing_data[i]] = code_data[i]
+            except IndexError:
+                json_dict[packing_data[i]] = None
+
+        model.json_dc = json_dict
 
 
 # Custom view designed specificaly for handling background images in Slider model
 class HomeView(MyModelView):
 
     def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
         return Markup('<img src="%s">' % url_for('static',
                     filename=f"images/{form.thumbgen_filename(model.bg_image)}"))
 
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
     column_formatters = {
             'bg_image': _thumbnail_image
         }
 
+    # Overriding fields
     form_extra_fields = {
         'bg_image': form.ImageUploadField('Background image', base_path=file_path,
                                       thumbnail_size=(100, 100, True))
@@ -71,13 +129,23 @@ class HomeView(MyModelView):
 class BrandView(MyModelView):
 
     def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
         return Markup('<img src="%s">' % url_for('static',
                     filename=f"images/{form.thumbgen_filename(model.logo)}"))
 
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
     column_formatters = {
             'logo': _thumbnail_image
         }
 
+    # Overriding fields
     form_extra_fields = {
         'logo': form.ImageUploadField('Background image', base_path=file_path,
                                       thumbnail_size=(100, 100, True))

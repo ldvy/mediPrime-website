@@ -1,5 +1,4 @@
 from app import db
-from .custom_type import JsonDC
 from sqlalchemy.dialects.postgresql import JSON
 
 

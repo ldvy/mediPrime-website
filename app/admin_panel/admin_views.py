@@ -51,3 +51,6 @@ class MyAdminIndexView(Admin.AdminIndexView):
 class MyModelView(sqla.ModelView):
     def is_accessible(self):
         return current_user.is_authenticated
+    list_template = 'admin/list.html'
+    create_template = 'admin/create.html'
+    edit_template = 'admin/edit.html'

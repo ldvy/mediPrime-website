@@ -4,6 +4,7 @@ from .views import ImageView, ReagentView, HomeView, BrandView
 
 from flask_admin import Admin
 from flask_admin import form
+from flask_admin.menu import MenuLink
 
 from app.products.models import Model, Catalog, Category, ReagentSubsection,\
                                 Reagent
@@ -38,11 +39,15 @@ def del_image(mapper, connection, target):
                               form.thumbgen_filename(target.product_picture)))
         except OSError:
             pass
-
+admin.add_link(MenuLink(name='Home Page', url='/', category='Links'))
 # Ading views to admin panel.
-admin.add_views(ImageView(Model, db.session), MyModelView(Catalog, db.session),
-                MyModelView(Category, db.session), MyModelView(ReagentSubsection, db.session),
-                ReagentView(Reagent, db.session), HomeView(Slider, db.session),
-                BrandView(Brand, db.session), MyModelView(Service, db.session),
-                MyModelView(Job, db.session), MyModelView(NewsCategory, db.session))
+admin.add_views(ImageView(Model, db.session, category="Products"),
+                MyModelView(Catalog, db.session, category="Products"),
+                MyModelView(Category, db.session, category="Products"),
+                MyModelView(ReagentSubsection, db.session, category="Products"),
+                ReagentView(Reagent, db.session, category="Products"),
+                HomeView(Slider, db.session),
+                BrandView(Brand, db.session, category="Company"),
+                MyModelView(Service, db.session, category="Company"),
+                MyModelView(Job, db.session, category="Company"), MyModelView(NewsCategory, db.session))
                 # NewsView(NewsOn, db.session))
