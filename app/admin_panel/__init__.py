@@ -46,8 +46,9 @@ admin.add_views(ImageView(Model, db.session, category="Products"),
                 MyModelView(Category, db.session, category="Products"),
                 MyModelView(ReagentSubsection, db.session, category="Products"),
                 ReagentView(Reagent, db.session, category="Products"),
-                HomeView(Slider, db.session),
                 BrandView(Brand, db.session, category="Company"),
                 MyModelView(Service, db.session, category="Company"),
-                MyModelView(Job, db.session, category="Company"), MyModelView(NewsCategory, db.session))
+                MyModelView(Job, db.session, category="Company"),
+                MyModelView(NewsCategory, db.session),
+                HomeView(Slider, db.session))
                 # NewsView(NewsOn, db.session))

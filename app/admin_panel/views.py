@@ -43,6 +43,13 @@ class ImageView(MyModelView):
                                       base_path=file_path,
                                       thumbnail_size=(100, 100, True))
     }
+    column_searchable_list = ('model_name', 'description')
+
+
+    column_descriptions = dict(
+        model_name = "Name of the model",
+        description = "Description"
+    )
 
 
 # This view designed specificaly for model "Reagent" for handling custom data

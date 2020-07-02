@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, FieldList
+from wtforms import StringField, PasswordField, SubmitField, FieldList, BooleanField
 from wtforms.validators import DataRequired
 
 
@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired
 class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')
 
 
 # Base form for Reagent view in purpose of handling Json field

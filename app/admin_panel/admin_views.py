@@ -39,7 +39,7 @@ class MyAdminIndexView(Admin.AdminIndexView):
             if user is None or not user.check_password(form.password.data):
                 flash('Invalid username or password')
                 return redirect(url_for('admin.login_view'))
-            login_user(user)
+            login_user(user, remember=form.remember_me.data)
 
         if current_user.is_authenticated:
             return redirect(url_for('.admin_panel'))
