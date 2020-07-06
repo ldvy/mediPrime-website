@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        {% block content %}
+        <ul>
+        {% for category in categories %}
+            <li> <a href="{{ url_for('products.reagents_view', category_name=category.section_name) }}">{{ category.section_name }}</a> </li>
+        {% endfor %}
+        </ul>
+        {% endblock %}
+    </body>
+</html>

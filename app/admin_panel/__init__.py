@@ -1,6 +1,5 @@
 from .admin_views import MyAdminIndexView, MyModelView, file_path
-from .views import ImageView, ReagentView, HomeView, BrandView
- # NewsView
+from .views import ImageView, ReagentView, HomeView, BrandView, ServiceView
 
 from flask_admin import Admin
 from flask_admin import form
@@ -9,7 +8,7 @@ from flask_admin.menu import MenuLink
 from app.products.models import Model, Catalog, Category, ReagentSubsection,\
                                 Reagent
 from app.home.models import Slider
-from app.jobs.models import Job, Service, Brand
+from app.company.models import Job, Service, Brand
 from app.news.models import NewsCategory, NewsOn
 
 from sqlalchemy.event import listens_for
@@ -47,7 +46,7 @@ admin.add_views(ImageView(Model, db.session, category="Products"),
                 MyModelView(ReagentSubsection, db.session, category="Products"),
                 ReagentView(Reagent, db.session, category="Products"),
                 BrandView(Brand, db.session, category="Company"),
-                MyModelView(Service, db.session, category="Company"),
+                ServiceView(Service, db.session, category="Company"),
                 MyModelView(Job, db.session, category="Company"),
                 MyModelView(NewsCategory, db.session),
                 HomeView(Slider, db.session))

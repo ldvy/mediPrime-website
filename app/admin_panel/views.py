@@ -161,6 +161,30 @@ class BrandView(MyModelView):
                                       thumbnail_size=(100, 100, True))
                         }
 
+class ServiceView(MyModelView):
+
+    def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
+        return Markup('<img src="%s">' % url_for('static',
+                    filename=f"images/{form.thumbgen_filename(model.icon)}"))
+
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
+    column_formatters = {
+            'icon': _thumbnail_image
+        }
+
+    # Overriding fields
+    form_extra_fields = {
+        'icon': form.ImageUploadField('Icon', base_path=file_path,
+                                      thumbnail_size=(100, 100, True))
+                        }
 
 # ISSUE: Handling array of images
 # class NewsView(MyModelView):

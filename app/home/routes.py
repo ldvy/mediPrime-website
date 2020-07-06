@@ -1,7 +1,8 @@
 from . import bp
 from flask import render_template
+from app.products.models import Catalog
 
 
 @bp.route('/')
-def home():
-    return render_template("home/index.html")
+def home_view():
+    return render_template('home/index.html')

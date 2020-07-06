@@ -42,8 +42,8 @@ def create_app(config_class=Config):
     from app.products import bp as bp_products
     app.register_blueprint(bp_products)
 
-    from app.jobs import bp as bp_jobs
-    app.register_blueprint(bp_jobs)
+    from app.company import bp as bp_company
+    app.register_blueprint(bp_company)
 
     from app.news import bp as bp_news
     app.register_blueprint(bp_news)

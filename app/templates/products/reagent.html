@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        {% block content %}
+        <ul>
+        {% for reagent in category.reagents %}
+            <li>{{ reagent.reagent_name }}</li>
+        {% endfor %}
+        </ul>
+        {% endblock %}
+    </body>
+</html>

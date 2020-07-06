@@ -52,7 +52,7 @@ class ReagentSubsection(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     section_name = db.Column("Name", db.String(80), unique=True, nullable=False)
-    reagent = db.relationship("Reagent", backref="subsection", uselist=False, lazy=True)
+    reagents = db.relationship("Reagent", backref="subsection", lazy=True)
 
 
 class Reagent(db.Model):

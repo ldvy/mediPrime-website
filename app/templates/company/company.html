@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        {% block content %}
+
+        <p>Brands</p>
+        <ul>
+        {% for brand in brands %}
+            <li>{{ brand.name }}</li>
+        {% endfor %}
+        </ul>
+        <p>Jobs</p>
+        {% for job in jobs %}
+            <li>{{ job.position }}</li>
+            <p>Conditions</p>
+            <ul>
+            {% for condition in job.conditions %}
+                <li>{{condition}}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        {% endblock %}
+    </body>
+</html>
