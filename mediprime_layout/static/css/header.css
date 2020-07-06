@@ -1,0 +1,356 @@
+.nav-sec {
+	position: fixed;
+	width: 100vw;
+	height: 5em;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #000;
+	color: gainsboro;
+	font-family: 'Nunito';
+	font-weight: 400;
+	padding: 0 1em 0 3em;
+	z-index: 10;
+}
+.nav-sec-scroll {
+	border-bottom: 0.1vh solid #fff;
+}
+.logo {
+	width: 13em;
+	height: 3em;
+	background-image: url(../img/logo.png);
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.nav-bar {
+	display: flex;
+	flex-flow: column wrap;
+}
+.main-menu {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 50vw;
+	margin-left: 15vw;
+}
+.main-menu li {
+	list-style: none;
+	cursor: pointer;
+	font-size: 1em;
+	text-transform: uppercase;
+	transition: 0.3s color;
+}
+.main-menu a {
+	color: gainsboro;
+}
+.main-menu li:hover {
+	color: #fff;
+}
+.secondary-menu {
+	display: flex;
+	width: 10vw;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+.secondary-menu li {
+	position: relative;
+	list-style: none;
+	cursor: pointer;
+}
+.secondary-menu li div {
+	position: absolute;
+	padding: 0.4em 0.5em 0.4em 0.5em;
+	margin-top: 0.5em;
+	background-color: gainsboro;
+	border-radius: 0.2em;
+	z-index: 11;
+}
+.secondary-menu li a {
+	text-decoration: none;
+	color: #666;
+	font-family: 'Nunito';
+	font-weight: 700;
+}
+.sec-icon {
+	display: flex;
+	width: 2em;
+	height: 2em;
+	background-position: center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color: gainsboro;
+	border-radius: 50%;
+	transition: 0.3s background-color;
+}
+.sec-icon:hover {
+	background-color: #fff;
+}
+.phone-num .sec-icon {
+	transform-origin: center;
+	transition: 0.4s transform;
+	background-image: url(../img/phone-2.png);
+}
+.lang-menu .sec-icon {
+	background-image: url(../img/lang-2.png);
+}
+.top-tip {
+	width: 0.6em;
+	height: 0.6em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -0.6em;
+	background-color: gainsboro;
+	transform-origin: center;
+	transform: rotateZ(45deg);
+}
+.drop-number {
+	display: none;
+	flex-flow: column wrap;
+	justify-content: center;
+	width: 11.5em;
+	font-size: 0.9em;
+	left: -6em;
+}
+.drop-number a:hover {
+	text-decoration: underline;
+}
+.drop-lang {
+	display: none;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	left: -3em;
+}
+.drop-lang a {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 0.2em;
+	padding-bottom: 0.2em;
+	border-bottom: 0.1vh solid #666666;
+}
+.drop-lang a:hover {
+	color: #444444;
+}
+.drop-show {
+	display: flex;
+}
+.breadcrums-sec {
+	display: none;
+	flex-flow: row wrap;
+	align-items: center;
+	width: 100vw;
+	padding: 0.4em 0 0.4em 2em;
+}
+.breadcrums-sec li {
+	list-style: none;
+	margin-left: 0.5em;
+}
+.breadcrums-sec li a {
+	text-decoration: none;
+	color: #666;
+	font-family: 'Open Sans';
+	font-weight: 700;
+	font-size: 0.8em;
+}
+.breadcrums-sec li a:hover {
+	text-decoration: underline;
+}
+.product-menu {
+	position: absolute;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	width: 100vw;
+	background-color: #fff;
+	left: 0;
+	top: 5em;
+	padding: 0;
+	z-index: 10;
+	overflow: hidden;
+}
+.categories {
+	flex-flow: column;
+	width: 20em;
+	padding: 0 0.8em 0 0.8em;
+	overflow: hidden;
+}
+.main-cat {
+	display: flex;
+	height: 0;
+}
+.sub-cat {
+	display: none;
+	border-left: 0.1vh solid #666;
+}
+.cat-header {
+	width: 100%;
+	height: 2.5em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 1em;
+	margin-bottom: 0.8em;
+	font-size: 1.1em;
+	color: #fff;
+	background-color: #000;
+	font-weight: 200;
+}
+.categories a {
+	text-decoration: none;
+}
+.categories li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	padding: 0.2em 0.3em 0.2em 0.3em;
+	color: #000;
+	font-size: 1.1em;
+	font-weight: 300;
+	cursor: pointer;
+}
+.categories li i {
+	font-size: 0.8em;
+	color: #000;
+}
+.categories li:hover {
+	background-color: #000;
+	font-weight: 200;
+	color: #fff;
+}
+.categories li:hover > i {
+	color: #8e0000;
+}
+.bottom-line {
+	display: none;
+	width: 100%;
+	height: 0.1vh;
+	background-color: #666;
+	margin-top: 1.5em;
+}
+.close-menu {
+	position: absolute;
+	display: flex;
+	width: 2em;
+	height: 2em;
+	justify-content: center;
+	align-items: center;
+	right: 3em;
+	top: 2em;
+	border: 0.1vh solid #000;
+	cursor: pointer;
+	transition: 0.3s background-color;
+}
+.close-menu i {
+	color: #000;
+	font-size: 1.2em;
+	transition: 0.3s color;
+}
+.close-menu:hover {
+	background-color: #000;
+}
+.close-menu:hover > i {
+	color: #fff;
+}
+.transparent-layer {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	opacity: 0.4;
+	background-color: #666;
+	left: 0;
+	top: 0;
+	z-index: 5;
+}
+.footer-sec {
+	margin-top: 4em;
+}
+.footer {
+	width: 100vw;
+	height: 16em;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #000;
+	padding-right: 4em;
+}
+.logo-footer {
+	display: flex;
+	height: 10em;
+	flex-flow: column;
+	justify-content: space-between;
+}
+.logo-footer span {
+	display: flex;
+	width: 16em;
+	height: 4em;
+	background-image: url(../img/logo.png);
+	background-position: center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.copyright {
+	font-family: 'Nunito';
+	color: gainsboro;
+	font-size: 0.9em;
+	font-weight: 400;
+}
+.contacts-footer {
+	height: 10em;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	font-family: 'Nunito';
+	color: gainsboro;
+	font-weight: 400;
+}
+.contact {
+	list-style: none;
+}
+.contact h3 {
+	font-size: 1em;
+	color: #fff;
+}
+.useful-links {
+	height: 10em;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+}
+.links {
+	height: 7em;
+	display: flex;
+	flex-flow: column wrap;
+}
+.links li {
+	list-style: none;
+	padding-bottom: 0.8em;
+	margin-right: 2em;
+}
+.links a {
+	font-family: 'Nunito';
+	font-size: 1.1em;
+	color: #fff;
+	font-weight: 600;
+}
+.links a:hover {
+	text-decoration: underline;
+}
+.soc-net {
+	display: flex;
+	flex-flow: row wrap;
+	width: 8em;
+	justify-content: space-around;
+}
+.soc-net i {
+	font-size: 1.8em;
+	color: gainsboro;
+	transition: 0.3s color;
+}
+.soc-net i:hover {
+	color: #8e0000;
+}

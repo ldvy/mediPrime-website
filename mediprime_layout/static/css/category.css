@@ -1,0 +1,67 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+body {
+	overflow-x: hidden;
+}
+.breadcrums-sec {
+	display: flex;
+	padding-top: 5.5em;
+}
+.sub-cats-sec {
+	margin-top: 2em;
+	padding-bottom: 2em;
+}
+.cat-title {
+	color: #000;
+	font-size: 1.9em;
+	font-family: 'Open Sans';
+	font-weight: 400;
+	padding-left: 2em;
+	padding-bottom: 0.5em;
+}
+.cat-title i {
+	padding-right: 0.5em;
+}
+.sub-cat-list {
+	width: 100vw;
+	padding: 0 2vw 0 2vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1.5em;
+}
+.sub-cat-block {
+	height: 16em;
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.sub-cat-title {
+	width: 3.5em;
+	height: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	writing-mode: vertical-rl;
+	text-orientation: sideways;
+	background-color: #000;
+	color: #fff;
+	font-size: 1.1em;
+	font-family: 'Nunito';
+	font-weight: 400;
+	text-transform: uppercase;
+	transform-origin: 100% 78%;
+	transition: 0.5s transform;
+}
+.sub-cat-block:hover > .sub-cat-title{
+	transform: translateX(-100%) rotateZ(-90deg);
+}

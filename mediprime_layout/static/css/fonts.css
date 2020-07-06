@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+@font-face {
+	font-family: Halvetica;
+	src: url(../fonts/halvetica.otf);
+}
+@font-face {
+	font-family: Ubuntu;
+	src: url(../fonts/ubuntu.ttf);
+}
+@font-face {
+	font-family: Roboto;
+	src: url(../fonts/roboto.ttf);
+}
