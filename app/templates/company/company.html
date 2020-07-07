@@ -9,15 +9,15 @@
         <p>Brands</p>
         <ul>
         {% for brand in brands %}
-            <li>{{ brand.name }}</li>
+            <li>{{ model_localisation(brand, 'name') }}</li>
         {% endfor %}
         </ul>
         <p>Jobs</p>
         {% for job in jobs %}
-            <li>{{ job.position }}</li>
+            <li>{{ model_localisation(job, 'position') }}</li>
             <p>Conditions</p>
             <ul>
-            {% for condition in job.conditions %}
+            {% for condition in model_localisation(job, 'conditions') %}
                 <li>{{condition}}</li>
             {% endfor %}
             </ul>

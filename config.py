@@ -20,7 +20,7 @@ class Config(object):
 
     # localization
     LANGUAGES = ['ru', 'uk']
-
+    BABEL_DEFAULT_LOCALE = 'uk'
 
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)

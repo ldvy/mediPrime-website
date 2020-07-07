@@ -7,7 +7,7 @@
         {% block content %}
         <ul>
         {% for model in category.models %}
-            <li> <a href="{{ url_for('products.model_view', category=category.name, model=model.model_name) }}">{{ model.model_name }}</a> </li>
+            <li> <a href="{{ url_for('products.model_view', category=category.name, model=model.model_name) }}">{{  model_localisation(model, 'model_name') }}</a> </li>
             <img src="{{ url_for('static', filename='images/{}'.format(model.product_picture)) }}">
         {% endfor %}
         </ul>

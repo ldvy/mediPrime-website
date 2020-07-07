@@ -1,9 +1,12 @@
 from .admin_views import MyModelView, file_path
+from .forms import BaseJsonForm
+
 from jinja2 import Markup
+from flask import url_for
+from flask_babel import lazy_gettext as _l
+
 from flask_admin import form
 from app.products.models import Reagent
-from flask import url_for
-from .forms import BaseJsonForm
 from app import db
 
 
@@ -37,7 +40,7 @@ class ImageView(MyModelView):
         }
     # Overriding build-in fields with own
     form_extra_fields = {
-        'logo': form.ImageUploadField('Logo', base_path=file_path,
+        'logo': form.ImageUploadField(_l('Logo'), base_path=file_path,
                                       thumbnail_size=(100, 100, False)),
         'product_picture': form.ImageUploadField('Product Picture',
                                       base_path=file_path,
@@ -47,8 +50,8 @@ class ImageView(MyModelView):
 
 
     column_descriptions = dict(
-        model_name = "Name of the model",
-        description = "Description"
+        model_name = _l("Name of the model"),
+        description = _l("Description")
     )
 
 
@@ -79,8 +82,8 @@ class ReagentView(MyModelView):
 
     # Overriding fields
     form_extra_fields = {
-        'packing' : form.Select2TagsField("Packing"),
-        'code' : form.Select2TagsField("Code")
+        'packing' : form.Select2TagsField(_l("Packing")),
+        'code' : form.Select2TagsField(_l("Code"))
     }
 
     def on_model_change(self, form, model, is_created):
@@ -131,7 +134,7 @@ class HomeView(MyModelView):
 
     # Overriding fields
     form_extra_fields = {
-        'bg_image': form.ImageUploadField('Background image', base_path=file_path,
+        'bg_image': form.ImageUploadField(_l('Background image'), base_path=file_path,
                                       thumbnail_size=(100, 100, True))
                         }
 
@@ -157,7 +160,7 @@ class BrandView(MyModelView):
 
     # Overriding fields
     form_extra_fields = {
-        'logo': form.ImageUploadField('Background image', base_path=file_path,
+        'logo': form.ImageUploadField(_l('Background image'), base_path=file_path,
                                       thumbnail_size=(100, 100, True))
                         }
 
@@ -182,7 +185,7 @@ class ServiceView(MyModelView):
 
     # Overriding fields
     form_extra_fields = {
-        'icon': form.ImageUploadField('Icon', base_path=file_path,
+        'icon': form.ImageUploadField(_l('Icon'), base_path=file_path,
                                       thumbnail_size=(100, 100, True))
                         }
 

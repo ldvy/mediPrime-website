@@ -18,7 +18,7 @@
     <div class="col-md-10">
       <div id="content" class="row">
     	{% block brand %}
-    	<h2 id="brand">{{ admin_view.name|capitalize }}</h2>
+    	<h2 id="brand">{{ _('{}'.format(admin_view.name|capitalize)) }}</h2>
     	{% endblock %}
     	{{ layout.messages() }}
 
@@ -38,7 +38,7 @@
         <i class="icon-user"></i> {{ current_user.login }} <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-        <li><a href="{{ url_for('admin.logout_view') }}">Log out</a></li>
+        <li><a href="{{ url_for('admin.logout_view') }}">{{ _('Log out') }}</a></li>
     </ul>
 </div>
 {% endif %}

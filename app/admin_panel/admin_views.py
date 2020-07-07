@@ -8,6 +8,8 @@ from flask_admin import form
 from flask_admin.form import rules
 from flask_admin.contrib import sqla
 
+from flask_babel import lazy_gettext as _l
+
 from app import static_folder
 
 from flask import render_template, redirect, url_for, request, flash
@@ -37,7 +39,7 @@ class MyAdminIndexView(Admin.AdminIndexView):
         if form.validate_on_submit():
             user = User.query.filter_by(username=form.username.data).first()
             if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password')
+                flash(_l('Invalid username or password'))
                 return redirect(url_for('admin.login_view'))
             login_user(user, remember=form.remember_me.data)
 

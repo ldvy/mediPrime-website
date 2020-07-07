@@ -13,6 +13,8 @@ class Catalog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    name_ru = db.Column("Name RU", db.String(80), unique=True)
+    name_uk = db.Column("Name UK", db.String(80), unique=True)
     categories = db.relationship("Category", backref='catalog', lazy=True)
 
     def __repr__(self):
@@ -24,6 +26,8 @@ class Category(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    name_ru = db.Column("Name RU", db.String(80), unique=True)
+    name_uk = db.Column("Name UK", db.String(80), unique=True)
     catalog_id = db.Column(db.Integer, db.ForeignKey('Catalog.id'))
     models = db.relationship("Model", backref='category', lazy=True)
 
@@ -36,9 +40,13 @@ class Model(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     model_name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    model_name_ru = db.Column("Name RU", db.String(80), unique=True)
+    model_name_uk = db.Column("Name UK", db.String(80), unique=True)
     logo = db.Column("Logo", db.Unicode(128))
     product_picture = db.Column("Product picture", db.Unicode(128))
     description = db.Column("Description", db.TEXT, nullable=False)
+    description_ru = db.Column("Description RU", db.TEXT)
+    description_uk = db.Column("Description UK", db.TEXT)
     category_id = db.Column(db.Integer, db.ForeignKey('Category.id'))
     # I didn't add video and reviews because I didn't know for sure if it's need to be added.
 
@@ -52,6 +60,8 @@ class ReagentSubsection(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     section_name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    section_name_ru = db.Column("Name RU", db.String(80))
+    section_name_uk = db.Column("Name Uk", db.String(80))
     reagents = db.relationship("Reagent", backref="subsection", lazy=True)
 
 
@@ -59,7 +69,11 @@ class Reagent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subsection_id = db.Column(db.Integer, db.ForeignKey('ReagentSubsection.id'))
     reagent_name = db.Column("Name", db.String(80), unique=True, nullable=False)
+    reagent_name_ru = db.Column("Name Uk", db.String(80))
+    reagent_name_uk = db.Column("Name RU", db.String(80))
     method = db.Column("Method", db.String(200), unique=True, nullable=False)
+    method_ru = db.Column("Method RU", db.String(200))
+    method_uk = db.Column("Method Uk", db.String(200))
     # Using sqlalchemy.dialects.types.JSON for representing Json in postgresql
     json_dc = db.Column("DistributionCode", JSON, nullable=False)
 

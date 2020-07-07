@@ -7,7 +7,7 @@
         {% block content %}
         <ul>
         {% for reagent in category.reagents %}
-            <li>{{ reagent.reagent_name }}</li>
+            <li>{{ model_localisation(reagent, 'reagent_name') }}</li>
         {% endfor %}
         </ul>
         {% endblock %}

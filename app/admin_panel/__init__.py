@@ -5,6 +5,8 @@ from flask_admin import Admin
 from flask_admin import form
 from flask_admin.menu import MenuLink
 
+from flask_babel import lazy_gettext as _l
+
 from app.products.models import Model, Catalog, Category, ReagentSubsection,\
                                 Reagent
 from app.home.models import Slider
@@ -16,7 +18,7 @@ from app import db
 import os
 
 
-admin = Admin(index_view=MyAdminIndexView(), base_template='admin/master.html', template_mode='bootstrap3')
+admin = Admin(index_view=MyAdminIndexView(name=_l('Home')), base_template='admin/master.html', template_mode='bootstrap3')
 
 
 # Function will delete fiels from folder after model was deleted from admin panel.
@@ -38,16 +40,16 @@ def del_image(mapper, connection, target):
                               form.thumbgen_filename(target.product_picture)))
         except OSError:
             pass
-admin.add_link(MenuLink(name='Home Page', url='/', category='Links'))
+admin.add_link(MenuLink(name=_l('Home Page'), url='/', category=_l('Links')))
 # Ading views to admin panel.
-admin.add_views(ImageView(Model, db.session, category="Products"),
-                MyModelView(Catalog, db.session, category="Products"),
-                MyModelView(Category, db.session, category="Products"),
-                MyModelView(ReagentSubsection, db.session, category="Products"),
-                ReagentView(Reagent, db.session, category="Products"),
-                BrandView(Brand, db.session, category="Company"),
-                ServiceView(Service, db.session, category="Company"),
-                MyModelView(Job, db.session, category="Company"),
+admin.add_views(ImageView(Model, db.session, category=_l("Products")),
+                MyModelView(Catalog, db.session, category=_l("Products")),
+                MyModelView(Category, db.session, category=_l("Products")),
+                MyModelView(ReagentSubsection, db.session, category=_l("Products")),
+                ReagentView(Reagent, db.session, category=_l("Products")),
+                BrandView(Brand, db.session, category=_l("Company")),
+                ServiceView(Service, db.session, category=_l("Company")),
+                MyModelView(Job, db.session, category=_l("Company")),
                 MyModelView(NewsCategory, db.session),
                 HomeView(Slider, db.session))
                 # NewsView(NewsOn, db.session))

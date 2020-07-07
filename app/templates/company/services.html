@@ -6,7 +6,7 @@
     <body>
         {% block content %}
         {% for services in services %}
-            {{ services.title }}
+            {{ model_localisation(services, 'title') }}
         {% endfor %}
         {% endblock %}
     </body>

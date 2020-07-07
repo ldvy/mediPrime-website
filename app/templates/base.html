@@ -20,20 +20,26 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home.home_view') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('home.home_view') }}">{{_('Home')}} <span class="sr-only">(current)</span></a>
               </li>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('products.product_view') }}">Products</a>
+                <a class="nav-link" href="{{ url_for('products.product_view') }}">{{_('Products')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('company.services_view') }}">Services</a>
+                <a class="nav-link" href="{{ url_for('company.services_view') }}">{{_('Services')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('company.company_view') }}">Company</a>
+                <a class="nav-link" href="{{ url_for('company.company_view') }}">{{_('Company')}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="#">{{_('Contacts')}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home.change_language', language='ru') }}">RU</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('home.change_language', language='uk') }}">UK</a>
               </li>
           </div>
         </nav>

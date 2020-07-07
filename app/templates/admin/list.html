@@ -5,7 +5,7 @@
     <h2 id="brand">{{ admin_view.name|capitalize }} list</h2>
     {% if admin_view.can_create %}
     <div class="btn-menu">
-      <a href="{{ url_for('.create_view', url=return_url) }}" class="btn btn-primary pull-right">{{ _gettext('Create') }}</a>
+      <a href="{{ url_for('.create_view', url=return_url) }}" class="btn btn-primary pull-right">{{ _('Create') }}</a>
     </div>
     {% endif %}
 

@@ -7,7 +7,7 @@
         {% block content %}
         <p>Brand Logo</p>
         <img src="{{ url_for('static', filename='images/{}'.format(model.logo)) }}">
-        <p>{{ model.model_name }}</p>
+        <p>{{ model_localisation(model, 'model_name') }}</p>
         <p>Product picture</p>
         <img src="{{ url_for('static', filename='images/{}'.format(model.product_picture)) }}">
         {% endblock %}

@@ -6,10 +6,10 @@
     <body>
         {% block content %}
         {% for catalog in catalogs %}
-            {{ catalog.name }}
+            {{ model_localisation(catalog, 'name') }}
             <ul>
                 {% for category in catalog.categories %}
-                    <li><a href="{{ url_for('products.category_view', category=category.name) }}">{{ category.name }}</a></li>
+                    <li><a href="{{ url_for('products.category_view', category=category.name) }}">{{ model_localisation(category, 'name') }}</a></li>
                 {% endfor %}
                 {% if catalog.name == 'Labaratory' %}
                     <li> <a href="{{ url_for('products.reagent_category_view') }}">Reagents</a> </li>

@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, current_app, session
 from flask_babel import Babel
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -36,6 +36,8 @@ def create_app(config_class=Config):
     mail.init_app(app)
     babel.init_app(app)
 
+    app.jinja_env.globals.update(model_localisation=model_localisation)
+
     from app.admin_panel import admin
     admin.init_app(app)
 
@@ -51,8 +53,21 @@ def create_app(config_class=Config):
     from app.news import bp as bp_news
     app.register_blueprint(bp_news)
 
-    @babel.localeselector
-    def get_locale():
-        return request.accept_languages.best_match(app.config['LANGUAGES'])
-
     return app
+
+
+@babel.localeselector
+def get_locale():
+    override = request.args.get('lang')
+
+    if override:
+        session['lang'] = override
+
+    return session.get('lang', 'uk')
+
+
+def model_localisation(object, instance_name):
+    try:
+        return getattr(object, f'{instance_name}_{get_locale()}')
+    except:
+        return getattr(object, instance_name)
