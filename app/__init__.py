@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, request
+from flask_babel import Babel
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -12,6 +13,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
 mail = Mail()
+babel = Babel()
 
 # Static folder path
 static_folder = os.path.join(os.path.dirname(__file__), 'static')
@@ -32,6 +34,7 @@ def create_app(config_class=Config):
     migrate.init_app(app, db)
     login.init_app(app)
     mail.init_app(app)
+    babel.init_app(app)
 
     from app.admin_panel import admin
     admin.init_app(app)
@@ -47,5 +50,9 @@ def create_app(config_class=Config):
 
     from app.news import bp as bp_news
     app.register_blueprint(bp_news)
+
+    @babel.localeselector
+    def get_locale():
+        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
     return app
