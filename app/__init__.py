@@ -37,6 +37,7 @@ def create_app(config_class=Config):
     babel.init_app(app)
 
     app.jinja_env.globals.update(model_localisation=model_localisation)
+    app.jinja_env.globals.update(set_session_url=set_session_url)
 
     from app.admin_panel import admin
     admin.init_app(app)
@@ -58,6 +59,9 @@ def create_app(config_class=Config):
 
 @babel.localeselector
 def get_locale():
+    """
+    Fuction that changing language of application by session key 'lang'
+    """
     override = request.args.get('lang')
 
     if override:
@@ -67,7 +71,18 @@ def get_locale():
 
 
 def model_localisation(object, instance_name):
+    """
+    Fuction that calling collumn from model by its lang representation (ru, uk)
+    """
     try:
         return getattr(object, f'{instance_name}_{get_locale()}')
     except:
         return getattr(object, instance_name)
+
+
+def set_session_url(url=None):
+    """
+    Function that handle storing current template endpoint for home.change_language
+    """
+    session['url'] = url
+    return ''

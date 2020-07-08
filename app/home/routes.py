@@ -12,4 +12,4 @@ def home_view():
 def change_language(language):
     if language in current_app.config['LANGUAGES']:
         session['lang'] = language
-    return redirect(url_for('.home_view'))
+    return redirect(url_for(session['url']))
