@@ -50,7 +50,7 @@ class MyAdminIndexView(Admin.AdminIndexView):
     @expose('/logout/')
     def logout_view(self):
         logout_user()
-        return redirect(url_for('home.home'))
+        return redirect(url_for('home.home_view'))
 
 
 # This is base view from Flask-Admin package

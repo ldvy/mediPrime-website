@@ -1,6 +1,5 @@
 {% import 'admin/layout.html' as layout with context -%}
 {% extends 'admin/base.html' %}
-
 {% block head_tail %}
   {{ super() }}
   <link href="{{ url_for('static', filename='css/admin/layout.css') }}" rel="stylesheet">
@@ -11,6 +10,19 @@
   <div class="row">
     <div class="col-md-2" role="navigation">
       <ul class="nav nav-pills nav-stacked">
+          <style media="screen">
+          .i18n_flag img {
+                width: 25px;
+                vertical-align: middle;
+                }
+          </style>
+          {{ set_session_url(request.endpoint) }}
+          <a class="i18n_flag" href="{{ url_for('home.change_language', language='ru') }}">
+              <img src="{{ url_for('static', filename='images/rus-flag.png') }}">
+          </a>
+          <a class="i18n_flag" href="{{ url_for('home.change_language', language='uk') }}">
+              <img src="{{ url_for('static', filename='images/ukr-flag.png') }}">
+          </a>
 	    {{ layout.menu() }}
 	    {{ layout.menu_links() }}
       </ul>
@@ -24,22 +36,21 @@
 
 	{% set render_ctx = h.resolve_ctx() %}
 
+    {% block access_control %}
+    {% if current_user.is_authenticated %}
+    <div class="btn-group pull-right">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i> {{ current_user.login }} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ url_for('admin.logout_view') }}">{{ _('Log out') }}</a></li>
+        </ul>
+    </div>
+    {% endif %}
+    {% endblock %}
         {% block body %}{% endblock %}
       </div>
      </div>
   </div>
 </div>
-{% endblock %}
-
-{% block access_control %}
-{% if current_user.is_authenticated %}
-<div class="btn-group pull-right">
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-user"></i> {{ current_user.login }} <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li><a href="{{ url_for('admin.logout_view') }}">{{ _('Log out') }}</a></li>
-    </ul>
-</div>
-{% endif %}
 {% endblock %}
