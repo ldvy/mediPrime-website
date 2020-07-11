@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+import app
 import os
 
 
@@ -30,31 +31,33 @@ def create_app(config_class=Config):
     app = Flask(__name__, static_folder=static_folder)
     app.config.from_object(config_class)
 
+    from app.admin_panel import admin
+    admin.init_app(app)
+
+    configure_extensions(app)
+    configure_jinja_globals(app)
+    configure_blueprints(app)
+
+    return app
+
+
+def configure_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
     mail.init_app(app)
     babel.init_app(app)
 
+
+def configure_jinja_globals(app):
     app.jinja_env.globals.update(model_localisation=model_localisation)
     app.jinja_env.globals.update(set_session_url=set_session_url)
 
-    from app.admin_panel import admin
-    admin.init_app(app)
 
-    from app.home import bp as bp_home
-    app.register_blueprint(bp_home)
-
-    from app.products import bp as bp_products
-    app.register_blueprint(bp_products)
-
-    from app.company import bp as bp_company
-    app.register_blueprint(bp_company)
-
-    from app.news import bp as bp_news
-    app.register_blueprint(bp_news)
-
-    return app
+def configure_blueprints(app):
+    blueprints = get_blueprints()
+    for bp in blueprints:
+        app.register_blueprint(bp)
 
 
 @babel.localeselector
@@ -86,3 +89,7 @@ def set_session_url(url=None):
     """
     session['url'] = url
     return ''
+
+
+def get_blueprints():
+    return [app.company.bp, app.home.bp, app.news.bp, app.products.bp]
