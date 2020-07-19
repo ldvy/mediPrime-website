@@ -1,0 +1,285 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	overflow-x: hidden;
+}
+a {
+	text-decoration: none;
+}
+.breadcrums-sec {
+	display: flex;
+	padding-top: 5.5em;
+}
+.model-sec {
+	margin-top: 3em;
+	width: 100vw;
+	display: flex;
+	flex-flow: row wrap;
+	border-bottom: 2em solid #f7f1f1;
+}
+.prop-menu {
+	width: 100vw;
+	height: 3em;
+	background-color: #f7f1f1;
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	padding: 0em 3em;
+}
+.prop-btn {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+	list-style: none;
+	color: #404040;
+	font-family: 'Nunito';
+	font-weight: 600;
+	font-size: 1.2em;
+	padding: 0 1em;
+	margin-right: 0.3em;
+	transition: 0.3s color;
+	cursor: pointer;
+}
+.prop-btn::after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #8e0000;
+	transform: scaleX(0);
+	transition: 0.3s transform;
+}
+.prop-btn:hover {
+	color: #8e0000;
+}
+.prop-btn:hover::after {
+	transform: scaleX(1);
+}
+.active::after {
+	transform: scaleX(1);
+}
+.model-slider {
+	margin: 2em;
+	padding: 0.5em 0;
+	margin-right: 0;
+	width: 30em;
+	height: 25em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid gainsboro;
+}
+.model-slides {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 5em;
+	height: 105%;
+}
+.model-slider-window {
+	width: 5em;
+	height: 90%;
+	overflow: hidden;
+	margin: 0.5em 0;
+}
+.model-slider-tape {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 5em;
+	transition: 0.3s margin;
+}
+.model-slide {
+	width: 4em;
+	height: 4em;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: 1em;
+}
+.cur-slide {
+	border: 1px solid #8e0000;
+}
+.model-slides i {
+	color: #8e0000;
+	font-size: 2.2em;
+	cursor: pointer;
+}
+.slider-prev {
+	width: 25em;
+	height: 100%;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.model-text-block {
+	position: relative;
+	width: 62vw;
+}
+.model-info {
+	list-style: none;
+	display: none;
+	padding: 2em 3em;
+	width: 100%;
+}
+.producer-logo {
+	position: absolute;
+	top: 3em;
+	right: 4em;
+	display: flex;
+	width: 4em;
+	height: 4em;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0.5em;
+}
+.short-info {
+	display: flex;
+	flex-flow: column;
+	height: 6em;
+	justify-content: space-around;
+	margin-top: 1em;
+}
+.short-info li {
+	list-style: none;
+	font-family: 'Nunito';
+	font-size: 1.1em;
+	color: #404040;
+	font-weight: 400;
+}
+.short-info h1 {
+	font-family: 'Open Sans';
+}
+.description-text {
+	color: #303030;
+	font-family: 'Nunito';
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 1.6em;
+	margin-top: 1.5em;
+}
+.char ul {
+	list-style: none;
+}
+.char li {
+	color: #303030;
+	font-size: 1.1em;
+	font-family: 'Nunito';
+	font-weight: 400;
+}
+.char li::before {
+	content: '\2022';
+	color: #8e0000;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+	margin-bottom: 0.5em;
+}
+.review-form {
+	display: flex;
+	width: 100%;
+	height: 15em;
+	flex-flow: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1em;
+	margin-bottom: 2em;
+}
+.form-title {
+	width: 100%;
+	font-family: 'Nunito';
+	font-size: 1.6em;
+	color: #8e0000;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+}
+.review-input {
+	width: 40vw;
+	border: 1px solid #404040;
+	outline: none;
+	padding: 0.6em 1em;
+	font-family: 'Nunito';
+	color: #303030;
+	font-size: 1em; 
+}
+textarea {
+	resize: none;
+	height: 4em;
+}
+.review-input:focus {
+	border-color: #8e0000;
+}
+.send-review {
+	width: 30%;
+	height: 2.4em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #8e0000;
+	border: 2px solid #8e0000;
+	color: #fff;
+	font-family: 'Nunito';
+	font-size: 1em;
+	font-weight: 800;
+	text-transform: uppercase;
+	transition: 0.3s color, 0.3s background-color;
+	cursor: pointer;
+}
+.reviews-list {
+	width: 100%;
+	padding: 1em;
+	padding-bottom: 0;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+.review-item {
+	list-style: none;
+	width: 90%;
+	margin-bottom: 2em;
+}
+.review-item-header {
+	width: 100%;
+	height: 2.5em;
+	padding: 0.25em 0.5em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f7f1f1;
+	border-bottom: 1px solid #8e0000;
+	color: #303030;
+	font-family: 'Nunito';
+	font-size: 1.1em;
+	font-weight: 600;
+	margin: 0 !important;
+}
+.review-item-text {
+	width: 100%;
+	padding: 1em;
+	color: #303030;
+	font-family: 'Nunito';
+	font-size: 1.1em;
+	font-weight: 400;
+	line-height: 1.5em;
+	padding-top: 0.5em;
+}
+.send-review:hover {
+	background-color: #fff;
+	color: #8e0000;
+}
+.video_wrap {
+	width: 55vw;
+}
+.video_container {
+	height: 25em;
+}
+.controls {
+	width: 55vw;
+}

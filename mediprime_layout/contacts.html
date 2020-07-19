@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mediprime | Діагностичне</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="static/css/scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="static/css/contacts.css">
+	<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="static/js/header.js"></script>
+	<script type="text/javascript" src="static/js/form.js"></script>
+</head>
+<body>
+	<header class="main-header">
+		<div class="transparent-layer"></div>
+		<section class="nav-sec">
+			<a href="main.html"><div class="logo"></div></a>
+			<nav class="nav-bar">
+				<ul class="main-menu">
+					<a href="main.html"><li>Головна</li></a>
+					<li id="prod-men">Продукти</li>
+					<a><li>Сервісна підтримка</li></a>
+					<a><li id="company-men">Компанія</li></a>
+					<a href="contacts.html"><li>Контакти</li></a>
+				</ul>
+				<div class="product-menu" id="products">
+					<ul class="categories main-cat">
+						<span class="cat-header">Продукти</span>
+						<li id="cat-1">Діагностичне<i class="fa fa-chevron-right"></i></li>
+						<li id="cat-2">Лабораторне<i class="fa fa-chevron-right"></i></li>
+						<li id="cat-3">Інше медичне<i class="fa fa-chevron-right"></i></li>
+					</ul>
+					<ul class="categories sub-cat" id="sub-cat-1">
+						<span class="cat-header">Діагностичне</span>
+						<a href=""><li>УЗД системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Рентгендіагностичні системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>УЗД системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Рентгендіагностичні системи<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<ul class="categories sub-cat" id="sub-cat-2">
+						<span class="cat-header">Лабораторне</span>
+						<a href="reagents.html"><li>Реагенти<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Біохімічні аналізатори<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<span class="bottom-line"></span>
+					<div class="close-menu" id="close-prod"><i class="fa fa-times"></i></div>
+				</div>
+
+				<div class="product-menu" id="company">
+					<ul class="categories main-cat">
+						<span class="cat-header">Компанія</span>
+						<a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
+						<a href="news.html"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<span class="bottom-line"></span>
+					<div class="close-menu" id="close-comp"><i class="fa fa-times"></i></div>
+				</div>
+			</nav>
+			<ul class="secondary-menu">
+				<li class="phone-num">
+					<span class="sec-icon"></span>
+					<div class="drop-number">
+						<span class="top-tip"></span>
+						<a href="tel:+380992454428">
+						(+38)-099-245-44-28</a>
+				</div>
+				</li>
+				<li class="lang-menu">
+					<span class="sec-icon"></span>
+					<div class="drop-lang">
+						<span class="top-tip"></span>
+						<a href="">Українська</a>
+						<a href="">Російська</a>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="breadcrums-sec">
+			<li><a href="main.html">Гoловна</a></li>
+			<li><a href="">/ Контакти</a></li>
+		</section>
+	</header>
+
+	<section class="contacts-sec">
+		<div class="contacts-info">
+			<h2 class="contacts-title">Контактна інформація</h2>
+			<ul class="contacts-list">
+				<li><i class="fa fa-phone-square"></i><b>Телефон:</b><a href="tel:+380992454428">(+38)-099-245-44-28</a></li>
+				<li><i class="fa fa-envelope"></i><b>E-mail:</b><a href="mailto:">officemediprime.com.ua</a></li>
+				<li><i class="fa fa-address-card"></i><b>Адреса:</b>вул. Либідська 17, офіс 7, Київ, 01033, Україна</li>
+			</ul>
+		</div>
+		<div class="contacts-form">
+			<h2 class="contacts-title">Зв'язатися з нами</h2>
+			<form method="POST" action="">
+				<input type="text" class="form-input" placeholder="Ім'я" id="name">
+				<input type="email" class="form-input" placeholder="E-mail" id="email">
+				<input type="tel" class="form-input" placeholder="Телефон" id="phone">
+				<input type="text" class="form-input" placeholder="Тема" id="topic">
+				<textarea class="form-message" placeholder="Повідомлення" id="message"></textarea>
+				<input type="button" id="send" value="Відправити">
+			</form>
+		</div>
+		<div class="contacts-map">
+			<h2 class="contacts-title">Карта</h2>
+				<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=вулиця Либідська, 17, Киев, Украина&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+		</div>
+	</section>
+
+	<section class="footer-sec">
+		<footer class="footer">
+			<div class="logo-footer">
+				<span></span>
+				<p class="copyright">
+				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+				</p>
+			</div>
+			<div class="contacts-footer">
+				<li class="contact">
+					<h3>Адреса:</h3>вул. Либідська 17, офіс 7, Київ, 01033, Україна
+				</li>
+				<li class="contact">
+					<h3>Телефон:</h3>+38-097-575-70-20
+				</li>
+				<li class="contact">
+					<h3>Email:</h3>office@mediprime.com.ua
+				</li>
+			</div>
+			<div class="useful-links">
+				<ul class="links">
+					<li><a href="">Головна</a></li>
+					<li><a href="">Про нас</a></li>
+					<li><a href="">Новини</a></li>
+					<li><a href="">Сервісна підтримка</a></li>
+					<li><a href="">Контакти</a></li>
+				</ul>
+				<div class="soc-net">
+					<a href=""><i class="fa fa-facebook-square"></i></a>
+					<a href=""><i class="fa fa fa-youtube"></i></a>
+					<a href="mailto:"><i class="fa fa fa-envelope"></i></a>
+				</div>
+			</div>
+		</footer>
+	</section>
+</body>
+</html>
