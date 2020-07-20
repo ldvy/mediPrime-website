@@ -1,6 +1,5 @@
 from . import bp
 from flask import render_template, redirect, url_for, current_app, session, request
-from app.products.models import Catalog
 
 
 @bp.route('/')

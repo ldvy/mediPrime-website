@@ -1,18 +1,19 @@
 from .admin_views import MyModelView, file_path
 from .forms import BaseJsonForm
+from .field import MultipalImagesField
 
 from jinja2 import Markup
 from flask import url_for
-from flask_babel import lazy_gettext as _l
-
+from flask_login import current_user
+from flask_babelex import lazy_gettext as _l
 from flask_admin import form
-from app.products.models import Reagent
-from app import db
+import sqlalchemy
+
 
 
 # This view for model "Model", designed specificaly for handling images
 class ImageView(MyModelView):
-
+    # form_base_class = MultipleImagesForm
     def _list_thumbnail_logo(view, context, model, name):
         """
         `view` is current administrative view
@@ -26,32 +27,46 @@ class ImageView(MyModelView):
         return Markup('<img src="%s">' % url_for('static',
                         filename=f"images/{form.thumbgen_filename(model.logo)}"))
 
-
     def _list_thumbnail_product(view, context, model, name):
-        if not model.product_picture:
-            return ''
-        return Markup('<img src="%s">' % url_for('static',
-                        filename=f"images/{form.thumbgen_filename(model.product_picture)}"))
+        markup = ''
+        for filename in model.product_picture:
+            thumb_filename = filename.split('.')[0] + '_thumb.jpeg'
+            markup += '<img src="{}">'.format(url_for('static',
+                        filename=f"images/{thumb_filename}"))
+        return Markup(markup)
+
+    column_labels = dict(model_name=_l('Model name'), model_name_ru=_l('Model name ru'),
+        model_name_uk=_l('Model name uk'), logo=_l('Logo'), product_picture=_l('Product pictures'),
+        description=_l('Description'), description_ru=_l('Description ru'),
+        description_uk=_l('Description uk'), country=_l('Country'),
+        country_ru=_l('Country ru'), country_uk=_l('Country uk'),
+        brand=_l('Brand'), brand_ru=_l('Brand ru'), brand_uk=_l('Brand uk'),
+        category=_l('Category'))
 
     # For displaing on main page | Prettifying
     column_formatters = {
             'logo': _list_thumbnail_logo,
-            'product_picture' : _list_thumbnail_product
+            'product_picture': _list_thumbnail_product
         }
+
+
+    form_create_rules  = ('model_name', 'model_name_ru', 'model_name_uk',
+            'logo', 'product_picture', 'description', 'description_ru',
+            'description_uk', 'country', 'country_ru', 'country_uk',
+            'brand', 'brand_ru', 'brand_uk', 'category')
+
     # Overriding build-in fields with own
     form_extra_fields = {
         'logo': form.ImageUploadField(_l('Logo'), base_path=file_path,
                                       thumbnail_size=(100, 100, False)),
-        'product_picture': form.ImageUploadField('Product Picture',
-                                      base_path=file_path,
-                                      thumbnail_size=(100, 100, True))
-    }
+        'product_picture': MultipalImagesField(_l('Product pictures'), save_as_list=True) }
+
     column_searchable_list = ('model_name', 'description')
 
 
     column_descriptions = dict(
         model_name = _l("Name of the model"),
-        description = _l("Description")
+        description = _l("Description"),
     )
 
 
@@ -76,6 +91,10 @@ class ReagentView(MyModelView):
     column_formatters = {
         'json_dc': _formatJson
     }
+
+    column_labels = dict(reagent_name=_l('reagent_name'), reagent_name_ru=_l('reagent_name_ru'),
+        reagent_name_uk=_l('reagent_name_uk'), method=_l('method'), method_ru=_l('method_ru'),
+        method_uk=_l('method_uk'), json_dc=_l('json_dc'), subsection=_l('subsection'))
 
     # Collection of excluded form field names.
     form_excluded_columns = ('json_dc')
@@ -126,6 +145,11 @@ class HomeView(MyModelView):
         return Markup('<img src="%s">' % url_for('static',
                     filename=f"images/{form.thumbgen_filename(model.bg_image)}"))
 
+    column_labels = dict(bg_image=_l('bg_image'), title=_l('title'),
+        title_ru=_l('title_ru'), title_uk=_l('title_uk'), text=_l('text'),
+        text_ru=_l('text_ru'), text_uk=_l('text_uk'), btn_link=_l('btn_link'),
+        slide_order_number=_l('slide_order_number'))
+
     # Dictionary of list view column formatters.
     # Prettifying the look of images on the main page
     column_formatters = {
@@ -136,7 +160,8 @@ class HomeView(MyModelView):
     form_extra_fields = {
         'bg_image': form.ImageUploadField(_l('Background image'), base_path=file_path,
                                       thumbnail_size=(100, 100, True))
-                        }
+                }
+
 
 
 class BrandView(MyModelView):
@@ -151,6 +176,10 @@ class BrandView(MyModelView):
         """
         return Markup('<img src="%s">' % url_for('static',
                     filename=f"images/{form.thumbgen_filename(model.logo)}"))
+
+    column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'),
+        country=_l('country'), country_ru=_l('country_ru'), country_uk=_l('country_uk'),
+        brand_website=_l('brand_website'), logo=_l('logo'))
 
     # Dictionary of list view column formatters.
     # Prettifying the look of images on the main page
@@ -177,6 +206,9 @@ class ServiceView(MyModelView):
         return Markup('<img src="%s">' % url_for('static',
                     filename=f"images/{form.thumbgen_filename(model.icon)}"))
 
+    column_labels = dict(title=_l('title'), title_ru=_l('title_ru'), title_uk=_l('title_uk'),
+        icon=_l('icon'), text=_l('text'), text_ru=_l('text_ru'), text_uk=_l('text_uk'))
+
     # Dictionary of list view column formatters.
     # Prettifying the look of images on the main page
     column_formatters = {
@@ -189,16 +221,19 @@ class ServiceView(MyModelView):
                                       thumbnail_size=(100, 100, True))
                         }
 
-# ISSUE: Handling array of images
-# class NewsView(MyModelView):
-#     def _thumbnail_image(view, context, model, name):
-#         for image in model.images:
-#             yield Markup('<img src="%s">' % url_for('static',
-#                         filename=f"images/{form.thumbgen_filename(image)}"))
-#     column_formatters = {
-#             'images': _thumbnail_image
-#         }
-#     form_extra_fields = {
-#         'images': form.ImageUploadField('Background image', base_path=file_path,
-#                                       thumbnail_size=(100, 100, True))
-#                         }
+
+class NewsView(MyModelView):
+    def _thumbnail_image(view, context, model, name):
+        return Markup('<img src="%s">' % url_for('static',
+                    filename=f"images/{form.thumbgen_filename(model.preview_image)}"))
+    column_labels = dict(title=_l('title'), title_ru=_l('title_ru'), title_uk=_l('title_uk'),
+        pub_date=_l('pub_date'), preview_image=_l('preview_image'),
+        text=_l('text'), text_ru=_l('text_ru'), text_uk=_l('text_uk'))
+
+    column_formatters = {
+            'preview_image': _thumbnail_image
+        }
+    form_extra_fields = {
+        'preview_image': form.ImageUploadField(_l('Preview imgage'), base_path=file_path,
+                                      thumbnail_size=(100, 100, True))
+                        }

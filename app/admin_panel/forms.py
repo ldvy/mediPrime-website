@@ -1,8 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, FieldList, BooleanField
+from wtforms.fields import MultipleFileField
 from wtforms.validators import DataRequired
 
-from flask_babel import lazy_gettext as _l
+from flask_babelex import lazy_gettext as _l
 
 
 # Basic login form

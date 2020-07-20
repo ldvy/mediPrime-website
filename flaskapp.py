@@ -1,6 +1,7 @@
 from app import create_app, db
 from app.products.models import Catalog, Category, Model, Reagent, ReagentSubsection
-from app.admin_panel.models import  User
+from app.admin_panel.models import User
+from app.company.models import Job
 from cli import register
 
 # Main application instance
@@ -12,4 +13,5 @@ register(app)
 @app.shell_context_processor
 def make_shell_context():
     return {'db': db, 'Catalog': Catalog, 'Category': Category, 'Model': Model,
-            'User': User, 'Reagent': Reagent, "ReagentSubsection": ReagentSubsection}
+            'User': User, 'Reagent': Reagent, "ReagentSubsection": ReagentSubsection,
+            'Job': Job}

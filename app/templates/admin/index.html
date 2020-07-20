@@ -3,28 +3,34 @@
 {{ super() }}
 <div class="row-fluid">
 
-    <div>
-        {% if current_user.is_authenticated %}
-        {% else %}
-        <form method="POST" action="">
-            {{ form.hidden_tag() if form.hidden_tag }}
-            {% for f in form if f.type != 'CSRFTokenField' %}
-            <div>
-            {{ f.label }}
-            {{ f }}
-            {% if f.errors %}
-            <ul>
-                {% for e in f.errors %}
-                <li>{{ e }}</li>
+    {% if current_user.is_authenticated %}
+    <div class="col-sm-10 col-sm-offset-1">
+            <h1>{{_('Администрирование сайта MediPrime')}}</h1>
+            <p class="lead">
+                {{_('Система менеджемента ресурсов сайта')}}
+            </p>
+            <p>
+                {{_('Здесь вы можете просматривать, создавать, изменять и удалять динамические модели элементов на сайте.')}}
+            </p>
+            {% else %}
+            <form method="POST" action="">
+                {{ form.hidden_tag() if form.hidden_tag }}
+                {% for f in form if f.type != 'CSRFTokenField' %}
+                <div>
+                {{ f.label }}
+                {{ f }}
+                {% if f.errors %}
+                <ul>
+                    {% for e in f.errors %}
+                    <li>{{ e }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
                 {% endfor %}
-            </ul>
+                <button class="btn" type="submit">{{ _('Submit') }}</button>
+            </form>
             {% endif %}
-            </div>
-            {% endfor %}
-            <button class="btn" type="submit">{{ _('Submit') }}</button>
-        </form>
-        {% endif %}
-    </div>
-
+        </div>
 </div>
 {% endblock body %}

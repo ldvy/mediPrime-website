@@ -1,5 +1,5 @@
 from app import db
-from sqlalchemy.dialects.postgresql import JSON
+from sqlalchemy.dialects.postgresql import JSON, ARRAY
 
 
 """
@@ -43,12 +43,18 @@ class Model(db.Model):
     model_name_ru = db.Column("Name RU", db.String(80), unique=True)
     model_name_uk = db.Column("Name UK", db.String(80), unique=True)
     logo = db.Column("Logo", db.Unicode(128))
-    product_picture = db.Column("Product picture", db.Unicode(128))
+    product_picture = db.Column('Product picture', ARRAY(db.Unicode(128)))
     description = db.Column("Description", db.TEXT, nullable=False)
     description_ru = db.Column("Description RU", db.TEXT)
     description_uk = db.Column("Description UK", db.TEXT)
     category_id = db.Column(db.Integer, db.ForeignKey('Category.id'))
-    # I didn't add video and reviews because I didn't know for sure if it's need to be added.
+    country = db.Column('Country', db.String(80))
+    country_ru = db.Column('Country RU', db.String(80))
+    country_uk = db.Column('Country UK', db.String(80))
+    brand = db.Column('Brand', db.String(80))
+    brand_ru = db.Column('Brand RU', db.String(80))
+    brand_uk = db.Column('Brand UK', db.String(80))
+
 
     def __repr__(self):
         return f"<Item {self.model_name}>"
@@ -64,6 +70,8 @@ class ReagentSubsection(db.Model):
     section_name_uk = db.Column("Name Uk", db.String(80))
     reagents = db.relationship("Reagent", backref="subsection", lazy=True)
 
+    def __repr__(self):
+        return f"<ReagentSubsection {self.section_name}>"
 
 class Reagent(db.Model):
     id = db.Column(db.Integer, primary_key=True)

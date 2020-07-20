@@ -1,5 +1,5 @@
 from flask import Flask, request, current_app, session
-from flask_babel import Babel
+from flask_babelex import Babel
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -77,10 +77,10 @@ def model_localisation(object, instance_name):
     """
     Fuction that calling collumn from model by its lang representation (ru, uk)
     """
-    try:
-        return getattr(object, f'{instance_name}_{get_locale()}')
-    except:
+    data = getattr(object, f'{instance_name}_{get_locale()}')
+    if data == None:
         return getattr(object, instance_name)
+    return data
 
 
 def set_session_url(url=None):

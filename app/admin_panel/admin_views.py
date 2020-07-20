@@ -8,7 +8,7 @@ from flask_admin import form
 from flask_admin.form import rules
 from flask_admin.contrib import sqla
 
-from flask_babel import lazy_gettext as _l
+from flask_babelex import lazy_gettext as _l
 
 from app import static_folder
 
@@ -18,6 +18,12 @@ import os
 
 # Path for storing image data, based in static_folder
 file_path = os.path.join(static_folder, 'images')
+
+# Images in 'static/images'
+images = os.listdir(file_path)
+
+# Alowed images extensions
+ALOWED_EXTENSIONS = ['gif', 'jpg', 'jpeg', 'png', 'tiff']
 
 
 # Writing own view for displaying start admin page
@@ -57,8 +63,20 @@ class MyAdminIndexView(Admin.AdminIndexView):
 # View specifically designet for authentification validation and base template
 # initializing
 class MyModelView(sqla.ModelView):
-    def is_accessible(self):
-        return current_user.is_authenticated
     list_template = 'admin/list.html'
     create_template = 'admin/create.html'
     edit_template = 'admin/edit.html'
+
+    def search_placeholder(self):
+        if self.column_searchable_list:
+            return ", ".join(
+                str(self.column_labels.get(col, col))
+                for col in self.column_searchable_list
+            )
+
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        # redirect to login page if user doesn't have access
+        return redirect(url_for('admin.login_view'))

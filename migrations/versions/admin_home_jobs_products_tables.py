@@ -95,7 +95,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('Name', sa.String(length=80), nullable=False),
     sa.Column('Logo', sa.Unicode(length=128), nullable=True),
-    sa.Column('Product picture', sa.Unicode(length=128), nullable=True),
+    sa.Column('Product picture',sa.ARRAY(sa.Unicode(length=128)), nullable=True),
     sa.Column('Description', sa.TEXT(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['category_id'], ['Category.id'], ),
