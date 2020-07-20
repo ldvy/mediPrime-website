@@ -4,16 +4,19 @@
 	<title>Mediprime | Головна</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="static/css/scrollbar.css">
 	<link rel="stylesheet" type="text/css" href="static/css/header.css">
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
-	<!-- сюда вствлять <link rel="stylesheet" type="text/css" href="static/css/granite.css"> -->
+	<link rel="stylesheet" type="text/css" href="static/css/player.css">
+
 	<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="static/js/main.js"></script>
 	<script type="text/javascript" src="static/js/header.js"></script>
+	<script type="text/javascript" src="static/js/form.js"></script>
 </head>
 <body>
 	<header class="main-header">
@@ -22,11 +25,11 @@
 			<a href="main.html"><div class="logo"></div></a>
 			<nav class="nav-bar">
 				<ul class="main-menu">
-					<a><li>Головна</li></a>
+					<a href="main.html"><li>Головна</li></a>
 					<li id="prod-men">Продукти</li>
 					<a><li>Сервісна підтримка</li></a>
 					<a><li id="company-men">Компанія</li></a>
-					<a><li>Контакти</li></a>
+					<a href="contacts.html"><li>Контакти</li></a>
 				</ul>
 				<div class="product-menu" id="products">
 					<ul class="categories main-cat">
@@ -56,8 +59,8 @@
 						<span class="cat-header">Компанія</span>
 						<a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
 						<a href="news.html"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
-						<a href=""><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
-						<a href=""><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
+						<a href="brands.html"><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
+						<a href="jobs.html"><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
 					</ul>
 					<span class="bottom-line"></span>
 					<div class="close-menu" id="close-comp"><i class="fa fa-times"></i></div>
@@ -132,6 +135,7 @@
 		</div>
 	</section>
 
+
 	<section class="brand-slider-sec">
 		<div class="brand-slider-wrap">
 			<i class="fa fa-caret-left slider-btn left"></i>
@@ -139,35 +143,35 @@
 				<div class="brand-slides">
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
-						<div class="brand-desc">Діагностичні інструменти</div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
-						<div class="brand-desc">Обладнання та реагенти для лабораторії</div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/alpinion.jpg')"></div>
-						<div class="brand-desc">Ультразвукові діагностичні системи</div>
+						<div class="brand-desc">Ультразвукові діагностичні системи<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
-						<div class="brand-desc">Діагностичні інструменти</div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
-						<div class="brand-desc">Обладнання та реагенти для лабораторії</div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/alpinion.jpg')"></div>
-						<div class="brand-desc">Ультразвукові діагностичні системи</div>
+						<div class="brand-desc">Ультразвукові діагностичні системи<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
-						<div class="brand-desc">Діагностичні інструменти</div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
 					</li>
 					<li class="brand-slide">
 						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
-						<div class="brand-desc">Обладнання та реагенти для лабораторії</div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
 					</li>
 				</div>
 			</div>
@@ -250,6 +254,72 @@
 		</div>
 	</section>
 
+	<section class="whyus-sec">
+		<span class="whyus-title">Чому ми?</span>
+		<div class="reasons-list">
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви економите свій час, тому що
+				ми представляємо тільки передові
+				технології</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви захищені як споживач. Якість
+				наших послуг відповідає
+				міжнародним стандартам якості</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви отримуєте тільки найкраще.
+				Наші виробники здобули довіру
+				в усьому світі</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви не почуєте: «Абонент
+				недоступний». Ми на зв'язку 24/7</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви почуєте відповіді на всі свої
+				питання, тому що ми команда
+				професіоналів</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви впевнені в майбутньому.
+				Професійна підтримка, перевірена роками</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="video-sec">
+		<div class="video-title">
+			<span class="video-title-big">МИ - НОВИЙ ПОГЛЯД НА
+			МАЙБУТНЄ ОХОРОНИ ЗДОРОВ'Я</span>
+			<span class="video-title-small">постійне вдосконалення рішень,
+			відповідальне ставлення до дотримання
+			стандартів і вимог, відкритість до інновацій.</span>
+		</div>
+		<div class="video_wrap">
+			<div class="video_container">
+				<div class="paused_bg">
+					<button id="play"><i class="fa fa-play"></i></button>
+				</div>
+				<video class="video" src="static/videos/promo.mp4#t=1" type="video/mp4"></video>
+			</div>
+			<div class="controls">
+				<div class="time_bar">
+					<div class="bar_fill"></div>
+				</div>
+				<div class="buttons">
+					<button id="play_pause" class="play"><i class="fa fa-play"></i></button>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="news-sec">
 		<div class="news-list">
 			<a href="news.html"><li class="news-item news-header">Новини</li></a>
@@ -312,6 +382,50 @@
 		</div>
 	</section>
 
+	<section class="nov-sec">
+		<h2 class="nov-sec-title">новації 2020</h2>
+		<div class="nov-slider">
+			<span class="nov-sl-btn nov-left"><i class="fa fa-chevron-left"></i></span>
+			<div class="nov-slider-window">
+				<div class="nov-slides-list">
+					<li class="nov-slide" style="background-image: url(static/img/novations-1.png)">
+						<div class="nov-text-wrap">
+							<div class="nov-slide-text">
+								<h3 class="nov-title">ЯК ВИКОРИСТОВУВАТИ
+								CUBE NOTE? 1</h3>
+								<div class="nov-desc">Компанія ALPINION випустила програму
+								"CUBE NOTE" для всіх батьків.</div>
+							</div>
+						</div>
+					</li>
+					<li class="nov-slide" style="background-image: url(static/img/novations-2.png)">
+						<div class="nov-text-wrap">
+							<div class="nov-slide-text">
+								<h3 class="nov-title">ЯК ВИКОРИСТОВУВАТИ
+								CUBE NOTE? 2</h3>
+								<div class="nov-desc">Компанія ALPINION випустила програму
+								"CUBE NOTE" для всіх батьків.</div>
+							</div>
+						</div>
+					</li>
+				</div>
+			</div>
+			<span class="nov-sl-btn nov-right"><i class="fa fa-chevron-right"></i></span>
+		</div>
+	</section>
+
+	<section class="form-sec">
+		<div class="form-bg"></div>
+		<span class="form-title">Потрібна допомога у виборі? Напишіть нам і ми з Вами зв'яжемось</span>
+		<form class="contact-form" method="POST" action="">
+			<input type="text" id="name" placeholder="Ваше ім'я">
+			<input type="tel" id="phone" placeholder="Ваш телефон">
+			<input type="email" id="email" placeholder="Ваше email">
+			<textarea id="message" placeholder="Ваше повідомлення"></textarea>
+			<input type="button" value="Відправити" id="send">
+		</form>
+	</section>
+
 	<section class="footer-sec">
 		<footer class="footer">
 			<div class="logo-footer">
@@ -348,4 +462,5 @@
 		</footer>
 	</section>
 </body>
+<script type="text/javascript" src="static/js/player.js"></script>
 </html>

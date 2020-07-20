@@ -6,10 +6,10 @@
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #000;
-	color: gainsboro;
+	background: #f7f1f1;
+	color: #404040;
 	font-family: 'Nunito';
-	font-weight: 400;
+	font-weight: 600;
 	padding: 0 1em 0 3em;
 	z-index: 10;
 }
@@ -43,10 +43,10 @@
 	transition: 0.3s color;
 }
 .main-menu a {
-	color: gainsboro;
+	color: #404040;
 }
 .main-menu li:hover {
-	color: #fff;
+	color: #8e0000;
 }
 .secondary-menu {
 	display: flex;
@@ -80,20 +80,20 @@
 	background-position: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
-	background-color: gainsboro;
+	background-color: #404040;
 	border-radius: 50%;
 	transition: 0.3s background-color;
 }
 .sec-icon:hover {
-	background-color: #fff;
+	background-color: #8e0000;
 }
 .phone-num .sec-icon {
 	transform-origin: center;
 	transition: 0.4s transform;
-	background-image: url(../img/phone-2.png);
+	background-image: url(../img/phone-1.png);
 }
 .lang-menu .sec-icon {
-	background-image: url(../img/lang-2.png);
+	background-image: url(../img/lang-1.png);
 }
 .top-tip {
 	width: 0.6em;
@@ -193,9 +193,9 @@
 	padding-left: 1em;
 	margin-bottom: 0.8em;
 	font-size: 1.1em;
-	color: #fff;
-	background-color: #000;
-	font-weight: 200;
+	color: #404040;
+	background-color: #f7f1f1;
+	font-weight: 400;
 }
 .categories a {
 	text-decoration: none;
@@ -216,9 +216,9 @@
 	color: #000;
 }
 .categories li:hover {
-	background-color: #000;
-	font-weight: 200;
-	color: #fff;
+	background-color: #f7f1f1;
+	font-weight: 400;
+	color: #404040;
 }
 .categories li:hover > i {
 	color: #8e0000;
@@ -249,10 +249,10 @@
 	transition: 0.3s color;
 }
 .close-menu:hover {
-	background-color: #000;
+	background-color: #f7f1f1;
 }
 .close-menu:hover > i {
-	color: #fff;
+	color: #8e0000;
 }
 .transparent-layer {
 	display: none;
@@ -275,7 +275,7 @@
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-around;
-	background-color: #000;
+	background-color: #f7f1f1;
 	padding-right: 4em;
 }
 .logo-footer {
@@ -295,7 +295,7 @@
 }
 .copyright {
 	font-family: 'Nunito';
-	color: gainsboro;
+	color: #404040;
 	font-size: 0.9em;
 	font-weight: 400;
 }
@@ -305,15 +305,15 @@
 	flex-flow: column;
 	justify-content: space-around;
 	font-family: 'Nunito';
-	color: gainsboro;
-	font-weight: 400;
+	color: #404040;
+	font-weight: 600;
 }
 .contact {
 	list-style: none;
 }
 .contact h3 {
 	font-size: 1em;
-	color: #fff;
+	color: #404040;
 }
 .useful-links {
 	height: 10em;
@@ -334,7 +334,7 @@
 .links a {
 	font-family: 'Nunito';
 	font-size: 1.1em;
-	color: #fff;
+	color: #404040;
 	font-weight: 600;
 }
 .links a:hover {
@@ -348,7 +348,7 @@
 }
 .soc-net i {
 	font-size: 1.8em;
-	color: gainsboro;
+	color: #404040;
 	transition: 0.3s color;
 }
 .soc-net i:hover {

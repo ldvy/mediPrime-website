@@ -35,7 +35,6 @@ $(document).ready(function(){
 	$('.brand-slides').css('width', `${slider_width}px`);
 
 	let max_margin = Math.round($('.brand-slider-window').width() - $('.brand-slides').width()) + 1;
-	console.log(slide_width, max_margin);
 
 	let brand_margin = 0;
 	function nextSlideBrand(prev = false){
@@ -59,6 +58,51 @@ $(document).ready(function(){
 
 	$('.left').on('click', function(){nextSlideBrand(true);});
 	$('.right').on('click', function(){nextSlideBrand(false);});
+
+	//novation slider
+	let nov_slide_width = $('.nov-slide').outerWidth(true);
+	let nov_sl_num = $('.nov-slide').length;
+	let nov_slider_width = nov_slide_width * nov_sl_num;
+	$('.nov-slides-list').css('width', `${nov_slider_width}px`); 
+	let nov_max_margin = Math.round($('.nov-slider-window').width() - $('.nov-slides-list').width()) + 1;
+
+	let nov_margin = 0;
+	let nov_cur_slide = 0;
+	let nov_texts = $('.nov-text-wrap');
+	setTimeout(function(){$(nov_texts[nov_cur_slide]).fadeIn();}, 600);
+
+	function nextSlideNov(prev = false){
+		$(nov_texts[nov_cur_slide]).fadeOut();
+		if(prev && nov_margin == 0){
+			nov_margin = 0;
+			nov_cur_slide = 0;
+		}else if(nov_margin > nov_max_margin){
+			nov_margin = prev ? nov_margin + nov_slide_width : nov_margin - nov_slide_width;
+			nov_cur_slide = prev ? nov_cur_slide - 1 : nov_cur_slide + 1;
+		}else {
+			nov_margin = 0;
+			nov_cur_slide = 0;
+		}
+		setTimeout(function(){$('.nov-slides-list').css('margin-left', `${nov_margin}px`);}, 400);
+		setTimeout(function(){$(nov_texts[nov_cur_slide]).fadeIn();}, 1000);
+	}
+
+	// let nov_interval = setInterval(nextSlideNov, 4000);
+
+	// $('.nov-slider-window').hover(function(){
+	// 	clearInterval(nov_interval);
+	// }, function(){
+	// 	nov_interval = setInterval(nextSlideNov, 4000);
+	// });
+
+	// $('.nov-sl-btn').hover(function(){
+	// 	clearInterval(nov_interval);
+	// }, function(){
+	// 	nov_interval = setInterval(nextSlideNov, 4000);
+	// });
+
+	$('.nov-left').on('click', function(){nextSlideNov(true);});
+	$('.nov-right').on('click', function(){nextSlideNov(false);});
 
 	//main slider
 	let main_slides = $('.slide-wrap');	

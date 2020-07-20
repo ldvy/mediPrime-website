@@ -60,7 +60,7 @@ body {
 	flex-flow: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #000;
+	background-color: #f7f1f1;
 	font-family: 'Nunito';
 	color: #8e0000;
 }
@@ -80,11 +80,12 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #000;
+	background-color: #f7f1f1;
 	padding: 0 0.5em 0 1em;
 }
 .news-title div {
-	color: #fff;
+	color: #444;
+	font-weight: 700;
 	font-family: 'Nunito';
 	font-size: 1.1em;
 	text-transform: uppercase;
@@ -98,7 +99,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 1.5em;
-	border: 1px solid #000;
+	border: 2px solid #f7f1f1;
 }
 .news-short-text p {
 	font-family: 'Nunito';
@@ -108,18 +109,39 @@ body {
 	line-height: 1.6em;
 }
 .news-more {
+	position: relative;
+	border: 1px solid #444;
+	transition: 0.3s border, 0.3s color;
+}
+.news-more span {
+	position: relative;
+	display: flex;
 	font-family: 'Nunito';
 	font-size: 1.1em;
-	color: #000;
+	color: #444;
 	font-weight: 600;
 	text-transform: uppercase;
 	padding: 0.5em 1em 0.5em 1em;
-	border: 1px solid #000;
-	transition: 0.4s border, 0.4s color;
+	z-index: 1;
+	transition: 0.3s;
+}
+.news-more::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #8e0000;
+	transform: scaleX(0);
+	transition: 0.3s transform;
 }
 .news-more:hover {
 	border: 1px solid #8e0000;
-	color: #8e0000;
+}
+.news-more:hover span {
+	color: #fff;
+}
+.news-more:hover::before {
+	transform: scaleX(1);
 }
 .news-pages {
 	display: flex;

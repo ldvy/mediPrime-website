@@ -29,6 +29,7 @@ body {
 	padding-right: 0.5em;
 }
 .items-grid {
+	margin-top: 1em;
 	width: 100vw;
 	padding: 0 2vw 0 2vw;
 	display: grid;
@@ -47,14 +48,15 @@ body {
 	max-width: 100%;
 	height: auto;
 	max-height: 100%;
-	border: 1px solid #000;
+	border: 2px solid #f7f1f1;
+	border-right: none;
 }
 .item-info {
 	display: flex;
 	flex-flow: column;
 	width: 50%;
 	height: inherit;
-	background-color: #000;
+	background-color: #f7f1f1;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.5em;
@@ -62,8 +64,26 @@ body {
 .item-model {
 	font-family: 'Nunito';
 	font-size: 1.2em;
-	font-weight: 400;
-	color: #fff;
+	font-weight: 600;
+	color: #444;
+}
+.item-info ul {
+	height: 5em;
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-start;
+}
+.item-info ul li {
+	list-style: circle;
+	font-family: 'Nunito';
+	font-size: 1em;
+	color: #444;
+	width: 100%;
+	font-weight: 600;
+	margin-top: 0.3em;
+}
+.item-info b {
+	padding-right: 0.3em;
 }
 .item-more {
 	display: flex;
@@ -73,9 +93,10 @@ body {
 	justify-content: center;
 	font-family: 'Nunito';
 	font-size: 1.1em;
-	color: #fff;
+	font-weight: 600;
+	color: #444;
 	text-transform: uppercase;
-	border: 1px solid #fff;
+	border: 1px solid #444;
 	transition: 0.3s border;
 }
 .item-more:hover {
