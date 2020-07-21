@@ -1,6 +1,13 @@
 "use strict";
 $(document).ready(function(){
 
+	//mobile menu
+	$('.mobile-menu-btn').on('click', function(){
+		$('.main-menu').toggleClass('main-menu-active');
+		$('.mobile-menu-btn i').toggleClass('fa-bars');
+		$('.mobile-menu-btn i').toggleClass('fa-times');
+	});
+
 	//drop windows for language and phone
 	$('.sec-icon').on('click', function(){
 		$(this).parent().children('div').toggleClass('drop-show');
