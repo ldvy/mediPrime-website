@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-20 21:10+0300\n"
+"POT-Creation-Date: 2020-07-23 16:43+0300\n"
 "PO-Revision-Date: 2020-07-07 12:30+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -224,14 +224,15 @@ msgid "Product pictures"
 msgstr "Фото продуктов"
 
 #: app/admin_panel/views.py:40 app/admin_panel/views.py:69
+#: app/admin_panel/views.py:181
 msgid "Description"
 msgstr "Описание"
 
-#: app/admin_panel/views.py:40
+#: app/admin_panel/views.py:40 app/admin_panel/views.py:181
 msgid "Description ru"
 msgstr "Описание ру"
 
-#: app/admin_panel/views.py:41
+#: app/admin_panel/views.py:41 app/admin_panel/views.py:182
 msgid "Description uk"
 msgstr "Описание укр"
 
@@ -254,6 +255,10 @@ msgstr "Бренд ру"
 #: app/admin_panel/views.py:43
 msgid "Brand uk"
 msgstr "Бренд укр"
+
+#: app/admin_panel/views.py:44
+msgid "video_link"
+msgstr "Ссылка на видео"
 
 #: app/admin_panel/views.py:68
 msgid "Name of the model"
@@ -295,33 +300,33 @@ msgstr "Секция"
 msgid "bg_image"
 msgstr "Фон"
 
-#: app/admin_panel/views.py:148 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:148 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title"
 msgstr "Заголовок"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title_ru"
 msgstr "Заголовок ру"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title_uk"
 msgstr "Заголовок укр"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text"
 msgstr "Текст"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text_ru"
 msgstr "Текст ру"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text_uk"
 msgstr "Текст укр"
 
@@ -333,47 +338,59 @@ msgstr "сылка"
 msgid "slide_order_number"
 msgstr "Номер слайда в очереди"
 
-#: app/admin_panel/views.py:161 app/admin_panel/views.py:192
+#: app/admin_panel/views.py:161 app/admin_panel/views.py:195
 msgid "Background image"
 msgstr "Фоновая картинка"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:182
+msgid "short description"
+msgstr "Краткое описание"
+
+#: app/admin_panel/views.py:183
+msgid "short description ru"
+msgstr "Краткое описание ру"
+
+#: app/admin_panel/views.py:183
+msgid "short description uk"
+msgstr "Краткое описание укр"
+
+#: app/admin_panel/views.py:184
 msgid "country"
 msgstr "Страна"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:184
 msgid "country_ru"
 msgstr "Страна ру"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:184
 msgid "country_uk"
 msgstr "Страна укр"
 
-#: app/admin_panel/views.py:182
+#: app/admin_panel/views.py:185
 msgid "brand_website"
 msgstr "Вебсайт бренда"
 
-#: app/admin_panel/views.py:182
+#: app/admin_panel/views.py:185
 msgid "logo"
 msgstr "Логотип"
 
-#: app/admin_panel/views.py:210
+#: app/admin_panel/views.py:213
 msgid "icon"
 msgstr "Иконка"
 
-#: app/admin_panel/views.py:220
+#: app/admin_panel/views.py:223
 msgid "Icon"
 msgstr "Иконка"
 
-#: app/admin_panel/views.py:230
+#: app/admin_panel/views.py:233
 msgid "pub_date"
 msgstr "Дата публикации"
 
-#: app/admin_panel/views.py:230
+#: app/admin_panel/views.py:233
 msgid "preview_image"
 msgstr "Превью картинка"
 
-#: app/admin_panel/views.py:237
+#: app/admin_panel/views.py:240
 msgid "Preview imgage"
 msgstr "Превью картинка"
 
@@ -410,4 +427,3 @@ msgstr "Войти"
 #: app/templates/admin/master.html:46
 msgid "Log out"
 msgstr "Выйти"
-

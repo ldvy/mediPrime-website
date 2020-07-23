@@ -1,5 +1,6 @@
 from app import db
 from sqlalchemy.dialects.postgresql import JSON, ARRAY
+from sqlalchemy_utils.types import URLType
 
 
 """
@@ -54,6 +55,7 @@ class Model(db.Model):
     brand = db.Column('Brand', db.String(80))
     brand_ru = db.Column('Brand RU', db.String(80))
     brand_uk = db.Column('Brand UK', db.String(80))
+    video_link = db.Column('Video link', URLType)
 
 
     def __repr__(self):

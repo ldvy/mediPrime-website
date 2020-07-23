@@ -41,7 +41,7 @@ class ImageView(MyModelView):
         description_uk=_l('Description uk'), country=_l('Country'),
         country_ru=_l('Country ru'), country_uk=_l('Country uk'),
         brand=_l('Brand'), brand_ru=_l('Brand ru'), brand_uk=_l('Brand uk'),
-        category=_l('Category'))
+        category=_l('Category'), video_link=_l('video_link'))
 
     # For displaing on main page | Prettifying
     column_formatters = {
@@ -53,7 +53,7 @@ class ImageView(MyModelView):
     form_create_rules  = ('model_name', 'model_name_ru', 'model_name_uk',
             'logo', 'product_picture', 'description', 'description_ru',
             'description_uk', 'country', 'country_ru', 'country_uk',
-            'brand', 'brand_ru', 'brand_uk', 'category')
+            'brand', 'brand_ru', 'brand_uk', 'category', 'video_link')
 
     # Overriding build-in fields with own
     form_extra_fields = {
@@ -178,6 +178,9 @@ class BrandView(MyModelView):
                     filename=f"images/{form.thumbgen_filename(model.logo)}"))
 
     column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'),
+        description=_l('Description'), description_ru=_l('Description ru'),
+        description_uk=_l('Description uk'), short_description=_l('short description'),
+        short_description_ru=_l('short description ru'), short_description_uk=_l('short description uk'),
         country=_l('country'), country_ru=_l('country_ru'), country_uk=_l('country_uk'),
         brand_website=_l('brand_website'), logo=_l('logo'))
 

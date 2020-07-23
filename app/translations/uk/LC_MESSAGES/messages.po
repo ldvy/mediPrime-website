@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-20 21:10+0300\n"
+"POT-Creation-Date: 2020-07-23 16:43+0300\n"
 "PO-Revision-Date: 2020-07-07 12:34+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -224,14 +224,15 @@ msgid "Product pictures"
 msgstr "Картинки продукта"
 
 #: app/admin_panel/views.py:40 app/admin_panel/views.py:69
+#: app/admin_panel/views.py:181
 msgid "Description"
 msgstr "Опис"
 
-#: app/admin_panel/views.py:40
+#: app/admin_panel/views.py:40 app/admin_panel/views.py:181
 msgid "Description ru"
 msgstr "Опис ру"
 
-#: app/admin_panel/views.py:41
+#: app/admin_panel/views.py:41 app/admin_panel/views.py:182
 msgid "Description uk"
 msgstr "Опис укр"
 
@@ -254,6 +255,10 @@ msgstr "Бренд ру"
 #: app/admin_panel/views.py:43
 msgid "Brand uk"
 msgstr "Бренд укр"
+
+#: app/admin_panel/views.py:44
+msgid "video_link"
+msgstr "Силка на відео"
 
 #: app/admin_panel/views.py:68
 msgid "Name of the model"
@@ -295,33 +300,33 @@ msgstr "Секція"
 msgid "bg_image"
 msgstr "Фонова картинка"
 
-#: app/admin_panel/views.py:148 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:148 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title"
 msgstr "Заголовок"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title_ru"
 msgstr "Заголовок ру"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:209
-#: app/admin_panel/views.py:229
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
+#: app/admin_panel/views.py:232
 msgid "title_uk"
 msgstr "Заголовок укр"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text"
 msgstr "Текст"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text_ru"
 msgstr "Текст ру"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:210
-#: app/admin_panel/views.py:231
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
+#: app/admin_panel/views.py:234
 msgid "text_uk"
 msgstr "Текст укр"
 
@@ -333,47 +338,59 @@ msgstr "силка"
 msgid "slide_order_number"
 msgstr "Номер слайду в черзі"
 
-#: app/admin_panel/views.py:161 app/admin_panel/views.py:192
+#: app/admin_panel/views.py:161 app/admin_panel/views.py:195
 msgid "Background image"
 msgstr "Фонова картинка"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:182
+msgid "short description"
+msgstr "Короткий опис"
+
+#: app/admin_panel/views.py:183
+msgid "short description ru"
+msgstr "Короткий опис ру"
+
+#: app/admin_panel/views.py:183
+msgid "short description uk"
+msgstr "Короткий опис укр"
+
+#: app/admin_panel/views.py:184
 msgid "country"
 msgstr "Країна"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:184
 msgid "country_ru"
 msgstr "Країна ру"
 
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:184
 msgid "country_uk"
 msgstr "Країна укр"
 
-#: app/admin_panel/views.py:182
+#: app/admin_panel/views.py:185
 msgid "brand_website"
 msgstr "Вебсайт бренда"
 
-#: app/admin_panel/views.py:182
+#: app/admin_panel/views.py:185
 msgid "logo"
 msgstr "Логотип"
 
-#: app/admin_panel/views.py:210
+#: app/admin_panel/views.py:213
 msgid "icon"
 msgstr "Іконка"
 
-#: app/admin_panel/views.py:220
+#: app/admin_panel/views.py:223
 msgid "Icon"
 msgstr "Іконка"
 
-#: app/admin_panel/views.py:230
+#: app/admin_panel/views.py:233
 msgid "pub_date"
 msgstr "Дата публікації"
 
-#: app/admin_panel/views.py:230
+#: app/admin_panel/views.py:233
 msgid "preview_image"
 msgstr "Прев'ю картинка"
 
-#: app/admin_panel/views.py:237
+#: app/admin_panel/views.py:240
 msgid "Preview imgage"
 msgstr "Прев'ю картинка"
 
@@ -438,4 +455,13 @@ msgstr "Вийти"
 #~ msgstr ""
 
 #~ msgid "Brand uk"
+#~ msgstr ""
+
+#~ msgid "description"
+#~ msgstr ""
+
+#~ msgid "description ru"
+#~ msgstr ""
+
+#~ msgid "description uk"
 #~ msgstr ""
