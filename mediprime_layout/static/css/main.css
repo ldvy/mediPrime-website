@@ -407,6 +407,9 @@ body {
 	background-color: #8e0000;
 	left: -2em;
 }
+.controls {
+	margin-left: 8px;
+}
 .news-sec {
 	margin-top: 3em;
 }
@@ -422,7 +425,7 @@ body {
 	align-items: flex-end;
 	height: 14em;
 	background-position: center;
-	background-size: 100%;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 .news-header {
@@ -534,7 +537,6 @@ body {
 	margin-left: -1em;
 }
 .nov-slides-list {
-	width: 160vw;
 	height: inherit;
 	display: flex;
 	flex-flow: row;
@@ -679,4 +681,252 @@ body {
 	color: #fff;
 	background-color: #8e0000;
 	border-color: #8e0000;
+}
+.video_container {
+	height: 43vw !important;
+}
+@media only screen and (max-width: 1200px){
+	.cat-block {
+		height: 15em;
+	}
+}
+@media only screen and (max-width: 1090px){
+	.cat-block {
+		height: 13em;
+	}
+	.pros {
+		height: 16em;
+	}
+	.news-list {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.nov-slide-text {
+		width: 50vw;
+		left: 25%;
+	}
+}
+@media only screen and (max-width: 950px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.pros{
+		width: 50%;
+		padding: 2em;
+	}
+	.pros:nth-child(3){
+		background-color: #f7f1f1;
+		color: #404040;
+	}
+	.pros:nth-child(4){
+		background-color: #fff;
+		color: #000;
+		border-top: 0.1vh solid #f7f1f1;
+		border-bottom: 0.1vh solid #f7f1f1;
+	}
+	.reasons-list {
+		width: 95vw;
+	}
+	.nov-slider-window {
+		width: 85vw;
+	}
+	.nov-slide-text {
+		width: 60vw;
+		left: 20%;
+	}
+	.nov-slide {
+		width: 85vw;
+	}
+}
+@media only screen and (max-width: 900px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.cats-sec {
+		height: 36em;
+	}
+	.cat-block {
+		height: 17em;
+		width: 45vw;
+		margin-bottom: 2em;
+	}
+	.info-graph {
+		width: 32%;
+		margin-bottom: 1em;
+	}
+	.news-list {
+		grid-template-columns: 1fr 1fr;
+	}
+	.news-item {
+		height: 18em;
+	}
+	.news-header {
+		height: 9em;
+	}
+	.form-sec {
+		flex-flow: column wrap;
+		height: 27em;
+	}
+	.contact-form {
+		width: 70vw;
+		margin: 2em auto 0 auto;
+	}
+	.form-title {
+		width: 70vw;
+	}
+}
+@media only screen and (max-width: 830px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.slide-img {
+		min-width: 100%;
+		min-height: 70%;
+	}
+	.slide-text {
+		width: 100%;
+		height: 30%;
+		flex-flow: row wrap;
+	}
+	.slide-text span {
+		width: 70%;
+	}
+	.brand-slide {
+		width: 26vw;
+	}
+}
+@media only screen and (max-width: 700px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.slider-sec {
+		height: 45em;
+	}
+	.main-slider {
+		height: 35em;
+	}
+	.cat-block {
+		width: 90vw;
+		height: 20em;
+	}
+	.cats-sec {
+		height: 65em;
+	}
+	.brand-slide {
+		width: 41vw;
+	}
+	.info-graph {
+		width: 45%;
+	}
+	.reasons-list {
+		width: 100vw;
+		height: 43em;
+	}
+	.reason {
+		height: 13em;
+	}
+	.video-title-big {
+		font-size: 1.7em;
+	}
+	.video-title-small {
+		font-size: 1.4em;
+	}
+	.video_container {
+		height: 24em !important;
+	}
+	.nov-slide-text {
+		width: 83%;
+		left: 8.5%;
+	}
+	.form-title {
+		width: 100vw;
+	}
+}
+@media 
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3)
+{
+	.slider-sec {
+		padding-top: 8em !important;
+	}
+	.slider-sec {
+		height: 47em;
+	}
+	.more-btn {
+		font-size: 1.3em;
+		font-weight: 900;
+	}
+	.slider-btns li {
+		width: 1.7em;
+		height: 1.7em;
+	}
+	.cat-title {
+		font-size: 2em;
+		border: 0.1em solid #fff;
+	}
+	.brand-desc {
+		font-size: 1.3em;
+		padding: 1em;
+	}
+	.pros {
+		height: 20em;
+	}
+	.pros-title {
+		font-size: 1.7em;
+	}
+	.pros-text {
+		font-size: 1.3em;
+	}
+	.pros-icon {
+		font-size: 3.5em;
+	}
+	.reasons-list {
+		padding: 0;
+		height: 52em;
+	}
+	.reason {
+		height: 16em;
+	}
+	.reason-text {
+		font-size: 1.35em;
+	}
+	.reason-icon {
+		height: 2.5em;
+		width: 2.5em;
+	}
+	.nov-slide-text {
+		height: 20em;
+	}
+	.nov-title {
+		font-size: 2em;
+	}
+	.nov-desc {
+		font-size: 1.5em;
+	}
+	.info-graph-icon {
+		font-size: 1.4em;
+	}
+	.form-sec {
+		height: 38em;
+	}
+	.form-title {
+		height: 7em;
+		font-size: 1.7em;
+		padding-left: 1em;
+	}
+	.contact-form input, textarea {
+		font-size: 1.4em;
+	}
+	.contact-form {
+		width: 100vw;
+		justify-content: center;
+	}
+	#send {
+		font-size: 1.5em;
+		border-width: 0.1em;
+	}
 }

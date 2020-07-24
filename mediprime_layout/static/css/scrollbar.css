@@ -28,8 +28,26 @@
 .reagent-desc::-moz-scrollbar-track-piece { display: none;}
 .reagent-desc::-moz-scrollbar-thumb { height: 20px; background-color: #888;}
 
-.reagent-desc::-ms-scrollbar { width: 5px; height: 10px;}
-.reagent-desc::-ms-scrollbar-button {  display: none; }
-.reagent-desc::-ms-scrollbar-track {  background-color: transparent; padding-left: 1px;}
-.reagent-desc::-ms-scrollbar-track-piece { display: none;}
-.reagent-desc::-ms-scrollbar-thumb { height: 20px; background-color: #888;}
+.brand-desc::-ms-scrollbar { width: 5px; height: 10px;}
+.brand-desc::-ms-scrollbar-button {  display: none; }
+.brand-desc::-ms-scrollbar-track {  background-color: transparent; padding-left: 1px;}
+.brand-desc::-ms-scrollbar-track-piece { display: none;}
+.brand-desc::-ms-scrollbar-thumb { height: 20px; background-color: #888;}
+
+.brand-desc::-webkit-scrollbar { width: 5px; height: 10px;}
+.brand-desc::-webkit-scrollbar-button {  display: none; }
+.brand-desc::-webkit-scrollbar-track {  background-color: transparent; padding-left: 1px;}
+.brand-desc::-webkit-scrollbar-track-piece { display: none;}
+.brand-desc::-webkit-scrollbar-thumb { height: 20px; background-color: #888;}
+
+.brand-desc::-moz-scrollbar { width: 5px; height: 10px;}
+.brand-desc::-moz-scrollbar-button {  display: none; }
+.brand-desc::-moz-scrollbar-track {  background-color: transparent; padding-left: 1px;}
+.brand-desc::-moz-scrollbar-track-piece { display: none;}
+.brand-desc::-moz-scrollbar-thumb { height: 20px; background-color: #888;}
+
+.brand-desc::-ms-scrollbar { width: 5px; height: 10px;}
+.brand-desc::-ms-scrollbar-button {  display: none; }
+.brand-desc::-ms-scrollbar-track {  background-color: transparent; padding-left: 1px;}
+.brand-desc::-ms-scrollbar-track-piece { display: none;}
+.brand-desc::-ms-scrollbar-thumb { height: 20px; background-color: #888;}

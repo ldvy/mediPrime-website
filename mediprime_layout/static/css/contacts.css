@@ -162,3 +162,78 @@ body {
 .footer-sec {
 	margin-top: 0;
 }
+@media only screen and (max-width: 1050px) {
+	.contacts-sec {
+		padding: 0 1em;
+	}
+	.contacts-info, .contacts-form {
+		width: 45vw;
+	}
+}
+@media only screen and (max-width: 870px) {
+	.contacts-info, .contacts-form {
+		width: 60vw;
+	}
+	.contacts-form {
+		margin-top: 3em;
+	}
+	.contacts-map .contacts-title {
+		left: 45%;
+	}
+}
+@media only screen and (max-width: 670px),
+{
+	.contacts-info, .contacts-form {
+		width: 80vw;
+	}
+	.contacts-form {
+		margin-top: 3em;
+	}
+	.contacts-map .contacts-title {
+		left: 55%;
+	}
+}
+@media only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{	
+	.breadcrums-sec {
+		padding-top: 7em;
+	}
+	.breadcrums-sec li a {
+		font-size: 1.3em;
+	}
+	.main-header {
+		margin-top: -2px;
+	}
+	.main-menu {
+		top: 5.95em;
+	}
+	.contacts-info, .contacts-form {
+		width: 90vw;
+		height: 24em;
+	}
+	.contacts-form {
+		margin-top: 3em;
+		padding-top: 5em;
+	}
+	.contacts-map .contacts-title {
+		left: 41%;
+	}
+	.contacts-title {
+		font-size: 1.4em;
+		font-weight: 900;
+	}
+	.contacts-list li {
+		font-size: 1.2em;
+	}
+	.contacts-list {
+		padding-top: 3em;
+	}
+	#send {
+		font-size: 1.2em;
+	}
+	.form-input, .form-message {
+		font-size: 1.2em;
+	}
+}

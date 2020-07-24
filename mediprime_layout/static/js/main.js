@@ -60,7 +60,7 @@ $(document).ready(function(){
 	$('.right').on('click', function(){nextSlideBrand(false);});
 
 	//novation slider
-	let nov_slide_width = $('.nov-slide').outerWidth(true);
+	let nov_slide_width = $('.nov-slider-window').outerWidth(true);
 	let nov_sl_num = $('.nov-slide').length;
 	let nov_slider_width = nov_slide_width * nov_sl_num;
 	$('.nov-slides-list').css('width', `${nov_slider_width}px`); 

@@ -66,9 +66,10 @@ body {
 	font-size: 1.2em;
 	font-weight: 600;
 	color: #444;
+	max-height: 3em;
+	overflow: hidden;
 }
 .item-info ul {
-	height: 5em;
 	display: flex;
 	flex-flow: column;
 	justify-content: flex-start;
@@ -101,4 +102,81 @@ body {
 }
 .item-more:hover {
 	border: 2px solid #8e0000;
+}
+@media only screen and (max-width: 1320px)
+{
+	.items-grid {
+		width: 80vw;
+		margin-left: auto;
+		margin-right: auto;
+		grid-template-columns: 1fr 1fr;
+	}
+	.item-block {
+		height: 16em;
+	}
+}
+@media only screen and (max-width: 1200px)
+{
+	.items-grid {
+		width: 90vw;
+	}
+}
+@media only screen and (max-width: 1050px)
+{
+	.items-grid {
+		width: 100vw;
+	}
+}
+@media only screen and (max-width: 935px)
+{
+	.items-grid {
+		grid-template-columns: 1fr;
+		width: 80vw;
+	}
+}
+@media only screen and (max-width: 580px)
+{
+	.items-grid {
+		width: 100vw;
+	}
+}
+@media 
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.items-title {
+		font-size: 2.5em;
+		padding-left: 0.5em;
+	}
+	.breadcrums-sec {
+		padding-top: 6.5em;
+	}
+	.breadcrums-sec li a {
+		font-size: 1.3em;
+	}
+	.items-grid {
+		grid-template-columns: 1fr;
+		width: 100vw;
+	}
+	.item-block {
+		height: 20em;
+	}
+	.item-model {
+		font-size: 1.65em;
+	}
+	.item-info ul li {
+		font-size: 1.35em;
+	}
+	.item-more {
+		font-size: 1.3em;
+		border-width: 0.1em;
+		font-weight: 900;
+	}
+	.main-header {
+		margin-top: -2px;
+	}
+	.main-menu {
+		top: 5.95em;
+	}
 }

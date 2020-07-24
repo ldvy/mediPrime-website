@@ -108,3 +108,127 @@ thead {
 	font-size: 1.2em;
 	cursor: pointer;
 }
+@media only screen and (max-width: 1200px)
+{
+	.reagents-grid {
+		width: 95vw;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.reagent-block {
+		width: 27vw;
+		height: 20em;
+	}
+	.reagent-title {
+		height: 25%;
+	}
+}
+@media only screen and (max-width: 1120px)
+{
+	.reagents-grid {
+		width: 100vw;
+	}
+	.reagent-block {
+		width: 29vw;
+	}
+}
+@media only screen and (max-width: 970px)
+{
+	.reagents-grid {
+		width: 80vw;
+	}
+	.reagent-block {
+		width: 35vw;
+	}
+}
+@media only screen and (max-width: 870px)
+{
+	.reagents-grid {
+		width: 85vw;
+	}
+	.reagent-block {
+		width: 37vw;
+	}
+}
+@media only screen and (max-width: 820px)
+{
+	.reagents-grid {
+		width: 90vw;
+	}
+	.reagent-block {
+		width: 40vw;
+	}
+}
+@media only screen and (max-width: 750px)
+{
+	.reagents-grid {
+		width: 90vw;
+		justify-content: center;
+	}
+	.reagent-block {
+		width: 50vw;
+	}
+}
+@media only screen and (max-width: 580px)
+{
+	.reagents-grid {
+		width: 90vw;
+		justify-content: center;
+	}
+	.reagent-block {
+		width: 60vw;
+	}
+}
+@media 
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3)
+{	
+	.reagents-title {
+		font-size: 2.5em;
+		padding-left: 0.5em;
+	}
+	.breadcrums-sec {
+		padding-top: 7em;
+	}
+	.breadcrums-sec li a {
+		font-size: 1.3em;
+	}
+	.main-header {
+		margin-top: -2px;
+	}
+	.main-menu {
+		top: 5.95em;
+	}
+	.reagents-grid {
+		width: 90vw;
+		justify-content: center;
+	}
+	.reagent-block {
+		width: 80vw;
+		height: 26em;
+	}
+	.reagent-img {
+		min-height: 80%;
+	}
+	.reagent-title {
+		font-size: 1.35em;
+	}
+	.reagent-desc {
+		padding: 2.3em;
+	}
+	.reagent-desc li {
+		font-size: 1.4em;
+	}
+	.reagent-desc table {
+		width: 90%;
+		font-size: 1.4em;
+	}
+	.close-desc {
+		top: 1em;
+		right: 0.0.8em;
+	}
+	.close-desc i {
+		font-size: 1.8em;
+	}
+}

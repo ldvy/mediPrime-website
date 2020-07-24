@@ -1,3 +1,6 @@
+html {
+	font-size: 16px;
+}
 .nav-sec {
 	position: fixed;
 	width: 100vw;
@@ -417,5 +420,89 @@ only screen and (max-device-aspect-ratio: 2/3),
 	}
 	.mobile-menu-btn {
 		display: flex;
+	}
+}
+
+@media only screen and (max-width: 870px){
+	.footer {
+		height: 32em;
+		flex-flow: row-reverse wrap;
+	}
+}
+@media only screen and (max-width: 700px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3)
+{
+	.footer {
+		flex-flow: column-reverse;
+		height: 40em;
+		padding-right: 0;
+		align-items: center;
+	}
+	.product-menu {
+		flex-flow: column wrap;
+		align-items: center;
+	}
+	.sub-cat {
+		border: none;
+		margin-top: 1em;
+	}
+}
+@media 
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) {
+	html {
+		font-size: 26px;
+	}
+	.main-header {
+		margin-top: -1px;
+	}
+	.nav-sec {
+		height: 6em;
+	}
+	.main-menu {
+		top: 6em;
+	}
+	.product-menu {
+		top: 6em;
+	}
+	.main-menu li {
+		font-size: 1.5em;
+	}
+	.cat-header, .categories li {
+		font-size: 1.7em;
+		font-weight: 600;
+	}
+	.mobile-menu-btn i {
+		font-size: 2.8em;
+	}
+	.sec-icon {
+		width: 2.8em;
+		height: 2.8em;
+	}
+	.secondary-menu {
+		width: 15em;
+	}
+	.logo {
+		width: 14em;
+	}
+	.close-menu {
+		height: 3em;
+		width: 3em;
+		right: 2em;
+	}
+	.close-menu i {
+		font-size: 1.8em;
+	}
+	.categories {
+		width: 28em;
+	}
+	.footer {
+		font-size: 1.6em;
+	}
+	.secondary-menu li div {
+		font-size: 1.5em;
 	}
 }

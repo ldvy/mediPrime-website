@@ -37,7 +37,20 @@ $(document).ready(function(){
 	});
 
 	// animating product menu
-	let height_p = (3.3 + 1.5 * $('#products').children('.main-cat').children('li').length) * 1.1 + 1;
+	let em = parseInt($('html').css('font-size'));
+	let item_height = parseInt($('#products').children('.main-cat').children('li').css('font-size'));
+	let height_p, height_c;
+	if(
+		window.matchMedia("(max-device-aspect-ratio: 9/16)").matches ||
+		window.matchMedia("(max-device-aspect-ratio: 9/18)").matches ||
+		window.matchMedia("(max-device-aspect-ratio: 2/3)").matches
+	){
+		height_p = 4.5*em + $('#products').children('.main-cat').children('li').length * item_height * 1.5 + 2.5*em;
+		height_c = 4.5*em + $('#company').children('.main-cat').children('a').length * item_height * 1.5 + 2.5*em;
+	}else {
+		height_p = 4.5*em + $('#products').children('.main-cat').children('li').length * item_height * 1.5 + em;
+		height_c = 4.5*em + $('#company').children('.main-cat').children('a').length * item_height * 1.5 + em;
+	}
 	$('#prod-men').on('click', function(){
 		closeBigMenu($('#company'));
 		menu_c_shown = false;
@@ -56,7 +69,6 @@ $(document).ready(function(){
 	});
 	
 	// animating company menu
-	let height_c = (3.3 + 1.5 * $('#company').children('.main-cat').children('a').length) * 1.1 + 1;
 	$('#company-men').on('click', function(){
 		closeBigMenu($('#products'));
 		menu_p_shown = false;
@@ -73,7 +85,7 @@ $(document).ready(function(){
 
 	function openBigMenu(el, height, flag){
 		if(!flag){
-			$(el).children('.main-cat').animate({'height': `${height}em`}, 200);
+			$(el).children('.main-cat').animate({'height': `${height}px`}, 200);
 			$(el).css('padding', '2em 3em 2em 3em');
 			$(el).children('.bottom-line').css('display', 'flex');
 			setTimeout(function(){
