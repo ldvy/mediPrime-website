@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mediprime | Головна</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="static/css/scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="static/css/header.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/player.css">
+
+	<script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="static/js/main.js"></script>
+	<script type="text/javascript" src="static/js/header.js"></script>
+	<script type="text/javascript" src="static/js/form.js"></script>
+</head>
+<body>
+	<header class="main-header">
+		<div class="transparent-layer"></div>
+		<section class="nav-sec">
+			<a href="main.html"><div class="logo"></div></a>
+			<nav class="nav-bar">
+				<ul class="main-menu">
+					<a href="main.html"><li>Головна</li></a>
+					<li id="prod-men">Продукти</li>
+					<a><li>Сервісна підтримка</li></a>
+					<a><li id="company-men">Компанія</li></a>
+					<a href="contacts.html"><li>Контакти</li></a>
+				</ul>
+				<div class="product-menu" id="products">
+					<ul class="categories main-cat">
+						<span class="cat-header">Продукти</span>
+						<li id="cat-1">Діагностичне<i class="fa fa-chevron-right"></i></li>
+						<li id="cat-2">Лабораторне<i class="fa fa-chevron-right"></i></li>
+						<li id="cat-3">Інше медичне<i class="fa fa-chevron-right"></i></li>
+					</ul>
+					<ul class="categories sub-cat" id="sub-cat-1">
+						<span class="cat-header">Діагностичне</span>
+						<a href=""><li>УЗД системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Рентгендіагностичні системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>УЗД системи<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Рентгендіагностичні системи<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<ul class="categories sub-cat" id="sub-cat-2">
+						<span class="cat-header">Лабораторне</span>
+						<a href="reagents.html"><li>Реагенти<i class="fa fa-chevron-right"></i></li></a>
+						<a href=""><li>Біохімічні аналізатори<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<span class="bottom-line"></span>
+					<div class="close-menu" id="close-prod"><i class="fa fa-times"></i></div>
+				</div>
+
+				<div class="product-menu" id="company">
+					<ul class="categories main-cat">
+						<span class="cat-header">Компанія</span>
+						<a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
+						<a href="news.html"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
+						<a href="brands.html"><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
+						<a href="jobs.html"><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
+					</ul>
+					<span class="bottom-line"></span>
+					<div class="close-menu" id="close-comp"><i class="fa fa-times"></i></div>
+				</div>
+			</nav>
+			<ul class="secondary-menu">
+				<li class="phone-num">
+					<span class="sec-icon"></span>
+					<div class="drop-number">
+						<span class="top-tip"></span>
+						<a href="tel:+380992454428">
+						(+38)-099-245-44-28</a>
+				</div>
+				</li>
+				<li class="lang-menu">
+					<span class="sec-icon"></span>
+					<div class="drop-lang">
+						<span class="top-tip"></span>
+						<a href="">Українська</a>
+						<a href="">Російська</a>
+					</div>
+				</li>
+				<div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
+			</ul>
+		</section>
+		<section class="breadcrums-sec">
+			<li><a href="">Гoловна /</a></li>
+			<li><a href="">Продукти</a></li>
+		</section>
+	</header>
+	<section class="slider-sec">
+	<div class="main-slider">
+		<div class="slide-wrap sl-active" style="display: block;" id="sl1">
+			<div class="slide">
+				<div class="slide-img" style="background-image: url('static/img/news-1.png')"></div>
+				<div class="slide-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span><a href="" class="more-btn">Більше</a></div>
+			</div>
+		</div>
+		<div class="slide-wrap" id="sl2">
+			<div class="slide">
+				<div class="slide-img" style="background-image: url('static/img/news-2.png')"></div>
+				<div class="slide-text"><span>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</span><a href="" class="more-btn">Більше</a></div>
+			</div>
+		</div>
+		<div class="slide-wrap" id="sl3">
+			<div class="slide">
+				<div class="slide-img" style="background-image: url('static/img/news-5.png')"></div>
+				<div class="slide-text"><span>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</span><a href="" class="more-btn">Більше</a></div>
+			</div>
+		</div>
+	</div>
+	<div class="slider-btns">
+		<li class="active" id="btn1"></li>
+		<li id="btn2"></li>
+		<li id="btn3"></li>
+	</div>
+	</section>	
+
+	<section class="cats-sec">
+		<div class="cats-list">
+			<li class="cat-block" style="background-image: url(static/img/diag.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Діагностичне</a>
+			</li>
+			<li class="cat-block" style="background-image: url(static/img/lab.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Лабораторне</a>
+			</li>
+			<li class="cat-block" style="background-image: url(static/img/other.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Інше медичне</a>
+			</li>
+		</div>
+	</section>
+
+
+	<section class="brand-slider-sec">
+		<div class="brand-slider-wrap">
+			<i class="fa fa-caret-left slider-btn left"></i>
+			<div class="brand-slider-window">
+				<div class="brand-slides">
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/alpinion.jpg')"></div>
+						<div class="brand-desc">Ультразвукові діагностичні системи<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/alpinion.jpg')"></div>
+						<div class="brand-desc">Ультразвукові діагностичні системи<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/heine.png')"></div>
+						<div class="brand-desc">Діагностичні інструменти<a href="" class="more-btn">Більше</a></div>
+					</li>
+					<li class="brand-slide">
+						<div class="brand-logo" style="background-image: url('static/img/biosystem.jpg')"></div>
+						<div class="brand-desc">Обладнання та реагенти для лабораторії<a href="" class="more-btn">Більше</a></div>
+					</li>
+				</div>
+			</div>
+			<i class="fa fa-caret-right slider-btn right"></i>
+		</div>
+	</section>
+
+	<section class="pros-sec">
+		<div class="pros-list-title"><h1>Медіпрайм - це ...</h1></div>
+		<div class="pros-list">
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-diamond pros-icon"></i>
+					<h2 class="pros-title">Кращі виробники</h2>
+				</div>
+				<div class="pros-text">
+					Наша компанія є дистрибьютором товарів від найкращих світових виробників медичного обладнання.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-wrench pros-icon"></i>
+					<h2 class="pros-title">Сервіс та Гарантія</h2>
+				</div>
+				<div class="pros-text">
+					Ми надаємо якісну сервісну підтримку та ремонт та повну гарантію на свою техніку.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-truck pros-icon"></i>
+					<h2 class="pros-title">Повний комплекс</h2>
+				</div>
+				<div class="pros-text">
+					Реалізуємо повний комплекс логістичних послуг по ввезенню товару на територію України та доставки.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-graduation-cap pros-icon"></i>
+					<h2 class="pros-title">Професіоналізм</h2>
+				</div>
+				<div class="pros-text">
+					Наші співробітники - це справжні професіонали, що мають багатий досвід і завжди зможуть вам допомогти.
+				</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="info-graph-sec">
+		<div class="info-graph-list">
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-medkit info-graph-icon"></i>
+					<span class="info-graph-counter">55+</span>
+				</div>
+				<div class="info-graph-title">Видів обладнання</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-calendar-o info-graph-icon"></i>
+					<span class="info-graph-counter">5+</span>
+				</div>
+				<div class="info-graph-title">Років на ринку</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-handshake-o info-graph-icon"></i>
+					<span class="info-graph-counter">7+</span>
+				</div>
+				<div class="info-graph-title">Партнерів</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-users info-graph-icon"></i>
+					<span class="info-graph-counter">30+</span>
+				</div>
+				<div class="info-graph-title">Співробітників</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="whyus-sec">
+		<span class="whyus-title">Чому ми?</span>
+		<div class="reasons-list">
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви економите свій час, тому що
+				ми представляємо тільки передові
+				технології</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви захищені як споживач. Якість
+				наших послуг відповідає
+				міжнародним стандартам якості</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви отримуєте тільки найкраще.
+				Наші виробники здобули довіру
+				в усьому світі</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви не почуєте: «Абонент
+				недоступний». Ми на зв'язку 24/7</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви почуєте відповіді на всі свої
+				питання, тому що ми команда
+				професіоналів</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви впевнені в майбутньому.
+				Професійна підтримка, перевірена роками</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="video-sec">
+		<div class="video-title">
+			<span class="video-title-big">МИ - НОВИЙ ПОГЛЯД НА
+			МАЙБУТНЄ ОХОРОНИ ЗДОРОВ'Я</span>
+			<span class="video-title-small">постійне вдосконалення рішень,
+			відповідальне ставлення до дотримання
+			стандартів і вимог, відкритість до інновацій.</span>
+		</div>
+		<div class="video_wrap">
+			<div class="video_container">
+				<div class="paused_bg">
+					<button id="play"><i class="fa fa-play"></i></button>
+				</div>
+				<video class="video" src="static/videos/promo.mp4#t=1" type="video/mp4"></video>
+			</div>
+			<div class="controls">
+				<div class="time_bar">
+					<div class="bar_fill"></div>
+				</div>
+				<div class="buttons">
+					<button id="play_pause" class="play"><i class="fa fa-play"></i></button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="news-sec">
+		<div class="news-list">
+			<a href="news.html"><li class="news-item news-header">Новини</li></a>
+				<li class="news-item" style="background-image: url(static/img/news-6.jpg)">
+					<div class="news-date">
+						<span class="news-date-day">29</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href="" class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+	
+				<li class="news-item" style="background-image: url(static/img/news-1.png)">
+					<div class="news-date">
+						<span class="news-date-day">24</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href="" class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+			
+				<li class="news-item" style="background-image: url(static/img/news-2.png)">
+					<div class="news-date">
+						<span class="news-date-day">19</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href=""  class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+			
+				<li class="news-item" style="background-image: url(static/img/news-5.png)">
+					<div class="news-date">
+						<span class="news-date-day">16</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href=""  class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+			
+				<li class="news-item" style="background-image: url(static/img/news-1.png)">
+					<div class="news-date">
+						<span class="news-date-day">13</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href=""  class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+			
+				<li class="news-item" style="background-image: url(static/img/news-2.png)">
+					<div class="news-date">
+						<span class="news-date-day">10</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href=""  class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+			
+				<li class="news-item" style="background-image: url(static/img/news-6.jpg)">
+					<div class="news-date">
+						<span class="news-date-day">02</span>
+						<span class="news-date-month">червня</span>
+					</div>
+					<a href=""  class="news-title"><div>Заголовок новини на сайті</div></a>
+				</li>
+		
+		</div>
+	</section>
+
+	<section class="nov-sec">
+		<h2 class="nov-sec-title">новації 2020</h2>
+		<div class="nov-slider">
+			<span class="nov-sl-btn nov-left"><i class="fa fa-chevron-left"></i></span>
+			<div class="nov-slider-window">
+				<div class="nov-slides-list">
+					<li class="nov-slide" style="background-image: url(static/img/novations-1.png)">
+						<div class="nov-text-wrap">
+							<div class="nov-slide-text">
+								<h3 class="nov-title">ЯК ВИКОРИСТОВУВАТИ
+								CUBE NOTE? 1</h3>
+								<div class="nov-desc">Компанія ALPINION випустила програму
+								"CUBE NOTE" для всіх батьків.</div>
+							</div>
+						</div>
+					</li>
+					<li class="nov-slide" style="background-image: url(static/img/novations-2.png)">
+						<div class="nov-text-wrap">
+							<div class="nov-slide-text">
+								<h3 class="nov-title">ЯК ВИКОРИСТОВУВАТИ
+								CUBE NOTE? 2</h3>
+								<div class="nov-desc">Компанія ALPINION випустила програму
+								"CUBE NOTE" для всіх батьків.</div>
+							</div>
+						</div>
+					</li>
+				</div>
+			</div>
+			<span class="nov-sl-btn nov-right"><i class="fa fa-chevron-right"></i></span>
+		</div>
+	</section>
+
+	<section class="form-sec">
+		<div class="form-bg"></div>
+		<span class="form-title">Потрібна допомога у виборі? Напишіть нам і ми з Вами зв'яжемось</span>
+		<form class="contact-form" method="POST" action="">
+			<input type="text" id="name" placeholder="Ваше ім'я">
+			<input type="tel" id="phone" placeholder="Ваш телефон">
+			<input type="email" id="email" placeholder="Ваше email">
+			<textarea id="message" placeholder="Ваше повідомлення"></textarea>
+			<input type="button" value="Відправити" id="send">
+		</form>
+	</section>
+
+	<section class="footer-sec">
+		<footer class="footer">
+			<div class="logo-footer">
+				<span></span>
+				<p class="copyright">
+				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+				</p>
+			</div>
+			<div class="contacts-footer">
+				<li class="contact">
+					<h3>Адреса:</h3>вул. Либідська 17, офіс 7, Київ, 01033, Україна
+				</li>
+				<li class="contact">
+					<h3>Телефон:</h3>+38-097-575-70-20
+				</li>
+				<li class="contact">
+					<h3>Email:</h3>office@mediprime.com.ua
+				</li>
+			</div>
+			<div class="useful-links">
+				<ul class="links">
+					<li><a href="">Головна</a></li>
+					<li><a href="">Про нас</a></li>
+					<li><a href="">Новини</a></li>
+					<li><a href="">Сервісна підтримка</a></li>
+					<li><a href="">Контакти</a></li>
+				</ul>
+				<div class="soc-net">
+					<a href=""><i class="fa fa-facebook-square"></i></a>
+					<a href=""><i class="fa fa fa-youtube"></i></a>
+					<a href="mailto:"><i class="fa fa fa-envelope"></i></a>
+				</div>
+			</div>
+		</footer>
+	</section>
+</body>
+<script type="text/javascript" src="static/js/player.js"></script>
+</html>
