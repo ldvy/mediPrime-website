@@ -163,6 +163,11 @@ class HomeView(MyModelView):
                 }
 
 
+class NovationView(HomeView):
+    column_labels = dict(bg_image=_l('bg_image'), title=_l('title'),
+        title_ru=_l('title_ru'), title_uk=_l('title_uk'), text=_l('text'),
+        text_ru=_l('text_ru'), text_uk=_l('text_uk'))
+
 
 class BrandView(MyModelView):
 

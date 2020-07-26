@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-23 16:43+0300\n"
+"POT-Creation-Date: 2020-07-25 13:37+0300\n"
 "PO-Revision-Date: 2020-07-07 12:34+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -19,155 +19,160 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: app/admin_panel/__init__.py:23 app/templates/base.html:25
+#: app/admin_panel/__init__.py:22 app/admin_panel/__init__.py:80
+#: app/admin_panel/__init__.py:81 app/templates/base.html:25
 msgid "Home"
 msgstr "Головна"
 
-#: app/admin_panel/__init__.py:48
+#: app/admin_panel/__init__.py:47
 msgid "Home Page"
 msgstr "Головня сторінка"
 
-#: app/admin_panel/__init__.py:48
+#: app/admin_panel/__init__.py:47
 msgid "Links"
 msgstr "Силки"
 
-#: app/admin_panel/__init__.py:53 app/admin_panel/__init__.py:56
-#: app/admin_panel/views.py:180
+#: app/admin_panel/__init__.py:52 app/admin_panel/__init__.py:55
+#: app/admin_panel/views.py:185
 msgid "name"
 msgstr "Назва"
 
-#: app/admin_panel/__init__.py:53 app/admin_panel/__init__.py:56
-#: app/admin_panel/views.py:180
+#: app/admin_panel/__init__.py:52 app/admin_panel/__init__.py:55
+#: app/admin_panel/views.py:185
 msgid "name ru"
 msgstr "Назва ру"
 
-#: app/admin_panel/__init__.py:53 app/admin_panel/__init__.py:56
-#: app/admin_panel/views.py:180
+#: app/admin_panel/__init__.py:52 app/admin_panel/__init__.py:55
+#: app/admin_panel/views.py:185
 msgid "name uk"
 msgstr "Назва укр"
 
-#: app/admin_panel/__init__.py:53
+#: app/admin_panel/__init__.py:52
 msgid "categories"
 msgstr "Категорії"
 
-#: app/admin_panel/__init__.py:56
+#: app/admin_panel/__init__.py:55
 msgid "catalog"
 msgstr "Каталог"
 
-#: app/admin_panel/__init__.py:56
+#: app/admin_panel/__init__.py:55
 msgid "models"
 msgstr "Моделі"
 
-#: app/admin_panel/__init__.py:59
+#: app/admin_panel/__init__.py:58
 msgid "section_name"
 msgstr "Назва секції"
 
-#: app/admin_panel/__init__.py:59
+#: app/admin_panel/__init__.py:58
 msgid "section_name_ru"
 msgstr "Назва секції ру"
 
-#: app/admin_panel/__init__.py:59
+#: app/admin_panel/__init__.py:58
 msgid "section_name_uk"
 msgstr "Назва секції укр"
 
-#: app/admin_panel/__init__.py:59
+#: app/admin_panel/__init__.py:58
 msgid "reagents"
 msgstr "Реагенти"
 
-#: app/admin_panel/__init__.py:62
+#: app/admin_panel/__init__.py:61
 msgid "position"
 msgstr "Позиція"
 
-#: app/admin_panel/__init__.py:62
+#: app/admin_panel/__init__.py:61
 msgid "position_ru"
 msgstr "Позиція ру"
 
-#: app/admin_panel/__init__.py:63
+#: app/admin_panel/__init__.py:62
 msgid "position_uk"
 msgstr "Позиція укр"
 
-#: app/admin_panel/__init__.py:63
+#: app/admin_panel/__init__.py:62
 msgid "requirements"
 msgstr "Вимоги"
 
-#: app/admin_panel/__init__.py:64
+#: app/admin_panel/__init__.py:63
 msgid "requirements_ru"
 msgstr "Вимоги ру"
 
-#: app/admin_panel/__init__.py:64
+#: app/admin_panel/__init__.py:63
 msgid "requirements_uk"
 msgstr "Вимоги укр"
 
-#: app/admin_panel/__init__.py:65
+#: app/admin_panel/__init__.py:64
 msgid "responsibilities"
 msgstr "Обов'язки"
 
-#: app/admin_panel/__init__.py:65
+#: app/admin_panel/__init__.py:64
 msgid "responsibilities_ru"
 msgstr "Обов'язки ру"
 
-#: app/admin_panel/__init__.py:66
+#: app/admin_panel/__init__.py:65
 msgid "responsibilities_uk"
 msgstr "Обов'язки укр"
 
-#: app/admin_panel/__init__.py:66
+#: app/admin_panel/__init__.py:65
 msgid "conditions"
 msgstr "Умови"
 
-#: app/admin_panel/__init__.py:67
+#: app/admin_panel/__init__.py:66
 msgid "conditions_ru"
 msgstr "Умови ру"
 
-#: app/admin_panel/__init__.py:67
+#: app/admin_panel/__init__.py:66
 msgid "conditions_uk"
 msgstr "Умови укр"
 
-#: app/admin_panel/__init__.py:69
+#: app/admin_panel/__init__.py:68
 msgid "Catalog"
 msgstr "Каталог"
 
-#: app/admin_panel/__init__.py:69 app/admin_panel/__init__.py:70
-#: app/admin_panel/__init__.py:71 app/admin_panel/__init__.py:75
-#: app/admin_panel/__init__.py:77 app/templates/base.html:29
+#: app/admin_panel/__init__.py:68 app/admin_panel/__init__.py:69
+#: app/admin_panel/__init__.py:70 app/admin_panel/__init__.py:74
+#: app/admin_panel/__init__.py:76 app/templates/base.html:29
 msgid "Products"
 msgstr "Продукти"
 
-#: app/admin_panel/__init__.py:70 app/admin_panel/views.py:44
+#: app/admin_panel/__init__.py:69 app/admin_panel/views.py:44
 msgid "Category"
 msgstr "Категорія"
 
-#: app/admin_panel/__init__.py:71
+#: app/admin_panel/__init__.py:70
 msgid "Reagent Subsection"
 msgstr "Секція реагентів"
 
-#: app/admin_panel/__init__.py:72
+#: app/admin_panel/__init__.py:71
 msgid "Job"
 msgstr "Робота"
 
-#: app/admin_panel/__init__.py:72 app/admin_panel/__init__.py:78
-#: app/admin_panel/__init__.py:79 app/templates/base.html:35
+#: app/admin_panel/__init__.py:71 app/admin_panel/__init__.py:77
+#: app/admin_panel/__init__.py:78 app/templates/base.html:35
 msgid "Company"
 msgstr "Компані"
 
-#: app/admin_panel/__init__.py:75
+#: app/admin_panel/__init__.py:74
 msgid "Model"
 msgstr "Модель"
 
-#: app/admin_panel/__init__.py:77
+#: app/admin_panel/__init__.py:76
 msgid "Reagent"
 msgstr "Реагент"
 
-#: app/admin_panel/__init__.py:78 app/admin_panel/views.py:43
+#: app/admin_panel/__init__.py:77 app/admin_panel/views.py:43
 msgid "Brand"
 msgstr "Бренд"
 
-#: app/admin_panel/__init__.py:79
+#: app/admin_panel/__init__.py:78
 msgid "Service"
 msgstr "Сервіс"
 
-#: app/admin_panel/__init__.py:81
+#: app/admin_panel/__init__.py:80
 msgid "Slider"
 msgstr "Слайдер"
+
+#: app/admin_panel/__init__.py:81
+msgid "Novation"
+msgstr "Новація"
 
 #: app/admin_panel/__init__.py:82
 msgid "News"
@@ -224,15 +229,15 @@ msgid "Product pictures"
 msgstr "Картинки продукта"
 
 #: app/admin_panel/views.py:40 app/admin_panel/views.py:69
-#: app/admin_panel/views.py:181
+#: app/admin_panel/views.py:186
 msgid "Description"
 msgstr "Опис"
 
-#: app/admin_panel/views.py:40 app/admin_panel/views.py:181
+#: app/admin_panel/views.py:40 app/admin_panel/views.py:186
 msgid "Description ru"
 msgstr "Опис ру"
 
-#: app/admin_panel/views.py:41 app/admin_panel/views.py:182
+#: app/admin_panel/views.py:41 app/admin_panel/views.py:187
 msgid "Description uk"
 msgstr "Опис укр"
 
@@ -296,37 +301,37 @@ msgstr "Фасування/Код"
 msgid "subsection"
 msgstr "Секція"
 
-#: app/admin_panel/views.py:148
+#: app/admin_panel/views.py:148 app/admin_panel/views.py:167
 msgid "bg_image"
 msgstr "Фонова картинка"
 
-#: app/admin_panel/views.py:148 app/admin_panel/views.py:212
-#: app/admin_panel/views.py:232
+#: app/admin_panel/views.py:148 app/admin_panel/views.py:167
+#: app/admin_panel/views.py:217 app/admin_panel/views.py:237
 msgid "title"
 msgstr "Заголовок"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
-#: app/admin_panel/views.py:232
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:168
+#: app/admin_panel/views.py:217 app/admin_panel/views.py:237
 msgid "title_ru"
 msgstr "Заголовок ру"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:212
-#: app/admin_panel/views.py:232
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:168
+#: app/admin_panel/views.py:217 app/admin_panel/views.py:237
 msgid "title_uk"
 msgstr "Заголовок укр"
 
-#: app/admin_panel/views.py:149 app/admin_panel/views.py:213
-#: app/admin_panel/views.py:234
+#: app/admin_panel/views.py:149 app/admin_panel/views.py:168
+#: app/admin_panel/views.py:218 app/admin_panel/views.py:239
 msgid "text"
 msgstr "Текст"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
-#: app/admin_panel/views.py:234
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:169
+#: app/admin_panel/views.py:218 app/admin_panel/views.py:239
 msgid "text_ru"
 msgstr "Текст ру"
 
-#: app/admin_panel/views.py:150 app/admin_panel/views.py:213
-#: app/admin_panel/views.py:234
+#: app/admin_panel/views.py:150 app/admin_panel/views.py:169
+#: app/admin_panel/views.py:218 app/admin_panel/views.py:239
 msgid "text_uk"
 msgstr "Текст укр"
 
@@ -338,59 +343,59 @@ msgstr "силка"
 msgid "slide_order_number"
 msgstr "Номер слайду в черзі"
 
-#: app/admin_panel/views.py:161 app/admin_panel/views.py:195
+#: app/admin_panel/views.py:161 app/admin_panel/views.py:200
 msgid "Background image"
 msgstr "Фонова картинка"
 
-#: app/admin_panel/views.py:182
+#: app/admin_panel/views.py:187
 msgid "short description"
 msgstr "Короткий опис"
 
-#: app/admin_panel/views.py:183
+#: app/admin_panel/views.py:188
 msgid "short description ru"
 msgstr "Короткий опис ру"
 
-#: app/admin_panel/views.py:183
+#: app/admin_panel/views.py:188
 msgid "short description uk"
 msgstr "Короткий опис укр"
 
-#: app/admin_panel/views.py:184
+#: app/admin_panel/views.py:189
 msgid "country"
 msgstr "Країна"
 
-#: app/admin_panel/views.py:184
+#: app/admin_panel/views.py:189
 msgid "country_ru"
 msgstr "Країна ру"
 
-#: app/admin_panel/views.py:184
+#: app/admin_panel/views.py:189
 msgid "country_uk"
 msgstr "Країна укр"
 
-#: app/admin_panel/views.py:185
+#: app/admin_panel/views.py:190
 msgid "brand_website"
 msgstr "Вебсайт бренда"
 
-#: app/admin_panel/views.py:185
+#: app/admin_panel/views.py:190
 msgid "logo"
 msgstr "Логотип"
 
-#: app/admin_panel/views.py:213
+#: app/admin_panel/views.py:218
 msgid "icon"
 msgstr "Іконка"
 
-#: app/admin_panel/views.py:223
+#: app/admin_panel/views.py:228
 msgid "Icon"
 msgstr "Іконка"
 
-#: app/admin_panel/views.py:233
+#: app/admin_panel/views.py:238
 msgid "pub_date"
 msgstr "Дата публікації"
 
-#: app/admin_panel/views.py:233
+#: app/admin_panel/views.py:238
 msgid "preview_image"
 msgstr "Прев'ю картинка"
 
-#: app/admin_panel/views.py:240
+#: app/admin_panel/views.py:245
 msgid "Preview imgage"
 msgstr "Прев'ю картинка"
 
