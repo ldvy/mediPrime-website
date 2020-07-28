@@ -1,11 +1,272 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        {% extends "base.html" %}
-        <a href="{{ url_for('admin.index') }}">Admin panel</a>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Головна{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/player.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/main.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='/js/form.js')}}"></script>
+{% endblock %}
+{% block page_body %}
+<section class="slider-sec">
+	<div class="main-slider">
+		{% for slide in slides %}
+			<div class="slide-wrap" {% if slide.slide_order_number == 1 %} style="display: block;" {% endif %} id="sl{{slide.slide_order_number}}">
+				<div class="slide">
+					<div class="slide-img" style="background-image: url(static/media/slider/{{slide.bg_image}})"></div>
+					<div class="slide-text"><span>{{slide.title}}</span><a href="{{slide.btn_link}}" class="more-btn">{{_('More')}}</a></div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="slider-btns">
+		{% for slide in slides %}
+			<li {% if slide.slide_order_number == 1 %} class="active" {% endif %} id="btn{{slide.slide_order_number}}"></li>
+		{% endfor %}
+	</div>
+	</section>	
+
+	<section class="cats-sec">
+		<div class="cats-list">
+			<li class="cat-block" style="background-image: url(static/img/diag.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Діагностичне</a>
+			</li>
+			<li class="cat-block" style="background-image: url(static/img/lab.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Лабораторне</a>
+			</li>
+			<li class="cat-block" style="background-image: url(static/img/other.jpg)">
+				<div class="cat-transparent-layer"></div>
+				<a href="category.html" class="cat-title">Інше медичне</a>
+			</li>
+		</div>
+	</section>
+
+
+	<section class="brand-slider-sec">
+		<div class="brand-slider-wrap">
+			<i class="fa fa-caret-left slider-btn left"></i>
+			<div class="brand-slider-window">
+				<div class="brand-slides">
+					{% for brand in brands %}
+						<li class="brand-slide">
+							<div class="brand-logo" style="background-image: url('static/media/brands/{{brand.logo}}')"></div>
+							<div class="brand-desc">{{brand.short_description}}<a href="" class="more-btn">{{_('More')}}</a></div>
+						</li>
+					{% endfor %}
+				</div>
+			</div>
+			<i class="fa fa-caret-right slider-btn right"></i>
+		</div>
+	</section>
+
+	<section class="pros-sec">
+		<div class="pros-list-title"><h1>Медіпрайм - це ...</h1></div>
+		<div class="pros-list">
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-diamond pros-icon"></i>
+					<h2 class="pros-title">Кращі виробники</h2>
+				</div>
+				<div class="pros-text">
+					Наша компанія є дистрибьютором товарів від найкращих світових виробників медичного обладнання.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-wrench pros-icon"></i>
+					<h2 class="pros-title">Сервіс та Гарантія</h2>
+				</div>
+				<div class="pros-text">
+					Ми надаємо якісну сервісну підтримку та ремонт та повну гарантію на свою техніку.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-truck pros-icon"></i>
+					<h2 class="pros-title">Повний комплекс</h2>
+				</div>
+				<div class="pros-text">
+					Реалізуємо повний комплекс логістичних послуг по ввезенню товару на територію України та доставки.
+				</div>
+			</li>
+			<li class="pros">
+				<div class="pros-header">
+					<i class="fa fa-graduation-cap pros-icon"></i>
+					<h2 class="pros-title">Професіоналізм</h2>
+				</div>
+				<div class="pros-text">
+					Наші співробітники - це справжні професіонали, що мають багатий досвід і завжди зможуть вам допомогти.
+				</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="info-graph-sec">
+		<div class="info-graph-list">
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-medkit info-graph-icon"></i>
+					<span class="info-graph-counter">55+</span>
+				</div>
+				<div class="info-graph-title">Видів обладнання</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-calendar-o info-graph-icon"></i>
+					<span class="info-graph-counter">5+</span>
+				</div>
+				<div class="info-graph-title">Років на ринку</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-handshake-o info-graph-icon"></i>
+					<span class="info-graph-counter">7+</span>
+				</div>
+				<div class="info-graph-title">Партнерів</div>
+			</li>
+			<li class="info-graph">
+				<div class="info-graph-header">
+					<i class="fa fa-users info-graph-icon"></i>
+					<span class="info-graph-counter">30+</span>
+				</div>
+				<div class="info-graph-title">Співробітників</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="whyus-sec">
+		<span class="whyus-title">Чому ми?</span>
+		<div class="reasons-list">
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви економите свій час, тому що
+				ми представляємо тільки передові
+				технології</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви захищені як споживач. Якість
+				наших послуг відповідає
+				міжнародним стандартам якості</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви отримуєте тільки найкраще.
+				Наші виробники здобули довіру
+				в усьому світі</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви не почуєте: «Абонент
+				недоступний». Ми на зв'язку 24/7</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви почуєте відповіді на всі свої
+				питання, тому що ми команда
+				професіоналів</div>
+			</li>
+			<li class="reason">
+				<span class="reason-icon"></span>
+				<div class="reason-text">Ви впевнені в майбутньому.
+				Професійна підтримка, перевірена роками</div>
+			</li>
+		</div>
+	</section>
+
+	<section class="video-sec">
+		<div class="video-title">
+			<span class="video-title-big">МИ - НОВИЙ ПОГЛЯД НА
+			МАЙБУТНЄ ОХОРОНИ ЗДОРОВ'Я</span>
+			<span class="video-title-small">постійне вдосконалення рішень,
+			відповідальне ставлення до дотримання
+			стандартів і вимог, відкритість до інновацій.</span>
+		</div>
+		<div class="video_wrap">
+			<div class="video_container">
+				<div class="paused_bg">
+					<button id="play"><i class="fa fa-play"></i></button>
+				</div>
+				<video class="video" src="static/videos/promo.mp4#t=1" type="video/mp4"></video>
+			</div>
+			<div class="controls">
+				<div class="time_bar">
+					<div class="bar_fill"></div>
+				</div>
+				<div class="buttons">
+					<button id="play_pause" class="play"><i class="fa fa-play"></i></button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="news-sec">
+		<div class="news-list">
+			<a href="news.html"><li class="news-item news-header">Новини</li></a>
+			{% for n in news %}
+				<li class="news-item" style="background-image: url(static/media/news/{{n.preview_image}})">
+					<div class="news-date">
+						<span class="news-date-day">{{n.pub_date.day}}</span>
+						<span class="news-date-month">
+							{% if n.pub_date.month == 1 %} {{_('January')}}
+							{% elif n.pub_date.month == 2 %} {{_('February')}}
+							{% elif n.pub_date.month == 3 %} {{_('March')}}
+							{% elif n.pub_date.month == 4 %} {{_('April')}}
+							{% elif n.pub_date.month == 5 %} {{_('May')}}
+							{% elif n.pub_date.month == 6 %} {{_('June')}}
+							{% elif n.pub_date.month == 7 %} {{_('July')}}
+							{% elif n.pub_date.month == 8 %} {{_('August')}}
+							{% elif n.pub_date.month == 9 %} {{_('September')}}
+							{% elif n.pub_date.month == 10 %} {{_('October')}}
+							{% elif n.pub_date.month == 11 %} {{_('November')}}
+							{% elif n.pub_date.month == 12 %} {{_('December')}}
+							{% endif %}
+						</span>
+					</div>
+					<a href="" class="news-title"><div>{{n.title}}</div></a>
+				</li>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="nov-sec">
+		<h2 class="nov-sec-title">новації 2020</h2>
+		<div class="nov-slider">
+			<span class="nov-sl-btn nov-left"><i class="fa fa-chevron-left"></i></span>
+			<div class="nov-slider-window">
+				<div class="nov-slides-list">
+					{% for nov in novations %}
+						<li class="nov-slide" style="background-image: url(static/media/slider/{{nov.bg_image}})">
+							<div class="nov-text-wrap">
+								<div class="nov-slide-text">
+									<h3 class="nov-title">{{nov.title}}</h3>
+									<div class="nov-desc">{{nov.text}}</div>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</div>
+			</div>
+			<span class="nov-sl-btn nov-right"><i class="fa fa-chevron-right"></i></span>
+		</div>
+	</section>
+
+	<section class="form-sec">
+		<div class="form-bg"></div>
+		<span class="form-title">Потрібна допомога у виборі? Напишіть нам і ми з Вами зв'яжемось</span>
+		<form class="contact-form" method="POST" action="">
+			<input type="text" id="name" placeholder="Ваше ім'я">
+			<input type="tel" id="phone" placeholder="Ваш телефон">
+			<input type="email" id="email" placeholder="Ваше email">
+			<textarea id="message" placeholder="Ваше повідомлення"></textarea>
+			<input type="button" value="Відправити" id="send">
+		</form>
+	</section>
+{% endblock %}
+{% block after_js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/player.js')}}"></script>
+{% endblock %}
+

@@ -13,10 +13,10 @@
                 {{_('Здесь вы можете просматривать, создавать, изменять и удалять динамические модели элементов на сайте.')}}
             </p>
             {% else %}
-            <form method="POST" action="">
+            <form method="POST" action="" class="log-form">
                 {{ form.hidden_tag() if form.hidden_tag }}
                 {% for f in form if f.type != 'CSRFTokenField' %}
-                <div>
+                <div class="log-input-block">
                 {{ f.label }}
                 {{ f }}
                 {% if f.errors %}
@@ -28,7 +28,7 @@
                 {% endif %}
                 </div>
                 {% endfor %}
-                <button class="btn" type="submit">{{ _('Submit') }}</button>
+                <button class="btn log-in-btn" type="submit">{{ _('Submit') }}</button>
             </form>
             {% endif %}
         </div>

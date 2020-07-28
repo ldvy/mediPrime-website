@@ -25,14 +25,14 @@ class ImageView(MyModelView):
         if not model.logo:
             return ''
         return Markup('<img src="%s">' % url_for('static',
-                        filename=f"images/{form.thumbgen_filename(model.logo)}"))
+                        filename=f"media/products/{form.thumbgen_filename(model.logo)}"))
 
     def _list_thumbnail_product(view, context, model, name):
         markup = ''
         for filename in model.product_picture:
             thumb_filename = filename.split('.')[0] + '_thumb.jpeg'
             markup += '<img src="{}">'.format(url_for('static',
-                        filename=f"images/{thumb_filename}"))
+                        filename=f"media/products/{thumb_filename}"))
         return Markup(markup)
 
     column_labels = dict(model_name=_l('Model name'), model_name_ru=_l('Model name ru'),
@@ -56,8 +56,9 @@ class ImageView(MyModelView):
             'brand', 'brand_ru', 'brand_uk', 'category', 'video_link')
 
     # Overriding build-in fields with own
+    models_path = file_path+'/products/'
     form_extra_fields = {
-        'logo': form.ImageUploadField(_l('Logo'), base_path=file_path,
+        'logo': form.ImageUploadField(_l('Logo'), base_path=models_path,
                                       thumbnail_size=(100, 100, False)),
         'product_picture': MultipalImagesField(_l('Product pictures'), save_as_list=True) }
 
@@ -68,6 +69,37 @@ class ImageView(MyModelView):
         model_name = _l("Name of the model"),
         description = _l("Description"),
     )
+
+#custom admin view for handling images for "Category"
+class CategoryView(MyModelView):
+
+    def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
+        return Markup('<img src="%s">' % url_for('static',
+                    filename=f"media/categories/{form.thumbgen_filename(model.cat_img)}"))
+
+    column_labels = dict(cat_img=_l('cat_image'), name=_l('name'),
+        name_ru=_l('name_ru'), title_uk=_l('name_uk'), catalog_id=_l('catalog_id'), models=_l('models'))
+
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
+    column_formatters = {
+            'cat_img': _thumbnail_image
+        }
+
+    # Overriding fields
+    cat_path = file_path+'/categories/'
+    form_extra_fields = {
+        'cat_img': form.ImageUploadField(_l('Category image'), base_path=cat_path,
+                                      thumbnail_size=(100, 100, True))
+                }
+
 
 
 # This view designed specificaly for model "Reagent" for handling custom data
@@ -143,11 +175,10 @@ class HomeView(MyModelView):
 
         """
         return Markup('<img src="%s">' % url_for('static',
-                    filename=f"images/{form.thumbgen_filename(model.bg_image)}"))
+                    filename=f"media/slider/{form.thumbgen_filename(model.bg_image)}"))
 
     column_labels = dict(bg_image=_l('bg_image'), title=_l('title'),
-        title_ru=_l('title_ru'), title_uk=_l('title_uk'), text=_l('text'),
-        text_ru=_l('text_ru'), text_uk=_l('text_uk'), btn_link=_l('btn_link'),
+        title_ru=_l('title_ru'), title_uk=_l('title_uk'), btn_link=_l('btn_link'),
         slide_order_number=_l('slide_order_number'))
 
     # Dictionary of list view column formatters.
@@ -157,8 +188,9 @@ class HomeView(MyModelView):
         }
 
     # Overriding fields
+    slider_path = file_path+'/slider/'
     form_extra_fields = {
-        'bg_image': form.ImageUploadField(_l('Background image'), base_path=file_path,
+        'bg_image': form.ImageUploadField(_l('Background image'), base_path=slider_path,
                                       thumbnail_size=(100, 100, True))
                 }
 
@@ -180,7 +212,7 @@ class BrandView(MyModelView):
 
         """
         return Markup('<img src="%s">' % url_for('static',
-                    filename=f"images/{form.thumbgen_filename(model.logo)}"))
+                    filename=f"media/brands/{form.thumbgen_filename(model.logo)}"))
 
     column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'),
         description=_l('Description'), description_ru=_l('Description ru'),
@@ -196,8 +228,9 @@ class BrandView(MyModelView):
         }
 
     # Overriding fields
+    brands_path = file_path+'/brands/';
     form_extra_fields = {
-        'logo': form.ImageUploadField(_l('Background image'), base_path=file_path,
+        'logo': form.ImageUploadField(_l('Background image'), base_path=brands_path,
                                       thumbnail_size=(100, 100, True))
                         }
 
@@ -233,7 +266,7 @@ class ServiceView(MyModelView):
 class NewsView(MyModelView):
     def _thumbnail_image(view, context, model, name):
         return Markup('<img src="%s">' % url_for('static',
-                    filename=f"images/{form.thumbgen_filename(model.preview_image)}"))
+                    filename=f"media/news/{form.thumbgen_filename(model.preview_image)}"))
     column_labels = dict(title=_l('title'), title_ru=_l('title_ru'), title_uk=_l('title_uk'),
         pub_date=_l('pub_date'), preview_image=_l('preview_image'),
         text=_l('text'), text_ru=_l('text_ru'), text_uk=_l('text_uk'))
@@ -241,7 +274,8 @@ class NewsView(MyModelView):
     column_formatters = {
             'preview_image': _thumbnail_image
         }
+    news_path = file_path+'/news/'
     form_extra_fields = {
-        'preview_image': form.ImageUploadField(_l('Preview imgage'), base_path=file_path,
+        'preview_image': form.ImageUploadField(_l('Preview imgage'), base_path=news_path,
                                       thumbnail_size=(100, 100, True))
                         }
