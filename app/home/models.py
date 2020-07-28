@@ -31,4 +31,3 @@ class Novation(db.Model):
 
     def __repr__(self):
         return f"<Slider {self.title}>"
-

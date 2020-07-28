@@ -1,7 +1,9 @@
 from .admin_views import MyAdminIndexView, MyModelView, file_path
 
+
 from .views import ImageView, ReagentView, HomeView, BrandView, ServiceView, \
     NewsView, NovationView, CategoryView
+
 
 from flask_admin import Admin
 from flask_admin import form
@@ -119,10 +121,6 @@ class CatalogView(MyModelView):
     column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'), categories=_l('categories'))
 
 
-# class CategoryView(MyModelView):
-#     column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'), catalog=_l('catalog'),
-#                          models=_l('models'))
-
 
 class ReagentSubsectionView(MyModelView):
     column_labels = dict(section_name=_l('section_name'), section_name_ru=_l('section_name_ru'),
@@ -139,7 +137,6 @@ class JobView(MyModelView):
 
 
 catalog = CatalogView(Catalog, name=_l('Catalog'), session=db.session, category=_l("Products"))
-#category = CategoryView(Category, name=_l('Category'), session=db.session, category=_l("Products"))
 reagentSubsection = ReagentSubsectionView(ReagentSubsection, name=_l('Reagent Subsection'), session=db.session,
                                           category=_l("Products"))
 job = JobView(Job, name=_l('Job'), session=db.session, category=_l("Company"))
