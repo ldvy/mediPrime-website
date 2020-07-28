@@ -1,0 +1,132 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+body {
+	overflow-x: hidden;
+}
+.breadcrums-sec {
+	display: flex;
+	padding-top: 5.5em;
+}
+.sub-cats-sec {
+	margin-top: 2em;
+	padding-bottom: 2em;
+}
+.cat-title {
+	color: #000;
+	font-size: 1.9em;
+	font-family: 'Open Sans';
+	font-weight: 400;
+	padding-left: 2em;
+	padding-bottom: 0.5em;
+}
+.cat-title i {
+	padding-right: 0.5em;
+}
+.sub-cat-list {
+	width: 100vw;
+	padding: 0 2vw 0 2vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 1.5em;
+}
+.sub-cat-block {
+	height: 16em;
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.sub-cat-title {
+	width: 3.5em;
+	height: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	writing-mode: vertical-rl;
+	text-orientation: sideways;
+	background-color: #f7f1f1;
+	color: #000;
+	font-size: 1.1em;
+	font-family: 'Nunito';
+	font-weight: 400;
+	text-transform: uppercase;
+	transform-origin: 100% 78%;
+	transition: 0.5s transform;
+}
+.sub-cat-block:hover > .sub-cat-title{
+	transform: translateX(-100%) rotateZ(-90deg);
+}
+@media only screen and (max-width: 1180px) {
+	.sub-cat-list {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+@media only screen and (max-width: 880px) {
+	.sub-cat-list {
+		grid-template-columns: 1fr 1fr;
+	}
+	.sub-cat-block {
+		height: 18em;
+	}
+	.sub-cat-title {
+		font-size: 1.3em;
+	}
+}
+@media only screen and (max-width: 640px),
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3)
+{
+	.sub-cat-list {
+		grid-template-columns: 1fr;
+	}
+	.sub-cat-block {
+		height: 22em;
+	}
+	.sub-cat-title {
+		font-size: 1.5em;
+	}
+}
+@media 
+only screen and (max-device-aspect-ratio: 9/16),
+only screen and (max-device-aspect-ratio: 9/18),
+only screen and (max-device-aspect-ratio: 2/3) 
+{
+	.cat-title {
+		font-size: 2.5em;
+		padding-left: 0.5em;
+	}
+	.breadcrums-sec {
+		padding-top: 6.5em;
+	}
+	.breadcrums-sec li a {
+		font-size: 1.3em;
+	}
+	.sub-cat-list {
+		width: 95vw;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1em;
+	}
+	.sub-cat-block {
+		height: 25em;
+	}
+	.sub-cat-title {
+		font-size: 1.7em;
+	}
+	.main-header {
+		margin-top: -2px;
+	}
+	.main-menu {
+		top: 5.95em;
+	}
+}

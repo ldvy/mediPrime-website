@@ -17,7 +17,7 @@ import os
 
 
 # Path for storing image data, based in static_folder
-file_path = os.path.join(static_folder, 'images')
+file_path = os.path.join(static_folder, 'media')
 
 # Images in 'static/images'
 images = os.listdir(file_path)

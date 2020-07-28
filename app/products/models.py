@@ -26,6 +26,7 @@ class Category(db.Model):
     __tablename__ = "Category"
 
     id = db.Column(db.Integer, primary_key=True)
+    cat_img = db.Column("Image", db.Unicode(128), nullable=False)
     name = db.Column("Name", db.String(80), unique=True, nullable=False)
     name_ru = db.Column("Name RU", db.String(80), unique=True)
     name_uk = db.Column("Name UK", db.String(80), unique=True)

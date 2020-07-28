@@ -1,51 +1,144 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>Mediprime</title>
-    </head>
-    <body>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<html>
+<head>
+  <title>Mediprime | {% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
 
-        {% block session_url %}
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/fonts.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/scrollbar.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/header.css')}}">
+  {% block css %}{% endblock %}
+
+  <script type="text/javascript" src="{{url_for('static', filename='/js/jquery-3.4.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='/js/header.js')}}"></script>
+  {% block js %}{% endblock %}
+</head>
+<body>
+  <header class="main-header">
+    {% block session_url %}
         {{ set_session_url(request.endpoint) }}
         {% endblock %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="{{ url_for('home.home_view') }}">Mediprime</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <div class="transparent-layer"></div>
+    <section class="nav-sec">
+      <a href="{{ url_for('home.home_view') }}"><div class="logo"></div></a>
+      <nav class="nav-bar">
+        <ul class="main-menu">
+          <a href="{{ url_for('home.home_view') }}"><li>{{_('Home')}}</li></a>
+          <li id="prod-men">{{_('Products')}}</li>
+          <a><li>{{_('Services')}}</li></a>
+          <a><li id="company-men">{{_('Company')}}</li></a>
+          <a href="contacts.html"><li>{{_('Contacts')}}</li></a>
+        </ul>
+        <div class="product-menu" id="products">
+          <ul class="categories main-cat">
+            <span class="cat-header">{{_('Products')}}</span>
+            {% if catalogs %}
+                {% set catalog_i = namespace(value=1) %}
+                {% for catalog in catalogs %}
+                    <li id="cat-{{catalog_i.value}}">{{catalog.name}}<i class="fa fa-chevron-right"></i></li>
+                    {% set catalog_i.value = catalog_i.value + 1 %}
+                {% endfor %}
+            {% endif %}
+          </ul>
+          {% if catalogs and categories %}
+              {% set catalog_i = namespace(value=1) %}
+              {% for catalog in catalogs %}
+                  <ul class="categories sub-cat" id="sub-cat-{{catalog_i.value}}">
+                      <span class="cat-header">{{catalog.name}}</span>
+                      {% for cat in categories %}
+                          {% if cat.catalog_id == catalog.id %}
+                              <a href=""><li>{{cat.name}}<i class="fa fa-chevron-right"></i></li></a>
+                          {% endif %}
+                      {% endfor %}
+                  </ul>
+              {% set catalog_i.value = catalog_i.value + 1 %}
+              {% endfor %}
+          {% endif %}
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home.home_view') }}">{{_('Home')}} <span class="sr-only">(current)</span></a>
-              </li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('products.product_view') }}">{{_('Products')}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('company.services_view') }}">{{_('Services')}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('company.company_view') }}">{{_('Company')}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">{{_('Contacts')}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home.change_language', language='ru') }}">RU</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home.change_language', language='uk') }}">UK</a>
-              </li>
+          <ul class="categories sub-cat" id="sub-cat-2">
+            <span class="cat-header">Лабораторне</span>
+            <a href="reagents.html"><li>Реагенти<i class="fa fa-chevron-right"></i></li></a>
+            <a href=""><li>Біохімічні аналізатори<i class="fa fa-chevron-right"></i></li></a>
+          </ul>
+          <span class="bottom-line"></span>
+          <div class="close-menu" id="close-prod"><i class="fa fa-times"></i></div>
+        </div>
+
+        <div class="product-menu" id="company">
+          <ul class="categories main-cat">
+            <span class="cat-header">{{_('Company')}}</span>
+            <a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
+            <a href="news.html"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
+            <a href="brands.html"><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
+            <a href="jobs.html"><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
+          </ul>
+          <span class="bottom-line"></span>
+          <div class="close-menu" id="close-comp"><i class="fa fa-times"></i></div>
+        </div>
+      </nav>
+      <ul class="secondary-menu">
+        <li class="phone-num">
+          <span class="sec-icon"></span>
+          <div class="drop-number">
+            <span class="top-tip"></span>
+            <a href="tel:+380992454428">
+            (+38)-099-245-44-28</a>
+        </div>
+        </li>
+        <li class="lang-menu">
+          <span class="sec-icon"></span>
+          <div class="drop-lang">
+            <span class="top-tip"></span>
+            <a href="{{ url_for('home.change_language', language='ru') }}">Українська</a>
+            <a href="{{ url_for('home.change_language', language='uk') }}">Російська</a>
           </div>
-        </nav>
-        {% block content %}
-        {% endblock %}
-    </body>
+        </li>
+        <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
+      </ul>
+    </section>
+    <section class="breadcrums-sec">
+      <li><a href="{{ url_for('home.home_view') }}">Гoловна /</a></li>
+      {% block breadcrums %}{% endblock %}
+    </section>
+  </header>
+  {% block page_body %}{% endblock %}
+  <section class="footer-sec">
+    <footer class="footer">
+      <div class="logo-footer">
+        <span></span>
+        <p class="copyright">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+        </p>
+      </div>
+      <div class="contacts-footer">
+        <li class="contact">
+          <h3>Адреса:</h3>вул. Либідська 17, офіс 7, Київ, 01033, Україна
+        </li>
+        <li class="contact">
+          <h3>Телефон:</h3>+38-097-575-70-20
+        </li>
+        <li class="contact">
+          <h3>Email:</h3>office@mediprime.com.ua
+        </li>
+      </div>
+      <div class="useful-links">
+        <ul class="links">
+          <li><a href="{{ url_for('home.home_view') }}">Головна</a></li>
+          <li><a href="">Про нас</a></li>
+          <li><a href="">Новини</a></li>
+          <li><a href="">Сервісна підтримка</a></li>
+          <li><a href="">Контакти</a></li>
+        </ul>
+        <div class="soc-net">
+          <a href=""><i class="fa fa-facebook-square"></i></a>
+          <a href=""><i class="fa fa fa-youtube"></i></a>
+          <a href="mailto:"><i class="fa fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
+  </section>
+</body>
+{% block after_js %}{% endblock %}
 </html>
