@@ -101,6 +101,67 @@ class CategoryView(MyModelView):
                 }
 
 
+#custom admin view for handling images for "Catalog"
+class CatalogView(MyModelView):
+
+    def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
+        return Markup('<img src="%s">' % url_for('static',
+                    filename=f"media/catalogs/{form.thumbgen_filename(model.cat_img)}"))
+
+    column_labels = dict(cat_img=_l('cat_image'), name=_l('name'),
+        name_ru=_l('name_ru'), title_uk=_l('name_uk'), categories=_l('categories'), reagent_subs=_l('reagent_subs'))
+
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
+    column_formatters = {
+            'cat_img': _thumbnail_image
+        }
+
+    # Overriding fields
+    cat_path = file_path+'/catalogs/'
+    form_extra_fields = {
+        'cat_img': form.ImageUploadField(_l('Catalog image'), base_path=cat_path,
+                                      thumbnail_size=(100, 100, True))
+                }
+
+
+#custom admin view for handling images for "Catalog"
+class ReagentSubSecView(MyModelView):
+
+    def _thumbnail_image(view, context, model, name):
+        """
+        `view` is current administrative view
+        `context` is instance of jinja2.runtime.Context
+        `model` is model instance
+        `name` is property name
+
+        """
+        return Markup('<img src="%s">' % url_for('static',
+                    filename=f"media/categories/{form.thumbgen_filename(model.sec_img)}"))
+
+    column_labels = dict(sec_img=_l('sec_image'), section_name=_l('name'),
+        section_name_ru=_l('name_ru'), section_name_uk=_l('name_uk'), catalog_id=_l('catalog_id'), reagents=_l('reagents'))
+
+    # Dictionary of list view column formatters.
+    # Prettifying the look of images on the main page
+    column_formatters = {
+            'sec_img': _thumbnail_image
+        }
+
+    # Overriding fields
+    sec_path = file_path+'/categories/'
+    form_extra_fields = {
+        'sec_img': form.ImageUploadField(_l('Section image'), base_path=sec_path,
+                                      thumbnail_size=(100, 100, True))
+                }
+
 
 # This view designed specificaly for model "Reagent" for handling custom data
 # type JsonDC

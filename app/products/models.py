@@ -13,10 +13,12 @@ class Catalog(db.Model):
     __tablename__ = "Catalog"
 
     id = db.Column(db.Integer, primary_key=True)
+    cat_img = db.Column("Image", db.Unicode(128), nullable=False)
     name = db.Column("Name", db.String(80), unique=True, nullable=False)
     name_ru = db.Column("Name RU", db.String(80), unique=True)
     name_uk = db.Column("Name UK", db.String(80), unique=True)
     categories = db.relationship("Category", backref='catalog', lazy=True)
+    reagent_subs = db.relationship("ReagentSubsection", backref='catalog', lazy=True)
 
     def __repr__(self):
         return f"<Catalog {self.name}>"
@@ -68,9 +70,11 @@ class ReagentSubsection(db.Model):
     __tablename__ = "ReagentSubsection"
 
     id = db.Column(db.Integer, primary_key=True)
+    sec_img = db.Column("Image", db.Unicode(128), nullable=False)
     section_name = db.Column("Name", db.String(80), unique=True, nullable=False)
     section_name_ru = db.Column("Name RU", db.String(80))
     section_name_uk = db.Column("Name Uk", db.String(80))
+    catalog_id = db.Column(db.Integer, db.ForeignKey('Catalog.id'))
     reagents = db.relationship("Reagent", backref="subsection", lazy=True)
 
     def __repr__(self):

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}{{cur_catalog.name}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/category.css')}}">
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Products')}}</a></li>
+	<li><a href="{{url_for('products.catalog_view', catalog_name=cur_catalog.name)}}">/ {{model_localisation(cur_catalog, 'name')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="sub-cats-sec">
+        <h1 class="cat-title"><i class="fa fa-folder-open"></i>{{model_localisation(cur_catalog, 'name')}} {{_('equipment')}}</h1>
+        {% if cur_categories %}
+            <div class="sub-cat-list">
+                {% for cat in cur_categories %}
+                    <a href="{{url_for('products.category_view', catalog_name=cur_catalog.name, category_name=cat.name)}}">
+                        <li class="sub-cat-block" style="background-image: url({{url_for('static', filename='/media/categories/'+cat.cat_img)}})">
+                        <div class="sub-cat-title">
+                            {{model_localisation(cat, 'name')}}
+                        </div>
+			        </li></a>
+                {% endfor %}
+                {% for rs in cur_reag_subs %}
+                    <a href="items.html">
+                        <li class="sub-cat-block" style="background-image: url({{url_for('static', filename='/media/categories/'+rs.sec_img)}})">
+                        <div class="sub-cat-title">
+                            {{model_localisation(rs, 'section_name')}}
+                        </div>
+			        </li></a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

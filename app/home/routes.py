@@ -2,7 +2,7 @@ from . import bp
 from app.home.models import Slider, Novation
 from app.company.models import Brand
 from app.news.models import NewsOn
-from app.products.models import Catalog, Category
+from app.products.models import Catalog, Category, ReagentSubsection
 from flask import render_template, redirect, url_for, current_app, session, request
 
 
@@ -15,8 +15,9 @@ def home_view():
     novations = Novation.query.all()
     catalogs = Catalog.query.all()
     categories = Category.query.all()
+    reag_subs = ReagentSubsection.query.all()
     return render_template('home/index.html', slides=slides, brands=brands, news=news, novations=novations,
-                           catalogs=catalogs, categories=categories)
+                           catalogs=catalogs, categories=categories, reag_subs=reag_subs)
 
 
 @bp.route('/<language>')

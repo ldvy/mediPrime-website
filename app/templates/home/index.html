@@ -14,8 +14,8 @@
 		{% for slide in slides %}
 			<div class="slide-wrap" {% if slide.slide_order_number == 1 %} style="display: block;" {% endif %} id="sl{{slide.slide_order_number}}">
 				<div class="slide">
-					<div class="slide-img" style="background-image: url(static/media/slider/{{slide.bg_image}})"></div>
-					<div class="slide-text"><span>{{slide.title}}</span><a href="{{slide.btn_link}}" class="more-btn">{{_('More')}}</a></div>
+					<div class="slide-img" style="background-image: url({{url_for('static', filename='/media/slider/'+slide.bg_image)}})"></div>
+					<div class="slide-text"><span>{{model_localisation(slide, 'title')}}</span><a href="{{slide.btn_link}}" class="more-btn">{{_('More')}}</a></div>
 				</div>
 			</div>
 		{% endfor %}
@@ -29,18 +29,14 @@
 
 	<section class="cats-sec">
 		<div class="cats-list">
-			<li class="cat-block" style="background-image: url(static/img/diag.jpg)">
-				<div class="cat-transparent-layer"></div>
-				<a href="category.html" class="cat-title">Діагностичне</a>
-			</li>
-			<li class="cat-block" style="background-image: url(static/img/lab.jpg)">
-				<div class="cat-transparent-layer"></div>
-				<a href="category.html" class="cat-title">Лабораторне</a>
-			</li>
-			<li class="cat-block" style="background-image: url(static/img/other.jpg)">
-				<div class="cat-transparent-layer"></div>
-				<a href="category.html" class="cat-title">Інше медичне</a>
-			</li>
+			{% if catalogs %}
+				{% for catalog in catalogs %}
+					<li class="cat-block" style="background-image: url({{url_for('static', filename='/media/catalogs/'+catalog.cat_img)}})">
+						<div class="cat-transparent-layer"></div>
+						<a href="{{url_for('products.catalog_view', catalog_name=catalog.name)}}" class="cat-title">{{model_localisation(catalog, 'name')}}</a>
+					</li>
+				{% endfor %}
+			{% endif %}
 		</div>
 	</section>
 
@@ -52,8 +48,8 @@
 				<div class="brand-slides">
 					{% for brand in brands %}
 						<li class="brand-slide">
-							<div class="brand-logo" style="background-image: url('static/media/brands/{{brand.logo}}')"></div>
-							<div class="brand-desc">{{brand.short_description}}<a href="" class="more-btn">{{_('More')}}</a></div>
+							<div class="brand-logo" style="background-image: url({{url_for('static', filename='/media/brands/'+brand.logo)}})"></div>
+							<div class="brand-desc">{{model_localisation(brand, 'short_description')}}<a href="" class="more-btn">{{_('More')}}</a></div>
 						</li>
 					{% endfor %}
 				</div>
@@ -205,9 +201,9 @@
 
 	<section class="news-sec">
 		<div class="news-list">
-			<a href="news.html"><li class="news-item news-header">Новини</li></a>
+			<a href="{{url_for('news.news_list', page=1)}}"><li class="news-item news-header">{{_('News')}}</li></a>
 			{% for n in news %}
-				<li class="news-item" style="background-image: url(static/media/news/{{n.preview_image}})">
+				<li class="news-item" style="background-image: url({{url_for('static', filename='/media/news/'+n.preview_image)}})">
 					<div class="news-date">
 						<span class="news-date-day">{{n.pub_date.day}}</span>
 						<span class="news-date-month">
@@ -226,7 +222,7 @@
 							{% endif %}
 						</span>
 					</div>
-					<a href="" class="news-title"><div>{{n.title}}</div></a>
+					<a href="{{url_for('news.news_post', page=1, title=n.title)}}" class="news-title"><div>{{model_localisation(n, 'title')}}</div></a>
 				</li>
 			{% endfor %}
 		</div>
@@ -239,11 +235,11 @@
 			<div class="nov-slider-window">
 				<div class="nov-slides-list">
 					{% for nov in novations %}
-						<li class="nov-slide" style="background-image: url(static/media/slider/{{nov.bg_image}})">
+						<li class="nov-slide" style="background-image: url({{url_for('static', filename='/media/slider/'+nov.bg_image)}})">
 							<div class="nov-text-wrap">
 								<div class="nov-slide-text">
-									<h3 class="nov-title">{{nov.title}}</h3>
-									<div class="nov-desc">{{nov.text}}</div>
+									<h3 class="nov-title">{{model_localisation(nov, 'title')}}</h3>
+									<div class="nov-desc">{{model_localisation(nov, 'text')}}</div>
 								</div>
 							</div>
 						</li>

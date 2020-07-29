@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}{{_('News')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/news.css')}}">
+{% endblock %}
+{% block breadcrums %}
+	<li><a href="{{url_for('news.news_list', page=1)}}">/ {{_('News')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="news-sec">
+        <h1 class="news-main-title"><i class="fa fa-newspaper-o"></i>Новини та заходи</h1>
+        {% if posts %}
+        <ul class="news-pages">
+            {% if posts.has_prev %}<li><a href="{{url_for('news.news_list', page=posts.prev_num)}}" class="cur-page"><i class="fa fa-caret-left"></i></a></li>{% endif %}
+            {% if posts.has_next %}<li><a href="{{url_for('news.news_list', page=posts.next_num)}}" class="cur-page"><i class="fa fa-caret-right"></i></a></li>{% endif %}
+        </ul>
+        <ul class="news-list">
+            {% for post in posts.items %}
+                <li class="news-item">
+                    <div class="news-item-header" style="background-image: url({{url_for('static', filename='/media/news/'+post.preview_image)}})">
+                        <div class="news-date">
+                            <span class="news-date-day">{{post.pub_date.day}}</span>
+                            <span class="news-date-month">
+                                {% if post.pub_date.month == 1 %} {{_('January')}}
+                                {% elif post.pub_date.month == 2 %} {{_('February')}}
+                                {% elif post.pub_date.month == 3 %} {{_('March')}}
+                                {% elif post.pub_date.month == 4 %} {{_('April')}}
+                                {% elif post.pub_date.month == 5 %} {{_('May')}}
+                                {% elif post.pub_date.month == 6 %} {{_('June')}}
+                                {% elif post.pub_date.month == 7 %} {{_('July')}}
+                                {% elif post.pub_date.month == 8 %} {{_('August')}}
+                                {% elif post.pub_date.month == 9 %} {{_('September')}}
+                                {% elif post.pub_date.month == 10 %} {{_('October')}}
+                                {% elif post.pub_date.month == 11 %} {{_('November')}}
+                                {% elif post.pub_date.month == 12 %} {{_('December')}}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <a href="{{url_for('news.news_post', page=cur_page, title=post.title)}}" class="news-title"><div>{{model_localisation(post, 'title')}}</div></a>
+                    </div>
+                    <div class="news-short-text">
+                        <p>{{model_localisation(post, 'text')[0:230]}}</p>
+                        <a href="{{url_for('news.news_post', page=cur_page, title=post.title)}}" class="news-more"><span>{{_('More')}}</span></a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="news-pages">
+            {% if posts.has_prev %}<li><a href="{{url_for('news.news_list', page=posts.prev_num)}}" class="cur-page"><i class="fa fa-caret-left"></i></a></li>{% endif %}
+            {% if posts.has_next %}<li><a href="{{url_for('news.news_list', page=posts.next_num)}}" class="cur-page"><i class="fa fa-caret-right"></i></a></li>{% endif %}
+        </ul>
+        {% endif %}
+    </section>
+{% endblock %}
+

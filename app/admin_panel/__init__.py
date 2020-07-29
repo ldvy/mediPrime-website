@@ -1,7 +1,7 @@
 from .admin_views import MyAdminIndexView, MyModelView, file_path
 
 from .views import ImageView, ReagentView, HomeView, BrandView, ServiceView, \
-    NewsView, NovationView, CategoryView
+    NewsView, NovationView, CategoryView, CatalogView, ReagentSubSecView
 
 from flask_admin import Admin
 from flask_admin import form
@@ -110,23 +110,36 @@ def del_image(mapper, connection, target):
             pass
 
 
+@listens_for(Catalog, 'after_delete')
+def del_image(mapper, connection, target):
+    if target.cat_img:
+        try:
+            os.remove(os.path.join(file_path, target.cat_img))
+        except OSError:
+            pass
+        try:
+            os.remove(os.path.join(file_path, form.thumbgen_filename(target.cat_img)))
+        except OSError:
+            pass
+
+
+@listens_for(ReagentSubsection, 'after_delete')
+def del_image(mapper, connection, target):
+    if target.sec_img:
+        try:
+            os.remove(os.path.join(file_path, target.sec_img))
+        except OSError:
+            pass
+        try:
+            os.remove(os.path.join(file_path, form.thumbgen_filename(target.sec_img)))
+        except OSError:
+            pass
+
+
 admin.add_link(MenuLink(name=_l('Home Page'), url='/', category=_l('Links')))
 
 
 # Custom views
-
-class CatalogView(MyModelView):
-    column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'), categories=_l('categories'))
-
-
-# class CategoryView(MyModelView):
-#     column_labels = dict(name=_l('name'), name_ru=_l('name ru'), name_uk=_l('name uk'), catalog=_l('catalog'),
-#                          models=_l('models'))
-
-
-class ReagentSubsectionView(MyModelView):
-    column_labels = dict(section_name=_l('section_name'), section_name_ru=_l('section_name_ru'),
-                         section_name_uk=_l('section_name_uk'), reagents=_l('reagents'))
 
 
 class JobView(MyModelView):
@@ -138,16 +151,14 @@ class JobView(MyModelView):
                          conditions_ru=_l('conditions_ru'), conditions_uk=_l('conditions_uk'))
 
 
-catalog = CatalogView(Catalog, name=_l('Catalog'), session=db.session, category=_l("Products"))
-#category = CategoryView(Category, name=_l('Category'), session=db.session, category=_l("Products"))
-reagentSubsection = ReagentSubsectionView(ReagentSubsection, name=_l('Reagent Subsection'), session=db.session,
-                                          category=_l("Products"))
 job = JobView(Job, name=_l('Job'), session=db.session, category=_l("Company"))
 
 # Ading views to admin panel.
 admin.add_views(ImageView(Model, name=_l('Model'), session=db.session, category=_l("Products")),
                 CategoryView(Category, name=_l('Category'), session=db.session, category=_l("Products")),
-                catalog, reagentSubsection,
+                CatalogView(Catalog, name=_l('Catalog'), session=db.session, category=_l("Products")),
+                ReagentSubSecView(ReagentSubsection, name=_l('Reagent Subsection'), session=db.session,
+                                          category=_l("Products")),
                 ReagentView(Reagent, name=_l('Reagent'), session=db.session, category=_l("Products")),
                 BrandView(Brand, name=_l('Brand'), session=db.session, category=_l("Company")),
                 ServiceView(Service, name=_l('Service'), session=db.session, category=_l("Company")),

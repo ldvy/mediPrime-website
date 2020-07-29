@@ -44,12 +44,19 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+.item-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: inherit;
+    border: 2px solid #f7f1f1;
+	border-right: none;
+}
 .item-img {
 	max-width: 100%;
 	height: auto;
 	max-height: 100%;
-	border: 2px solid #f7f1f1;
-	border-right: none;
 }
 .item-info {
 	display: flex;
@@ -59,7 +66,7 @@ body {
 	background-color: #f7f1f1;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5em;
+	padding: 0.7em 1.5em;
 }
 .item-model {
 	font-family: 'Nunito';
@@ -77,14 +84,13 @@ body {
 .item-info ul li {
 	list-style: circle;
 	font-family: 'Nunito';
-	font-size: 1em;
+	font-size: 0.95em;
 	color: #444;
 	width: 100%;
 	font-weight: 600;
-	margin-top: 0.3em;
 }
 .item-info b {
-	padding-right: 0.3em;
+	padding-left: 0.3em;
 }
 .item-more {
 	display: flex;
@@ -93,7 +99,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-family: 'Nunito';
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: 600;
 	color: #444;
 	text-transform: uppercase;

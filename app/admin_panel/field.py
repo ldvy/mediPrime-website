@@ -21,12 +21,12 @@ class MultipalImagesField(Select2TagsField):
                     return redirect(url_for('.create_view'))
                 filenames.append(filename)
                 if filename not in images:
-                    image_path = os.path.join(file_path, filename)
+                    image_path = os.path.join(file_path+'/products/', filename)
                     file.save(image_path)
                     file_thumb, ext = os.path.splitext(image_path)
                     image = Image.open(image_path)
                     image.thumbnail((100, 100), Image.ANTIALIAS)
-                    image.save(file_thumb + '_thumb.jpeg', "JPEG")
+                    image.save(file_thumb + '_thumb.jpeg', "PNG")
 
             self.data = [u"{}".format(f) for f in filenames]
         else:

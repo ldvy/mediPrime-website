@@ -37,7 +37,7 @@
             {% if catalogs %}
                 {% set catalog_i = namespace(value=1) %}
                 {% for catalog in catalogs %}
-                    <li id="cat-{{catalog_i.value}}">{{catalog.name}}<i class="fa fa-chevron-right"></i></li>
+                    <li id="cat-{{catalog_i.value}}">{{model_localisation(catalog, 'name')}}<i class="fa fa-chevron-right"></i></li>
                     {% set catalog_i.value = catalog_i.value + 1 %}
                 {% endfor %}
             {% endif %}
@@ -46,10 +46,16 @@
               {% set catalog_i = namespace(value=1) %}
               {% for catalog in catalogs %}
                   <ul class="categories sub-cat" id="sub-cat-{{catalog_i.value}}">
-                      <span class="cat-header">{{catalog.name}}</span>
+                      <span class="cat-header">{{model_localisation(catalog, 'name')}}</span>
                       {% for cat in categories %}
                           {% if cat.catalog_id == catalog.id %}
-                              <a href=""><li>{{cat.name}}<i class="fa fa-chevron-right"></i></li></a>
+                              <a href="{{url_for('products.category_view', catalog_name=catalog.name, category_name=cat.name)}}">
+                                <li>{{model_localisation(cat, 'name')}}<i class="fa fa-chevron-right"></i></li></a>
+                          {% endif %}
+                      {% endfor %}
+                      {% for rs in reag_subs %}
+                          {% if rs.catalog_id == catalog.id %}
+                              <a href=""><li>{{model_localisation(rs, 'section_name')}}<i class="fa fa-chevron-right"></i></li></a>
                           {% endif %}
                       {% endfor %}
                   </ul>
@@ -70,7 +76,7 @@
           <ul class="categories main-cat">
             <span class="cat-header">{{_('Company')}}</span>
             <a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
-            <a href="news.html"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
+            <a href="{{url_for('news.news_list', page=1)}}"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
             <a href="brands.html"><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
             <a href="jobs.html"><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
           </ul>
@@ -91,15 +97,15 @@
           <span class="sec-icon"></span>
           <div class="drop-lang">
             <span class="top-tip"></span>
-            <a href="{{ url_for('home.change_language', language='ru') }}">Українська</a>
-            <a href="{{ url_for('home.change_language', language='uk') }}">Російська</a>
+            <a href="{{ url_for('home.change_language', language='uk') }}">Українська</a>
+            <a href="{{ url_for('home.change_language', language='ru') }}">Російська</a>
           </div>
         </li>
         <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
       </ul>
     </section>
     <section class="breadcrums-sec">
-      <li><a href="{{ url_for('home.home_view') }}">Гoловна /</a></li>
+      <li><a href="{{ url_for('home.home_view') }}">{{_('Home')}}</a></li>
       {% block breadcrums %}{% endblock %}
     </section>
   </header>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{cur_category.name}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/items.css')}}">
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Products')}}</a></li>
+	<li><a href="{{url_for('products.catalog_view', catalog_name=catalog_name)}}">/ {{catalog_name}}</a></li>
+    <li><a href="{{url_for('products.category_view', catalog_name=catalog_name, category_name=cur_category.name)}}">
+        / {{model_localisation(cur_category, 'name')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="items-grid-sec">
+		<h1 class="items-title"><i class="fa fa-folder-open"></i>{{model_localisation(cur_category, 'name')}}</h1>
+		<div class="items-grid">
+            {% if models %}
+                {% for model in models %}
+                    <li class="item-block">
+                        <div class="item-img-wrap">
+                        <img src="{{url_for('static', filename='/media/products/'+model.product_picture[0])}}" alt="{{model_localisation(model, 'model_name')}}" class="item-img">
+                        </div>
+                        <div class="item-info">
+                            <span class="item-model">{{model_localisation(model, 'model_name')}}</span>
+                            <ul>
+                                <li class="item-producer">{{_('Producer')}}:<b>{{model_localisation(model, 'brand')}}</b></li>
+                                <li class="item-country">{{_('Country')}}:<b>{{model_localisation(model, 'country')}}</b></li>
+                            </ul>
+                            <a href="model.html" class="item-more">{{_('More')}}</a>
+                        </div>
+			        </li>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
