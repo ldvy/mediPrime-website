@@ -55,7 +55,8 @@
                       {% endfor %}
                       {% for rs in reag_subs %}
                           {% if rs.catalog_id == catalog.id %}
-                              <a href=""><li>{{model_localisation(rs, 'section_name')}}<i class="fa fa-chevron-right"></i></li></a>
+                              <a href="{{url_for('products.reagents_view', catalog_name=catalog.name, reag_subs_name=rs.section_name)}}">
+                                <li>{{model_localisation(rs, 'section_name')}}<i class="fa fa-chevron-right"></i></li></a>
                           {% endif %}
                       {% endfor %}
                   </ul>

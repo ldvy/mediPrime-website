@@ -188,7 +188,8 @@ class ReagentView(MyModelView):
 
     column_labels = dict(reagent_name=_l('reagent_name'), reagent_name_ru=_l('reagent_name_ru'),
         reagent_name_uk=_l('reagent_name_uk'), method=_l('method'), method_ru=_l('method_ru'),
-        method_uk=_l('method_uk'), json_dc=_l('json_dc'), subsection=_l('subsection'))
+        method_uk=_l('method_uk'), json_dc=_l('json_dc'), subsection=_l('subsection'),
+        description=_l('description'), description_ru=_l('description ru'), description_uk=_l('description uk'))
 
     # Collection of excluded form field names.
     form_excluded_columns = ('json_dc')

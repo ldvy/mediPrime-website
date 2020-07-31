@@ -46,3 +46,13 @@ def model_view(catalog_name, category_name, model_name):
     return render_template('products/model.html', catalogs=catalogs, categories=categories, reag_subs=reag_subs,
                            catalog_name=catalog_name, category_name=category_name, model=model, reviews=reviews)
 
+
+@bp.route('/products/<catalog_name>/reagents/<reag_subs_name>')
+def reagents_view(catalog_name, reag_subs_name):
+    catalogs = Catalog.query.all()
+    categories = Category.query.all()
+    reag_subs = ReagentSubsection.query.all()
+    cur_reag_subs = ReagentSubsection.query.filter(ReagentSubsection.section_name == reag_subs_name).first()
+    reagents = Reagent.query.filter(Reagent.subsection_id == cur_reag_subs.id).all()
+    return render_template('products/reagents.html', catalogs=catalogs, categories=categories, reag_subs=reag_subs,
+                           cur_reag_subs=cur_reag_subs, reagents=reagents, catalog_name=catalog_name)

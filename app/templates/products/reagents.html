@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}{{model_localisation(cur_reag_subs, 'section_name')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/reagents.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/reagent.js')}}"></script>
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Products')}}</a></li>
+	<li><a href="{{url_for('products.catalog_view', catalog_name=catalog_name)}}">/ {{catalog_name}}</a></li>
+    <li><a href="{{url_for('products.reagents_view', catalog_name=catalog_name, reag_subs_name=cur_reag_subs.section_name)}}">
+        / {{model_localisation(cur_reag_subs, 'section_name')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="reagents-sec">
+		<h1 class="reagents-title"><i class="fa fa-folder-open"></i>{{_('Reagents')}}</h1>
+        <div class="reagents-grid">
+            {% if reagents %}
+                {% for reagent in reagents %}
+                    <div class="reagent-block">
+                        <div class="reagent-prev">
+                            <img src="{{url_for('static', filename='media/categories/'+cur_reag_subs.sec_img)}}"
+                                 alt="{{model_localisation(reagent, 'reagent_name')}}" class="reagent-img">
+                            <div class="reagent-title">{{model_localisation(reagent, 'reagent_name')}}</div>
+                        </div>
+                        <div class="reagent-desc">
+                            <li>{{_('Method')}}:{{model_localisation(reagent, 'method')}}</li>
+                            {% for d in model_localisation(reagent, 'description') %}
+                                <li>{{d}}</li>
+                            {% endfor %}
+                            <table class="reagent-packing">
+                                <thead>
+                                    <tr>
+                                        <th>{{_('Packaging')}}</th>
+                                        <th>{{_('Code')}}</th>
+                                    </tr>
+                                </thead>
+                                {% for key in reagent.json_dc %}
+                                    <tr>
+                                        <td>{{key}}</td>
+                                        <td>{{reagent.json_dc[key]}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            <div class="close-desc"><i class="fa fa-times"></i></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

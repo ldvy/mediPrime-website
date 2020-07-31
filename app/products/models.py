@@ -94,6 +94,9 @@ class Reagent(db.Model):
     method = db.Column("Method", db.String(200), unique=True, nullable=False)
     method_ru = db.Column("Method RU", db.String(200))
     method_uk = db.Column("Method Uk", db.String(200))
+    description = db.Column("Description", ARRAY(db.String))
+    description_ru = db.Column("Description RU", ARRAY(db.String))
+    description_uk = db.Column("Description UK", ARRAY(db.String))
     # Using sqlalchemy.dialects.types.JSON for representing Json in postgresql
     json_dc = db.Column("DistributionCode", JSON, nullable=False)
 

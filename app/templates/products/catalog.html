@@ -21,7 +21,7 @@
 			        </li></a>
                 {% endfor %}
                 {% for rs in cur_reag_subs %}
-                    <a href="items.html">
+                    <a href="{{url_for('products.reagents_view', catalog_name=cur_catalog.name, reag_subs_name=rs.section_name)}}">
                         <li class="sub-cat-block" style="background-image: url({{url_for('static', filename='/media/categories/'+rs.sec_img)}})">
                         <div class="sub-cat-title">
                             {{model_localisation(rs, 'section_name')}}
