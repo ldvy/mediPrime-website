@@ -49,7 +49,7 @@
 					{% for brand in brands %}
 						<li class="brand-slide">
 							<div class="brand-logo" style="background-image: url({{url_for('static', filename='/media/brands/'+brand.logo)}})"></div>
-							<div class="brand-desc">{{model_localisation(brand, 'short_description')}}<a href="" class="more-btn">{{_('More')}}</a></div>
+							<div class="brand-desc">{{model_localisation(brand, 'short_description')}}<a href="{{url_for('company.brands_view')}}" class="more-btn">{{_('More')}}</a></div>
 						</li>
 					{% endfor %}
 				</div>

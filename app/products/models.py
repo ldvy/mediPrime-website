@@ -1,6 +1,7 @@
 from app import db
 from sqlalchemy.dialects.postgresql import JSON, ARRAY
 from sqlalchemy_utils.types import URLType
+from datetime import datetime
 
 
 """
@@ -51,6 +52,9 @@ class Model(db.Model):
     description = db.Column("Description", db.TEXT, nullable=False)
     description_ru = db.Column("Description RU", db.TEXT)
     description_uk = db.Column("Description UK", db.TEXT)
+    characteristics = db.Column("Characteristics", ARRAY(db.String))
+    characteristics_ru = db.Column("Characteristics RU", ARRAY(db.String))
+    characteristics_uk = db.Column("Characteristics UK", ARRAY(db.String))
     category_id = db.Column(db.Integer, db.ForeignKey('Category.id'))
     country = db.Column('Country', db.String(80))
     country_ru = db.Column('Country RU', db.String(80))
@@ -59,7 +63,7 @@ class Model(db.Model):
     brand_ru = db.Column('Brand RU', db.String(80))
     brand_uk = db.Column('Brand UK', db.String(80))
     video_link = db.Column('Video link', URLType)
-
+    reviews = db.relationship("Review", backref="model", lazy=True)
 
     def __repr__(self):
         return f"<Item {self.model_name}>"
@@ -80,6 +84,7 @@ class ReagentSubsection(db.Model):
     def __repr__(self):
         return f"<ReagentSubsection {self.section_name}>"
 
+
 class Reagent(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subsection_id = db.Column(db.Integer, db.ForeignKey('ReagentSubsection.id'))
@@ -94,3 +99,14 @@ class Reagent(db.Model):
 
     def __repr__(self):
         return f"<Reagent {self.reagent_name}>"
+
+
+class Review(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    model_id = db.Column(db.Integer, db.ForeignKey('Model.id'))
+    review_author = db.Column("Review author", db.String(40), nullable=False)
+    review_text = db.Column("Review text", db.String(600), nullable=False)
+    review_date = db.Column("Review date", db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"<Review {self.review_author}>"

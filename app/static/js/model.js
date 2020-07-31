@@ -42,4 +42,20 @@ $(document).ready(function(){
 		let img = $(this).css('background-image');
 		$('.slider-prev').css('background-image', img);
 	});
+
+	// validating reviw form
+	$('.send-review').on('click', function(event){
+		if(
+			$('#review_author').val() == '' ||
+			$('#review_text').val() == ''  
+		){
+			alert("Заполните все поля формы перед отпрвкой!");
+		}else if ($('#review_author').val().length > 80){
+			alert("Максимально допустимая длинна имени - 80 символов!");
+		} else if ($('#review_author').val().length > 600){
+			alert("Максимально допустимая длинна отзыва - 600 символов!");
+		} else {
+			jQuery(this).attr('type', 'submit');
+		}
+	});
 });

@@ -1,6 +1,7 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from . import bp
-from .models import Catalog, Category, Model, Reagent, ReagentSubsection
+from .models import Catalog, Category, Model, Reagent, ReagentSubsection, Review
+from app import db
 
 
 @bp.route('/products/<catalog_name>')
@@ -26,19 +27,22 @@ def category_view(catalog_name, category_name):
                            cur_category=cur_category, catalog_name=catalog_name, models=models)
 
 
-# @bp.route('/products/<category>/<model>')
-# def model_view(category, model):
-#     model = Model.query.filter_by(model_name=model).first()
-#     return render_template('products/model.html', model=model)
-#
-#
-# @bp.route('/products/reagents/')
-# def reagent_category_view():
-#     categories = ReagentSubsection.query.all()
-#     return render_template('products/reagents.html', categories=categories)
-#
-#
-# @bp.route('/products/reagents/<category_name>')
-# def reagents_view(category_name):
-#     category = ReagentSubsection.query.filter_by(section_name=category_name).first()
-#     return render_template('products/reagent.html', category=category)
+@bp.route('/products/<catalog_name>/<category_name>/<model_name>', methods=['POST', 'GET'])
+def model_view(catalog_name, category_name, model_name):
+    catalogs = Catalog.query.all()
+    categories = Category.query.all()
+    reag_subs = ReagentSubsection.query.all()
+    model = Model.query.filter(Model.model_name == model_name).first()
+    if request.method == 'POST':
+        review_author = request.form['review_author']
+        review_text = request.form['review_text']
+        new_review = Review(review_author=review_author, review_text=review_text, model_id=model.id)
+        try:
+            db.session.add(new_review)
+            db.session.commit()
+        except:
+            return "Could not connect to database!"
+    reviews = Review.query.filter(Review.model_id == model.id).order_by(Review.review_date.desc()).all()
+    return render_template('products/model.html', catalogs=catalogs, categories=categories, reag_subs=reag_subs,
+                           catalog_name=catalog_name, category_name=category_name, model=model, reviews=reviews)
+

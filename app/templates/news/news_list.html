@@ -8,7 +8,7 @@
 {% endblock %}
 {% block page_body %}
     <section class="news-sec">
-        <h1 class="news-main-title"><i class="fa fa-newspaper-o"></i>Новини та заходи</h1>
+        <h1 class="news-main-title"><i class="fa fa-newspaper-o"></i>{{_('News and events')}}</h1>
         {% if posts %}
         <ul class="news-pages">
             {% if posts.has_prev %}<li><a href="{{url_for('news.news_list', page=posts.prev_num)}}" class="cur-page"><i class="fa fa-caret-left"></i></a></li>{% endif %}

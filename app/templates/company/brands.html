@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{_('Brands')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/brands.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/brands.js')}}"></script>
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Company')}}</a></li>
+	<li><a href="{{url_for('company.brands_view')}}">/ {{_('Brands')}}</a></li>
+{% endblock %}
+{% block page_body %}
+        <section class="brands-sec">
+		<h1 class="brands-title"><i class="fa fa-tags"></i>{{_('Brands')}}</h1>
+            <div class="brands-list">
+                {% if brands %}
+                    {% set br_i = namespace(value=1) %}
+                    {% for brand in brands %}
+                        <li class="brand-block" id="br{{br_i.value}}">
+                            <i class="fa fa-times close-brand"></i>
+                            <div class="brand-thumbnail">
+                                <div class="brand-logo" style="background-image: url({{url_for('static', filename='media/brands/'+brand.logo)}})"></div>
+                                <h2 class="brand-name">{{model_localisation(brand, 'name')}}</h2>
+                                <span class="brand-country">{{model_localisation(brand, 'country')}}</span>
+                            </div>
+                            <div class="brand-desc">
+                                {{model_localisation(brand, 'description')}}
+                                <span class="more-bullets">
+                                    <span></span><span></span><span></span>
+                                </span>
+                            </div>
+                        </li>
+                        {% set br_i.value = br_i.value + 1 %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </section>
+{% endblock %}

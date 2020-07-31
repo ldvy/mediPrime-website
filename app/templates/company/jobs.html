@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}{{_('Jobs')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/jobs.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/jobs.js')}}"></script>
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Company')}}</a></li>
+	<li><a href="{{url_for('company.jobs_view')}}">/ {{_('Jobs')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="jobs-sec">
+		<h1 class="jobs-title"><i class="fa fa-suitcase"></i>{{_('Jobs')}}</h1>
+		<div class="jobs-form-block">
+			<form class="jobs-form" method="POST" action="#">
+				<div class="form-bg"></div>
+				<div class="form-content">
+					<input type="text" class="jobs-form-input" placeholder="{{_('fullname')}}" id="fullname" name="fullname">
+					<input type="tell" class="jobs-form-input" placeholder="{{_('phone')}}" id="phone" name="phone">
+					<input type="email" class="jobs-form-input" placeholder="Email" id="email" name="email">
+						<select id="job" class="jobs-form-input select-job" name="job">
+							<option disabled selected>{{_('Choose job')}}</option>
+                            {% if jobs %}
+                                {% for job in jobs %}
+                                    <option>{{model_localisation(job, 'position')}}</option>
+                                {% endfor %}
+                            {% endif %}
+						</select>
+					<input type="url" class="jobs-form-input" placeholder="{{_('resume link')}}" id="portfolio" name="portfolio">
+					<input type="button" class="send-application" value="{{_('Send')}}">
+				</div>
+			</form>
+			<div class="jobs-form-text">
+				<b>Зацікавили наші вакансії?</b><br> Ви можете просто вибрати потрібну Вам, відправити нам посилання на своє резюме і ми розглянемо Вашу кандидатуру.
+			</div>
+		</div>
+		<div class="jobs-list">
+            {% if jobs %}
+                {% set job_i = namespace(value=1) %}
+                {% for job in jobs %}
+                    <li class="job-item" id="job{{job_i.value}}">
+                        <div class="job-item-thumbnail">
+                            <i class="fa fa-folder"></i>
+                            <h2 class="job-item-title">{{model_localisation(job, 'position')}}</h2>
+                        </div>
+                        <div class="job-item-info">
+                            <ul class="job-item-requirments">
+                                <span class="job-points-title">{{_('Requirements')}}:</span>
+                                {% for r in model_localisation(job, 'requirements') %}
+                                    <li class="job-item-point">{{r}}</li>
+                                {% endfor %}
+                            </ul>
+                            <ul class="job-item-responsibilities">
+                                <span class="job-points-title">{{_('Responsibilities')}}:</span>
+                                {% for r in model_localisation(job, 'responsibilities') %}
+                                    <li class="job-item-point">{{r}}</li>
+                                {% endfor %}
+                            </ul>
+                            <ul class="job-item-conditions">
+                                <span class="job-points-title">{{_('Conditions')}}:</span>
+                                {% for c in model_localisation(job, 'conditions') %}
+                                    <li class="job-item-point">{{c}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    {% set job_i.value = job_i.value + 1 %}
+                {% endfor %}
+            {% endif %}
+		</div>
+	</section>
+{% endblock %}

@@ -25,7 +25,7 @@
                                 <li class="item-producer">{{_('Producer')}}:<b>{{model_localisation(model, 'brand')}}</b></li>
                                 <li class="item-country">{{_('Country')}}:<b>{{model_localisation(model, 'country')}}</b></li>
                             </ul>
-                            <a href="model.html" class="item-more">{{_('More')}}</a>
+                            <a href="{{url_for('products.model_view', catalog_name=catalog_name, category_name=cur_category.name, model_name=model.model_name)}}" class="item-more">{{_('More')}}</a>
                         </div>
 			        </li>
                 {% endfor %}

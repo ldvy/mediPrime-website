@@ -128,7 +128,7 @@ a {
 }
 .job-item-thumbnail {
 	width: inherit;
-	height: 3em;
+	padding: 0.7em 0;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
@@ -325,7 +325,7 @@ only screen and (max-device-aspect-ratio: 2/3)
 		font-size: 1.4em;
 	}
 	.job-item-thumbnail {
-		height: 4em;
+		padding: 1.1em 0;
 		font-size: 1.4em;
 	}
 	.job-item-title {

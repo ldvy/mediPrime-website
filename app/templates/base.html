@@ -29,7 +29,7 @@
           <li id="prod-men">{{_('Products')}}</li>
           <a><li>{{_('Services')}}</li></a>
           <a><li id="company-men">{{_('Company')}}</li></a>
-          <a href="contacts.html"><li>{{_('Contacts')}}</li></a>
+          <a href="{{url_for('company.contacts_view')}}"><li>{{_('Contacts')}}</li></a>
         </ul>
         <div class="product-menu" id="products">
           <ul class="categories main-cat">
@@ -62,12 +62,6 @@
               {% set catalog_i.value = catalog_i.value + 1 %}
               {% endfor %}
           {% endif %}
-
-          <ul class="categories sub-cat" id="sub-cat-2">
-            <span class="cat-header">Лабораторне</span>
-            <a href="reagents.html"><li>Реагенти<i class="fa fa-chevron-right"></i></li></a>
-            <a href=""><li>Біохімічні аналізатори<i class="fa fa-chevron-right"></i></li></a>
-          </ul>
           <span class="bottom-line"></span>
           <div class="close-menu" id="close-prod"><i class="fa fa-times"></i></div>
         </div>
@@ -76,9 +70,9 @@
           <ul class="categories main-cat">
             <span class="cat-header">{{_('Company')}}</span>
             <a href=""><li>Про компанію<i class="fa fa-chevron-right"></i></li></a>
-            <a href="{{url_for('news.news_list', page=1)}}"><li>Новини та заходи<i class="fa fa-chevron-right"></i></li></a>
-            <a href="brands.html"><li>Бренди<i class="fa fa-chevron-right"></i></li></a>
-            <a href="jobs.html"><li>Вакансії<i class="fa fa-chevron-right"></i></li></a>
+            <a href="{{url_for('news.news_list', page=1)}}"><li>{{_('News and events')}}<i class="fa fa-chevron-right"></i></li></a>
+            <a href="{{url_for('company.brands_view')}}"><li>{{_('Brands')}}<i class="fa fa-chevron-right"></i></li></a>
+            <a href="{{url_for('company.jobs_view')}}"><li>{{_('Jobs')}}<i class="fa fa-chevron-right"></i></li></a>
           </ul>
           <span class="bottom-line"></span>
           <div class="close-menu" id="close-comp"><i class="fa fa-times"></i></div>

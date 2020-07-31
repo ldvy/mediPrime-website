@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{_('Contacts')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/contacts.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/form.js')}}"></script>
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Company')}}</a></li>
+	<li><a href="{{url_for('company.contacts_view')}}">/ {{_('Contacts')}}</a></li>
+{% endblock %}
+{% block page_body %}
+<section class="contacts-sec">
+		<div class="contacts-info">
+			<h2 class="contacts-title">{{_('Contacts information')}}</h2>
+			<ul class="contacts-list">
+				<li><i class="fa fa-phone-square"></i><b>{{_('Phone')}}:</b><a href="tel:+380992454428">(+38)-099-245-44-28</a></li>
+				<li><i class="fa fa-envelope"></i><b>E-mail:</b><a href="mailto:">officemediprime.com.ua</a></li>
+				<li><i class="fa fa-address-card"></i><b>{{_('Address')}}:</b>вул. Либідська 17, офіс 7, Київ, 01033, Україна</li>
+			</ul>
+		</div>
+		<div class="contacts-form">
+			<h2 class="contacts-title">{{_('Contact us')}}:</h2>
+			<form method="POST" action="#">
+				<input type="text" class="form-input" placeholder="{{_('Name')}}" id="name" name="name">
+				<input type="email" class="form-input" placeholder="E-mail" id="email" name="email">
+				<input type="tel" class="form-input" placeholder="{{_('Phone')}}" id="phone" name="phone">
+				<input type="text" class="form-input" placeholder="{{_('Subject')}}" id="topic" name="topic">
+				<textarea class="form-message" placeholder="{{_('Message')}}" id="message" name="message"></textarea>
+				<input type="button" id="send" value="{{_('Send')}}">
+			</form>
+		</div>
+		<div class="contacts-map">
+			<h2 class="contacts-title">{{_('Maps')}}</h2>
+				<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=вулиця Либідська, 17, Киев, Украина&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+		</div>
+	</section>
+{% endblock %}

@@ -10,7 +10,6 @@ from flask_admin import form
 import sqlalchemy
 
 
-
 # This view for model "Model", designed specificaly for handling images
 class ImageView(MyModelView):
     # form_base_class = MultipleImagesForm
@@ -38,10 +37,11 @@ class ImageView(MyModelView):
     column_labels = dict(model_name=_l('Model name'), model_name_ru=_l('Model name ru'),
         model_name_uk=_l('Model name uk'), logo=_l('Logo'), product_picture=_l('Product pictures'),
         description=_l('Description'), description_ru=_l('Description ru'),
-        description_uk=_l('Description uk'), country=_l('Country'),
+        description_uk=_l('Description uk'), characteristics=_l('Characteristics'),
+        characteristics_ru=_l('Characteristics ru'), characteristics_uk=_l('Characteristics uk'), country=_l('Country'),
         country_ru=_l('Country ru'), country_uk=_l('Country uk'),
         brand=_l('Brand'), brand_ru=_l('Brand ru'), brand_uk=_l('Brand uk'),
-        category=_l('Category'), video_link=_l('video_link'))
+        category=_l('Category'), video_link=_l('video_link'), reviews=_l('reviews'))
 
     # For displaing on main page | Prettifying
     column_formatters = {
@@ -52,8 +52,9 @@ class ImageView(MyModelView):
 
     form_create_rules  = ('model_name', 'model_name_ru', 'model_name_uk',
             'logo', 'product_picture', 'description', 'description_ru',
-            'description_uk', 'country', 'country_ru', 'country_uk',
-            'brand', 'brand_ru', 'brand_uk', 'category', 'video_link')
+            'description_uk', 'characteristics', 'characteristics_ru', 'characteristics_uk',
+            'country', 'country_ru', 'country_uk',
+            'brand', 'brand_ru', 'brand_uk', 'category', 'video_link', 'reviews')
 
     # Overriding build-in fields with own
     models_path = file_path+'/products/'

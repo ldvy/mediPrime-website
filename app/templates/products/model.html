@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{{model_localisation(model, 'model_name')}}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/model.css')}}">
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url_for('static', filename='/js/model.js')}}"></script>
+{% endblock %}
+{% block breadcrums %}
+    <li><a href="">/ {{_('Products')}}</a></li>
+	<li><a href="{{url_for('products.catalog_view', catalog_name=catalog_name)}}">/ {{catalog_name}}</a></li>
+    <li><a href="{{url_for('products.category_view', catalog_name=catalog_name, category_name=category_name)}}">
+        / {{category_name}}</a></li>
+    <li><a href="{{url_for('products.model_view', catalog_name=catalog_name, category_name=category_name, model_name=model.model_name)}}">
+        / {{model_localisation(model, 'model_name')}}</a></li>
+{% endblock %}
+{% block page_body %}
+    <section class="model-sec">
+		<nav class="prop-menu">
+			<li class="prop-btn active" id="desc">{{_('Desc')}}</li>
+			<li class="prop-btn" id="char">{{_('Characteristics')}}</li>
+			<li class="prop-btn" id="reviews">{{_('Reviews')}}</li>
+			<li class="prop-btn" id="video-b">{{_('Video')}}</li>
+		</nav>
+		<div class="model-slider">
+			<div class="model-slides">
+				<i class="fa fa-caret-up prev"></i>
+				<div class="model-slider-window">
+					<div class="model-slider-tape">
+                        {% set first_img = namespace(value=true) %}
+                        {% for img in model.product_picture %}
+                            <div class="model-slide {% if first_img.value %}cur-slide{% endif %}"
+                                 style="background-image: url({{url_for('static', filename='media/products/'+img)}})"></div>
+                        {% set first_img.value = false %}
+                        {% endfor %}
+					</div>
+				</div>
+				<i class="fa fa-caret-down next"></i>
+			</div>
+			<div class="slider-prev" style="background-image: url({{url_for('static', filename='media/products/'+model.product_picture[0])}})"></div>
+		</div>
+		<div class="model-text-block">
+			<li class="model-info desc cur-block">
+				<span class="producer-logo" style="background-image: url({{url_for('static', filename='media/products/'+model.logo)}})"></span>
+				<ul class="short-info">
+					<li><h1 class="model-title">{{model_localisation(model, 'model_name')}}</h1></li>
+                    <li>{{_('Producer')}}:<b> {{model_localisation(model, 'brand')}}</b></li>
+                    <li>{{_('Country')}}:<b> {{model_localisation(model, 'country')}}</b></li>
+				</ul>
+				<div class="description-text">{{model_localisation(model, 'description')|safe}}</div>
+			</li>
+			<li class="model-info char">
+				<ul>
+                    {% for c in model_localisation(model, 'characteristics') %}
+                        <li>{{c}}</li>
+                    {% endfor %}
+				</ul>
+			</li>
+			<li class="model-info reviews">
+				<form class="review-form" method="POST" action="#">
+					<span class="form-title">{{_('Leave review')}}</span>
+					<input class="review-input" type="text" placeholder="{{_('Name')}}" name="review_author" id="review_author">
+					<textarea class="review-input" placeholder="{{_('Review')}}" name="review_text" id="review_text"></textarea>
+					<input type="button" value="{{_('Send')}}" class="send-review">
+				</form>
+				<ul class="reviews-list">
+					{% if reviews %}
+					{% for review in reviews %}
+						<li class="review-item">
+							<div class="review-item-header">
+								<span class="review-item-author">{{review.review_author}}</span>
+								<span class="review-item-date">{{review.review_date.date()}}</span>
+							</div>
+							<div class="review-item-text">{{review.review_text}}</div>
+						</li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+			</li>
+			<li class="model-info video-b">
+				<iframe class="video-iframe" src="{{model.video_link}}" frameborder="0" allowfullscreen=""></iframe>
+			</li>
+		</div>
+	</section>
+{% endblock %}
